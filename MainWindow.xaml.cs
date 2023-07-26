@@ -25,7 +25,7 @@ namespace Bank
             InitializeComponent();
         }
 
-        private void CloseApp_Click(object sender, RoutedEventArgs e)
+        private void Exit(object sender, RoutedEventArgs e)
         {
             Close();
         }

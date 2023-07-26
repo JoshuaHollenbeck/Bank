@@ -44,20 +44,20 @@
             <Grid Grid.Row="0" Grid.ColumnSpan="2">
                 <Menu>
                     <MenuItem Header="File">
-                        <MenuItem Header="New Session" />
-                        <MenuItem Header="Clear Session" />
-                        <MenuItem Header="Print Preview" />
-                        <MenuItem Header="Print" />
-                        <MenuItem Header="Exit" />
+                        <MenuItem Header="New Session" Command="{Binding NewSessionCommand}" />
+                        <MenuItem Header="Clear Session" Command="{Binding ClearSessionCommand}" />
+                        <MenuItem Header="Print Preview" Command="{Binding PrintPreviewCommand}" />
+                        <MenuItem Header="Print" Command="{Binding PrintCommand}" />
+                        <MenuItem Header="Exit" Click="Exit" />
                     </MenuItem>
                     <MenuItem Header="Clients">
-                        <MenuItem Header="Add Client" />
-                        <MenuItem Header="Organize Clients" />
+                        <MenuItem Header="Add Client" Command="{Binding AddClientCommand}" />
+                        <MenuItem Header="Organize Clients" Command="{Binding OrganizeClientsCommand}" />
                     </MenuItem>
                     <MenuItem Header="History" />
                     <MenuItem Header="Help">
-                        <MenuItem Header="MainClient Knowledge Center" />
-                        <MenuItem Header="Tips and Tricks" />
+                        <MenuItem Header="Main Client Knowledge Center" Command="{Binding MainClientKnowledgeCommand}" />
+                        <MenuItem Header="Tips and Tricks" Command="{Binding TipsAndTricksCommand}" />
                     </MenuItem>
                 </Menu>
             </Grid> 
@@ -75,111 +75,6 @@
                 <Border Background="#272B2F"/>
 
                 <StackPanel Height="400" Width="228">
-
-                    <!--Home-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding HomeCommand}"
-                              IsChecked="True">
-
-                        <Grid>
-
-                            <Image Source="Images/img_home.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Home"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--Customer-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding CustomersCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_customer.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Customer"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--Products-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ProductsCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_product.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Products"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--Orders-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding OrdersCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_order.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Orders"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--Transactions-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding TransactionsCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_transaction.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Transactions"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--Shipments-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ShipmentsCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_shipment.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Shipments"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--Settings-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding SettingsCommand}">
@@ -211,7 +106,7 @@
 
         <Button x:Name="CloseApp"
                 Style="{StaticResource ExitApp}"
-                Click="CloseApp_Click" />
+                Click="Exit" />
 
     </Grid>
 
