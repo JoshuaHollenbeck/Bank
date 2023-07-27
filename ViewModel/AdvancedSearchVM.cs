@@ -7,7 +7,7 @@ using Bank.Model;
 
 namespace Bank.ViewModel
 {
-    class SettingVM : Utilities.ViewModelBase
+    class AdvancedSearchVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
         public bool Settings
@@ -16,7 +16,7 @@ namespace Bank.ViewModel
             set { _pageModel.LocationStatus = value; OnPropertyChanged(); }
         }
 
-        public SettingVM()
+        public AdvancedSearchVM()
         {
             _pageModel = new PageModel();
             Settings = true;

@@ -9,12 +9,6 @@
              d:DesignWidth="622">
 
     <Grid>
-
-        <Border CornerRadius="0,20,20,0" Margin="0,5,5,0" >
-
-            <Image Source="/Images/mainclient.png"/>
-
-        </Border>
-
+        <Image Source="/Images/mainclient.png"/>
     </Grid>
 </UserControl>

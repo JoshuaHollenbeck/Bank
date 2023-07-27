@@ -3,32 +3,130 @@
                     xmlns:vm="clr-namespace:Bank.ViewModel"
                     xmlns:view="clr-namespace:Bank.View">
 
+    <!-- Startup -->
     <DataTemplate DataType="{x:Type vm:HomeVM}">
         <view:Home />
     </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:CustomerVM}">
-        <view:Customers />
+    
+    <!-- File -->
+    <DataTemplate DataType="{x:Type vm:NewSessionVM}">
+        <view:Home /> <!-- TODO Change View:-->
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:ProductVM}">
-        <view:Products />
+    <DataTemplate DataType="{x:Type vm:ClearSessionVM}">
+        <view:Home /> <!-- TODO Change View:-->
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:PrintPreviewVM}">
+        <view:Home /> <!-- TODO Change View:-->
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:OrderVM}">
-        <view:Orders />
+    <DataTemplate DataType="{x:Type vm:PrintVM}">
+        <view:Home /> <!-- TODO Change View:-->
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:TransactionVM}">
+    <!-- Clients -->
+    <DataTemplate DataType="{x:Type vm:AddClientVM}">
+        <view:Home /> <!-- TODO Change View:-->
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:OrganizeClientsVM}">
+        <view:Home /> <!-- TODO Change View:-->
+    </DataTemplate>
+
+    <!-- History -->
+    
+
+    <!-- Help -->
+    <DataTemplate DataType="{x:Type vm:MainClientKnowledgeVM}">
+        <view:Home /> <!-- TODO Change View:-->
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TipsAndTricksVM}">
+        <view:Home /> <!-- TODO Change View:-->
+    </DataTemplate>
+
+     <!-- Search -->
+    <DataTemplate DataType="{x:Type vm:SearchVM}">
+        <view:Search />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:AdvancedSearchVM}">
+        <view:AdvancedSearch />
+    </DataTemplate>
+
+    <!-- Client & Accounts -->
+    <DataTemplate DataType="{x:Type vm:ClientOverviewVM}">
+        <view:ClientOverview />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:BalancesVM}">
+        <view:Balances />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PositionsVM}">
+        <view:Positions />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TransactionsVM}">
         <view:Transactions />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:ShipmentVM}">
-        <view:Shipments />
+    <DataTemplate DataType="{x:Type vm:AccessHistoryVM}">
+        <view:AccessHistory />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:SettingVM}">
-        <view:Settings />
+    <!-- Notes -->
+    <DataTemplate DataType="{x:Type vm:AddNotesVM}">
+        <view:AddNotes />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ViewNotesVM}">
+        <view:ViewNotes />
+    </DataTemplate>
+
+    <!-- Cashiering -->
+    <DataTemplate DataType="{x:Type vm:ActivityVM}">
+        <view:Activity />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:HistoryVM}">
+        <view:History />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SingleDepositVM}">
+        <view:SingleDeposit />
     </DataTemplate>
     
+    <DataTemplate DataType="{x:Type vm:MultiDepositVM}">
+        <view:MultiDeposit />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SplitDepositVM}">
+        <view:SplitDeposit />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:MoneylinkVM}">
+        <view:Moneylink />
+    </DataTemplate>
+
+    <!-- Trading -->
+    <DataTemplate DataType="{x:Type vm:OrderEntryVM}">
+        <view:OrderEntry />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:OrderStatusVM}">
+        <view:OrderStatus />
+    </DataTemplate>
+
+    <!-- Documents -->
+    <DataTemplate DataType="{x:Type vm:DocumentRequestVM}">
+        <view:DocumentRequest />
+    </DataTemplate>
+
+    <!-- Settings -->
+    <DataTemplate DataType="{x:Type vm:SettingsVM}">
+        <view:Settings />
+    </DataTemplate>
+
 </ResourceDictionary>

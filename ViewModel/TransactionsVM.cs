@@ -7,19 +7,19 @@ using Bank.Model;
 
 namespace Bank.ViewModel
 {
-    class OrderVM : Utilities.ViewModelBase
+    class TransactionsVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
-        public DateOnly DisplayOrderDate
+        public decimal TransactionAmount
         {
-            get { return _pageModel.OrderDate; }
-            set { _pageModel.OrderDate = value; OnPropertyChanged(); }
+            get { return _pageModel.TransactionValue; }
+            set { _pageModel.TransactionValue = value; OnPropertyChanged(); }
         }
 
-        public OrderVM()
+        public TransactionsVM()
         {
             _pageModel = new PageModel();
-            DisplayOrderDate = DateOnly.FromDateTime(DateTime.Now);
+            TransactionAmount = 5638;
         }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Bank.View
 {
     /// <summary>
-    /// Interaction logic for Customers.xaml
+    /// Interaction logic for ClientOverview.xaml
     /// </summary>
-    public partial class Customers : UserControl
+    public partial class DocumentRequest : UserControl
     {
-        public Customers()
+        public DocumentRequest()
         {
             InitializeComponent();
         }

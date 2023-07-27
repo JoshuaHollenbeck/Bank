@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using Bank.Model;
 
 namespace Bank.ViewModel
 {
-    class ProductVM : Utilities.ViewModelBase
+    class HistoryVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
         public string ProductAvailability
@@ -16,7 +16,7 @@ namespace Bank.ViewModel
             set { _pageModel.ProductStatus = value; OnPropertyChanged(); }
         }
 
-        public ProductVM()
+        public HistoryVM()
         {
             _pageModel = new PageModel();
             ProductAvailability = "Out of Stock";

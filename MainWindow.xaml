@@ -64,49 +64,19 @@
 
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                 <Menu>
-                    <TextBox />
-                    <Button>Search</Button>
-                    <Button>Advanced Search</Button>
+                    <TextBox Width = "2"></TextBox>
+                    <Button Click="{Binding SearchCommand}">Search</Button>
+                    <Button Click="{Binding AdvancedSearchCommand}">Advanced Search</Button>
                 </Menu>
             </Grid>  
 
-            <Grid Grid.Row="2" HorizontalAlignment="Left" Width="228">
-
-                <Border Background="#272B2F"/>
-
-                <StackPanel Height="400" Width="228">
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding SettingsCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_setting.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Settings"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                </StackPanel>
-
+            <Grid Grid.Row="2" Grid.ColumnSpan = "2">
+                <Menu>
+                    <TextBlock Width = "2">Hello</TextBlock>
+                </Menu>         
             </Grid>
-
-            <Grid Grid.Column="1">
-
-                <ContentControl x:Name="Pages"
-                                Content="{Binding CurrentView}" />
-
-            </Grid>
-
+            
         </Grid>
-
-        <Button x:Name="CloseApp"
-                Style="{StaticResource ExitApp}"
-                Click="Exit" />
 
     </Grid>
 

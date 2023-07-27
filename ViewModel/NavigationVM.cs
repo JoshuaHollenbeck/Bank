@@ -17,52 +17,92 @@ namespace Bank.ViewModel
             get { return _currentView; }
             set { _currentView = value; OnPropertyChanged(); }
         }
-
+        // Startup
         public ICommand HomeCommand { get; set; }
-        public ICommand CustomersCommand { get; set; }
-        public ICommand ProductsCommand { get; set; }
-        public ICommand OrdersCommand { get; set; }
-        public ICommand TransactionsCommand { get; set; }
-        public ICommand ShipmentsCommand { get; set; }
-        public ICommand SettingsCommand { get; set; }
         
+        // File
         public ICommand NewSessionCommand { get; }
         public ICommand ClearSessionCommand { get; }
         public ICommand PrintPreviewCommand { get; }
         public ICommand PrintCommand { get; }
         public ICommand ExitCommand { get; }
-        public ICommand AddClientCommand { get; }
-        public ICommand OrganizeClientsCommand { get; }
-        public ICommand MainClientKnowledgeCommand { get; }
-        public ICommand TipsAndTricksCommand { get; }
-
-        private void Home(object obj) => CurrentView = new HomeVM();
-        private void Customer(object obj) => CurrentView = new CustomerVM();
-        private void Product(object obj) => CurrentView = new ProductVM();
-        private void Order(object obj) => CurrentView = new OrderVM();
-        private void Transaction(object obj) => CurrentView = new TransactionVM();
-        private void Shipment(object obj) => CurrentView = new ShipmentVM();
-        private void Setting(object obj) => CurrentView = new SettingVM();
-
         private void NewSession(object parameter) => CurrentView = new NewSessionVM();
         private void ClearSession(object parameter) => CurrentView = new ClearSessionVM();
         private void PrintPreview(object parameter) => CurrentView = new PrintPreviewVM();
         private void Print(object parameter) => CurrentView = new PrintVM();
+
+        // Clients
+        public ICommand AddClientCommand { get; }
+        public ICommand OrganizeClientsCommand { get; }
         private void AddClient(object parameter) => CurrentView = new AddClientVM();
         private void OrganizeClients(object parameter) => CurrentView = new OrganizeClientsVM();
+        
+        // Help
+        public ICommand MainClientKnowledgeCommand { get; }
+        public ICommand TipsAndTricksCommand { get; }
         private void MainClientKnowledge(object parameter) => CurrentView = new MainClientKnowledgeVM();
         private void TipsAndTricks(object parameter) => CurrentView = new TipsAndTricksVM();
+    
+        // Search
+        public ICommand SearchCommand { get; }
+        public ICommand AdvancedSearchCommand { get; }
+        private void Search(object obj) => CurrentView = new SearchVM();
+        private void AdvancedSearch(object obj) => CurrentView = new AdvancedSearchVM();
+
+        // Client & Accounts
+        public ICommand ClientOverviewCommand { get; set; }
+        public ICommand BalancesCommand { get; set; }
+        public ICommand PositionsCommand { get; set; }
+        public ICommand TransactionsCommand { get; set; }
+        public ICommand AccessHistoryCommand { get; set; }
+        private void Home(object obj) => CurrentView = new HomeVM();
+        private void ClientOverview(object obj) => CurrentView = new ClientOverviewVM();
+        private void Balances(object obj) => CurrentView = new BalancesVM();
+        private void Positions(object obj) => CurrentView = new PositionsVM();
+        private void Transactions(object obj) => CurrentView = new TransactionsVM();
+        private void AccessHistory(object obj) => CurrentView = new AccessHistoryVM();
+        
+        // Notes
+        public ICommand ViewNotesCommand { get; set; }
+        public ICommand AddNotesCommand { get; set; }
+        private void ViewNotes(object obj) => CurrentView = new ViewNotesVM();
+        private void AddNotes(object obj) => CurrentView = new AddNotesVM();
+
+        // Cashiering
+        public ICommand ActivityCommand { get; set; }
+        public ICommand HistoryCommand { get; set; }
+        public ICommand SingleDepositCommand { get; set; }
+        public ICommand MultipleDepositCommand { get; set; }
+        public ICommand SplitDepositCommand { get; set; }
+        public ICommand MoneylinkCommand { get; set; }
+        private void Activity(object obj) => CurrentView = new ActivityVM();
+        private void History(object obj) => CurrentView = new HistoryVM();
+        private void SingleDeposit(object obj) => CurrentView = new SingleDepositVM();
+        private void MultiDeposit(object obj) => CurrentView = new MultiDepositVM();
+        private void SplitDeposit(object obj) => CurrentView = new SplitDepositVM();
+        private void Moneylink(object obj) => CurrentView = new MoneylinkVM();
+
+
+        // Trading
+        public ICommand OrderEntryCommand { get; set; }
+        public ICommand OrderStatusCommand { get; set; }
+        private void OrderEntry(object obj) => CurrentView = new OrderEntryVM();
+        private void OrderStatus(object obj) => CurrentView = new OrderStatusVM();
+
+        // Documents
+        public ICommand DocumentRequestCommand { get; set; }
+        private void DocumentRequest(object obj) => CurrentView = new DocumentRequestVM();
+
+        // Settings
+        public ICommand SettingsCommand { get; set; }
+        private void Setting(object obj) => CurrentView = new SettingsVM();
         
         public NavigationVM()
         {
-            HomeCommand = new RelayCommand(Home);
-            CustomersCommand = new RelayCommand(Customer);
-            ProductsCommand = new RelayCommand(Product);
-            OrdersCommand = new RelayCommand(Order);
-            TransactionsCommand = new RelayCommand(Transaction);
-            ShipmentsCommand = new RelayCommand(Shipment);
-            SettingsCommand = new RelayCommand(Setting);
+            // Startup Page
+            CurrentView = new HomeVM();
 
+            // File
             NewSessionCommand = new RelayCommand(NewSession);
             ClearSessionCommand = new RelayCommand(ClearSession);
             PrintPreviewCommand = new RelayCommand(PrintPreview);
@@ -72,8 +112,39 @@ namespace Bank.ViewModel
             MainClientKnowledgeCommand = new RelayCommand(MainClientKnowledge);
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
 
-            // Startup Page
-            CurrentView = new HomeVM();
+            // Search
+            SearchCommand = new RelayCommand(Search);
+            AdvancedSearchCommand = new RelayCommand(AdvancedSearch);
+
+            // Client & Accounts
+            HomeCommand = new RelayCommand(Home);
+            ClientOverviewCommand = new RelayCommand(ClientOverview);
+            BalancesCommand = new RelayCommand(Balances);
+            PositionsCommand = new RelayCommand(Positions);
+            TransactionsCommand = new RelayCommand(Transactions);
+            AccessHistoryCommand = new RelayCommand(AccessHistory);
+            
+            // Notes
+            ViewNotesCommand = new RelayCommand(ViewNotes);
+            AddNotesCommand = new RelayCommand(AddNotes);
+
+            // Cashiering
+            ActivityCommand = new RelayCommand(Activity);
+            HistoryCommand = new RelayCommand(History);
+            SingleDepositCommand = new RelayCommand(SingleDeposit);
+            MultipleDepositCommand = new RelayCommand(MultiDeposit);
+            SplitDepositCommand = new RelayCommand(SplitDeposit);
+            MoneylinkCommand = new RelayCommand(Moneylink);
+
+            // Trading
+            OrderEntryCommand = new RelayCommand(OrderEntry);
+            OrderStatusCommand = new RelayCommand(OrderStatus);
+
+            // Documents
+            DocumentRequestCommand = new RelayCommand(DocumentRequest);
+
+            // Settings
+            SettingsCommand = new RelayCommand(Setting);
         }
     }
 }

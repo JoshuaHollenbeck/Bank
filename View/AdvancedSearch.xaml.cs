@@ -18,9 +18,9 @@ namespace Bank.View
     /// <summary>
     /// Interaction logic for Products.xaml
     /// </summary>
-    public partial class Products : UserControl
+    public partial class AdvancedSearch : UserControl
     {
-        public Products()
+        public AdvancedSearch()
         {
             InitializeComponent();
         }

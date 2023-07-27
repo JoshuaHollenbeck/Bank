@@ -7,19 +7,19 @@ using Bank.Model;
 
 namespace Bank.ViewModel
 {
-    class CustomerVM : Utilities.ViewModelBase
+    class SettingsVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
-        public int CustomerID
+        public bool Settings
         {
-            get { return _pageModel.CustomerCount; }
-            set { _pageModel.CustomerCount = value; OnPropertyChanged(); }
+            get { return _pageModel.LocationStatus; }
+            set { _pageModel.LocationStatus = value; OnPropertyChanged(); }
         }
 
-        public CustomerVM()
+        public SettingsVM()
         {
             _pageModel = new PageModel();
-            CustomerID = 100528;
+            Settings = true;
         }
     }
 }

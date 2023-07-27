@@ -7,19 +7,19 @@ using Bank.Model;
 
 namespace Bank.ViewModel
 {
-    class TransactionVM : Utilities.ViewModelBase
+    class ClientOverviewVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
-        public decimal TransactionAmount
+        public int CustomerID
         {
-            get { return _pageModel.TransactionValue; }
-            set { _pageModel.TransactionValue = value; OnPropertyChanged(); }
+            get { return _pageModel.CustomerCount; }
+            set { _pageModel.CustomerCount = value; OnPropertyChanged(); }
         }
 
-        public TransactionVM()
+        public ClientOverviewVM()
         {
             _pageModel = new PageModel();
-            TransactionAmount = 5638;
+            CustomerID = 100528;
         }
     }
 }
