@@ -13,31 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bank
+namespace Bank.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Transactions.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddClient : UserControl
     {
-        public MainWindow()
+        public AddClient()
         {
             InitializeComponent();
-        }
-
-        private void Exit(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void AdvancedSearch_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

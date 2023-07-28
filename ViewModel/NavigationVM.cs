@@ -42,12 +42,6 @@ namespace Bank.ViewModel
         public ICommand TipsAndTricksCommand { get; }
         private void MainClientKnowledge(object parameter) => CurrentView = new MainClientKnowledgeVM();
         private void TipsAndTricks(object parameter) => CurrentView = new TipsAndTricksVM();
-    
-        // Search
-        public ICommand SearchCommand { get; }
-        public ICommand AdvancedSearchCommand { get; }
-        private void Search(object obj) => CurrentView = new SearchVM();
-        private void AdvancedSearch(object obj) => CurrentView = new AdvancedSearchVM();
 
         // Client & Accounts
         public ICommand ClientOverviewCommand { get; set; }
@@ -111,10 +105,6 @@ namespace Bank.ViewModel
             OrganizeClientsCommand = new RelayCommand(OrganizeClients);
             MainClientKnowledgeCommand = new RelayCommand(MainClientKnowledge);
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
-
-            // Search
-            SearchCommand = new RelayCommand(Search);
-            AdvancedSearchCommand = new RelayCommand(AdvancedSearch);
 
             // Client & Accounts
             HomeCommand = new RelayCommand(Home);

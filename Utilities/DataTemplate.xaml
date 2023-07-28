@@ -27,7 +27,7 @@
 
     <!-- Clients -->
     <DataTemplate DataType="{x:Type vm:AddClientVM}">
-        <view:Home /> <!-- TODO Change View:-->
+        <view:AddClient />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:OrganizeClientsVM}">
@@ -44,15 +44,6 @@
 
     <DataTemplate DataType="{x:Type vm:TipsAndTricksVM}">
         <view:Home /> <!-- TODO Change View:-->
-    </DataTemplate>
-
-     <!-- Search -->
-    <DataTemplate DataType="{x:Type vm:SearchVM}">
-        <view:Search />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AdvancedSearchVM}">
-        <view:AdvancedSearch />
     </DataTemplate>
 
     <!-- Client & Accounts -->

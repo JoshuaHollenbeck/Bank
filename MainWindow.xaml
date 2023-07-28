@@ -13,8 +13,8 @@
         xmlns:Menu="clr-namespace:Bank.Utilities"
         mc:Ignorable="d"
         Title="Main Client"
-        Height="600"
-        Width="850"
+        Height="720"
+        Width="1080"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
 
@@ -24,20 +24,18 @@
 
     <Grid>
         <!-- Window Border -->
-
-        <Border Background="#212529"/>
-
         <Grid>
 
             <!-- Base Grid` -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
-                <RowDefinition Height="20" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="228" />
-                <ColumnDefinition Width="622" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <!--Navigation Panel-->
@@ -53,7 +51,7 @@
                     <MenuItem Header="Clients">
                         <MenuItem Header="Add Client" Command="{Binding AddClientCommand}" />
                         <MenuItem Header="Organize Clients" Command="{Binding OrganizeClientsCommand}" />
-                    </MenuItem>
+                    </MenuItem>`
                     <MenuItem Header="History" />
                     <MenuItem Header="Help">
                         <MenuItem Header="Main Client Knowledge Center" Command="{Binding MainClientKnowledgeCommand}" />
@@ -63,21 +61,36 @@
             </Grid> 
 
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
-                <Menu>
-                    <TextBox Width = "2"></TextBox>
-                    <Button Click="{Binding SearchCommand}">Search</Button>
-                    <Button Click="{Binding AdvancedSearchCommand}">Advanced Search</Button>
-                </Menu>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="200" Margin="5">Account #, Tax ID, Last Name</TextBox>
+                    <Button Click="Search_Click" Margin="5">Search</Button>
+                    <Button Click="AdvancedSearch_Click" Margin="5">Advanced Search</Button>
+                </StackPanel>
             </Grid>  
 
-            <Grid Grid.Row="2" Grid.ColumnSpan = "2">
-                <Menu>
-                    <TextBlock Width = "2">Hello</TextBlock>
-                </Menu>         
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">  
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions> 
+
+                <TextBlock Grid.Column="0" Margin="5" HorizontalAlignment="Left">Client Name</TextBlock>
+                <Button Grid.Column="1" Margin="5" HorizontalAlignment="Left">Switch</Button>
+                <ComboBox Grid.Column="2" Width="400" HorizontalAlignment="Center" Margin="5"></ComboBox>
+                <Button Grid.Column="3" Margin="5">Clear Session</Button>
+                <TextBlock Grid.Column="4" Margin="5">Word of the Day</TextBlock>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+                <!-- <Image Source="Images/mainclient.png" Width="500" />     -->
             </Grid>
             
         </Grid>
 
-    </Grid>
+    </Grid> 
 
 </Window>

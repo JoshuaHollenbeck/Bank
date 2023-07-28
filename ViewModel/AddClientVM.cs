@@ -9,6 +9,17 @@ namespace Bank.ViewModel
 {
     class AddClientVM : Utilities.ViewModelBase
     {
+        private readonly PageModel _pageModel;
+        public string ProductAvailability
+        {
+            get { return _pageModel.ProductStatus; }
+            set { _pageModel.ProductStatus = value; OnPropertyChanged(); }
+        }
 
+        public AddClientVM()
+        {
+            _pageModel = new PageModel();
+            ProductAvailability = "Out of Stock";
+        }
     }
 }
