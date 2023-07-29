@@ -13,31 +13,111 @@
         <vm:ClientOverviewVM />
     </UserControl.DataContext>
     
-    <Grid Margin="15">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <Border CornerRadius="0,20,20,0">
-            <Border.Background>
-                <ImageBrush ImageSource="/Images/customer_page.png"
-                            Stretch="None" />
-            </Border.Background>
+        <Border Grid.Row="0" Grid.Column="0" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <TextBlock Grid.Column="0">IDENTIFCATION INFORMATION</TextBlock>
+                    <Button Grid.Column="1" Width="25">Edit</Button>
+                </Grid>
+                
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Voice Authentication</TextBlock>
+                    <TextBlock >Re-record | Unenroll</TextBlock>
+                    <TextBlock >NAME</TextBlock>
+                    <TextBlock >Client Name</TextBlock>
+                    <TextBlock >Do Not Call Status</TextBlock>
+                    <TextBlock >Share with Affiliates</TextBlock>
+                    <TextBlock >DATE OF BIRTH</TextBlock>
+                    <TextBlock Grid.Column="0">xx/xx/xxxx (xx years old)</TextBlock>
+                    <TextBlock Grid.Column="0">MOTHERS MAIDEN NAME</TextBlock>
+                    <TextBlock Grid.Column="0">Name</TextBlock>
+                    <TextBlock Grid.Column="0">CLIENT SINCE</TextBlock>
+                    <TextBlock Grid.Column="0">xx/xx/xxxx (xx years, xx months)</TextBlock>
+                    <TextBlock Grid.Column="0">DRIVER'S LICENSE</TextBlock>
+                    <TextBlock Grid.Column="0">License #</TextBlock>
+                    <TextBlock Grid.Column="0">Exp. Date - xx/yyyy</TextBlock>
+                    <TextBlock Grid.Column="0">ALIAS</TextBlock>
+                    <TextBlock Grid.Column="0">Name</TextBlock>
+                </StackPanel>
+            </Grid>
         </Border>
 
-        <TextBlock Text="Customer ID  :"
-                   Foreground="#DBDBDB"
-                   FontSize="12"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   FontFamily="/Fonts/#Rubik Medium"
-                   Margin="70,138,0,0" />
+        <Border Grid.Row="1" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid>
+                    <TextBlock Grid.Column="0">CONTACT INFORMATION</TextBlock>
+                    <Button Grid.Column="1" Width="25">Edit</Button>
+                </Grid>
 
-        <TextBlock Text="{Binding CustomerID}"
-                   Foreground="#CED565"
-                   FontSize="12"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   FontFamily="/Fonts/#Rubik Medium"
-                   Margin="160,138,0,0" />
-     
+                <StackPanel Grid.Row="1">
+                    <TextBlock>PHONE NUMBERS</TextBlock>
+                    <TextBlock>Home: xxx-xxx-xxxx</TextBlock>
+                    <TextBlock>Business: xxx-xxx-xxxx</TextBlock>
+                    <TextBlock>Dial: xxx-xxx-xxxx</TextBlock>
+                    <TextBlock>PRIMARY EMAIL</TextBlock>
+                    <TextBlock>email@email.com</TextBlock>
+                    <TextBlock>HOME / LEGAL</TextBlock>
+                    <TextBlock>xxx road st</TextBlock>
+                    <TextBlock>city, st zip</TextBlock>
+                    <TextBlock>CLIENT'S DOMICILE BRANCH</TextBlock>
+                    <TextBlock>city, st</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
 
+        <Border Grid.Row="2" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid>
+                    <TextBlock Grid.Column="0">EMPLOYMENT INFORMATION</TextBlock>
+                    <Button Grid.Column="1" Width="25">Edit</Button>
+                </Grid>
+
+                <StackPanel Grid.Row="1">
+                    <TextBlock>EMPLOYMENT STATUS</TextBlock>
+                    <TextBlock>Employed / Unemployed</TextBlock>
+                    <TextBlock>EMPLOYER NAME</TextBlock>
+                    <TextBlock>Name / N/A</TextBlock>
+                    <TextBlock>OCCUPATION/POSITION</TextBlock>
+                    <TextBlock>Name / N/A</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

@@ -13,34 +13,25 @@
         <vm:AddNotesVM />
     </UserControl.DataContext>
     
-    <Grid Margin="15">
-
-        <Border CornerRadius="0,20,20,0">
-            <Border.Background>
-                <ImageBrush ImageSource="/Images/transaction_page.png"
-                            Stretch="None" />
-            </Border.Background>
-        </Border>
-
-        <Grid>
-
-            <TextBlock Text="Payment Amount  :"
-                       Foreground="#DBDBDB"
-                       FontSize="12"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       FontFamily="/Fonts/#Rubik Medium"
-                       Margin="0,300,150,0" />
-
-            <TextBlock Text="{Binding TransactionAmount, StringFormat='{}{0:C}'}"
-                       Foreground="#CED565"
-                       FontSize="12"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       FontFamily="/Fonts/#Rubik Medium"
-                       Margin="0,300,82,0" />
-
-        </Grid>
-
+    <Grid>
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                    <TextBlock>Tab 2</TextBlock>
+                </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                <TextBlock>Enter some text</TextBlock>
+                <TextBox Name="textBox1" Width="50"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Tab 3">
+                <!--Bind TextBlock.Text to the TextBox on the first
+                TabItem.-->
+                <TextBlock Text="{Binding ElementName=textBox1, Path=Text}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

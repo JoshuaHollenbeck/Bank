@@ -31,7 +31,7 @@
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:OrganizeClientsVM}">
-        <view:Home /> <!-- TODO Change View:-->
+        <view:OrganizeClients />
     </DataTemplate>
 
     <!-- History -->

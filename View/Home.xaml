@@ -6,9 +6,10 @@
              xmlns:local="clr-namespace:Bank.View"
              mc:Ignorable="d"
              d:DesignHeight="600"
-             d:DesignWidth="622">
+             d:DesignWidth="622"
+             Style="{StaticResource Page_Style}">
 
-    <Grid>
-        <Image Source="/Images/mainclient.png"/>
+    <Grid> 
+        <Image Width="300" Source="/Images/mainclient.png"/>
     </Grid>
 </UserControl>
