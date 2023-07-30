@@ -13,111 +13,210 @@
         <vm:ClientOverviewVM />
     </UserControl.DataContext>
     
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="225" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+            <!-- Client Menu Bar -->
+            <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+                <Menu>
+                    <MenuItem Header="Client &amp; Accounts">
+                        <MenuItem Header="Client Overview" />
+                        <MenuItem Header="Balances"  />
+                        <MenuItem Header="Positions"  />
+                        <MenuItem Header="Transactions" />
+                        <MenuItem Header="Client Access History" />
+                    </MenuItem>
+                    <MenuItem Header="Notes">
+                        <MenuItem Header="View Notes" />
+                        <MenuItem Header="Add Notes" />
+                    </MenuItem>
+                    <MenuItem Header="Cashiering">
+                        <MenuItem Header="Activity &amp; Standing Instructions" />
+                        <MenuItem Header="History"  />
+                        <MenuItem Header="Deposits">
+                            <MenuItem Header="Single Deposit"  />
+                            <MenuItem Header="Multiple Deposit" />
+                            <MenuItem Header="Split Deposit" />
+                        </MenuItem>
+                        <MenuItem Header="Add MoneyLink" />
+                    </MenuItem>
+                    <MenuItem Header="Trading">
+                        <MenuItem Header="Order Entry" />
+                        <MenuItem Header="Order Status" />
+                    </MenuItem>
+                </Menu>
+            </Border>
+
+            <!-- Grid Column 0-->
+            <Border Grid.Row="1" Grid.Column="0" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
                 <Grid>
-                    <TextBlock Grid.Column="0">IDENTIFCATION INFORMATION</TextBlock>
-                    <Button Grid.Column="1" Width="25">Edit</Button>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <TextBlock Grid.Column="0">IDENTIFCATION INFORMATION</TextBlock>
+                        <Button Grid.Column="1" Width="25">Edit</Button>
+                    </Grid>
+                    
+                    <StackPanel Grid.Row="1">
+                        <TextBlock >Voice Authentication</TextBlock>
+                        <TextBlock >Re-record | Unenroll</TextBlock>
+                        <TextBlock >NAME</TextBlock>
+                        <TextBlock >Client Name</TextBlock>
+                        <TextBlock >Do Not Call Status</TextBlock>
+                        <TextBlock >Share with Affiliates</TextBlock>
+                        <TextBlock >DATE OF BIRTH</TextBlock>
+                        <TextBlock Grid.Column="0">xx/xx/xxxx (xx years old)</TextBlock>
+                        <TextBlock Grid.Column="0">MOTHERS MAIDEN NAME</TextBlock>
+                        <TextBlock Grid.Column="0">Name</TextBlock>
+                        <TextBlock Grid.Column="0">CLIENT SINCE</TextBlock>
+                        <TextBlock Grid.Column="0">xx/xx/xxxx (xx years, xx months)</TextBlock>
+                        <TextBlock Grid.Column="0">DRIVER'S LICENSE</TextBlock>
+                        <TextBlock Grid.Column="0">License #</TextBlock>
+                        <TextBlock Grid.Column="0">Exp. Date - xx/yyyy</TextBlock>
+                        <TextBlock Grid.Column="0">ALIAS</TextBlock>
+                        <TextBlock Grid.Column="0">Name</TextBlock>
+                    </StackPanel>
                 </Grid>
-                
-                <StackPanel Grid.Row="1">
-                    <TextBlock >Voice Authentication</TextBlock>
-                    <TextBlock >Re-record | Unenroll</TextBlock>
-                    <TextBlock >NAME</TextBlock>
-                    <TextBlock >Client Name</TextBlock>
-                    <TextBlock >Do Not Call Status</TextBlock>
-                    <TextBlock >Share with Affiliates</TextBlock>
-                    <TextBlock >DATE OF BIRTH</TextBlock>
-                    <TextBlock Grid.Column="0">xx/xx/xxxx (xx years old)</TextBlock>
-                    <TextBlock Grid.Column="0">MOTHERS MAIDEN NAME</TextBlock>
-                    <TextBlock Grid.Column="0">Name</TextBlock>
-                    <TextBlock Grid.Column="0">CLIENT SINCE</TextBlock>
-                    <TextBlock Grid.Column="0">xx/xx/xxxx (xx years, xx months)</TextBlock>
-                    <TextBlock Grid.Column="0">DRIVER'S LICENSE</TextBlock>
-                    <TextBlock Grid.Column="0">License #</TextBlock>
-                    <TextBlock Grid.Column="0">Exp. Date - xx/yyyy</TextBlock>
-                    <TextBlock Grid.Column="0">ALIAS</TextBlock>
-                    <TextBlock Grid.Column="0">Name</TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
+            </Border>
 
-        <Border Grid.Row="1" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                
+            <Border Grid.Row="2" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
                 <Grid>
-                    <TextBlock Grid.Column="0">CONTACT INFORMATION</TextBlock>
-                    <Button Grid.Column="1" Width="25">Edit</Button>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid>
+                        <TextBlock Grid.Column="0">CONTACT INFORMATION</TextBlock>
+                        <Button Grid.Column="1" Width="25">Edit</Button>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock>PHONE NUMBERS</TextBlock>
+                        <TextBlock>Home: xxx-xxx-xxxx</TextBlock>
+                        <TextBlock>Business: xxx-xxx-xxxx</TextBlock>
+                        <TextBlock>Dial: xxx-xxx-xxxx</TextBlock>
+                        <TextBlock>PRIMARY EMAIL</TextBlock>
+                        <TextBlock>email@email.com</TextBlock>
+                        <TextBlock>HOME / LEGAL</TextBlock>
+                        <TextBlock>xxx road st</TextBlock>
+                        <TextBlock>city, st zip</TextBlock>
+                        <TextBlock>CLIENT'S DOMICILE BRANCH</TextBlock>
+                        <TextBlock>city, st</TextBlock>
+                    </StackPanel>
                 </Grid>
+            </Border>
 
-                <StackPanel Grid.Row="1">
-                    <TextBlock>PHONE NUMBERS</TextBlock>
-                    <TextBlock>Home: xxx-xxx-xxxx</TextBlock>
-                    <TextBlock>Business: xxx-xxx-xxxx</TextBlock>
-                    <TextBlock>Dial: xxx-xxx-xxxx</TextBlock>
-                    <TextBlock>PRIMARY EMAIL</TextBlock>
-                    <TextBlock>email@email.com</TextBlock>
-                    <TextBlock>HOME / LEGAL</TextBlock>
-                    <TextBlock>xxx road st</TextBlock>
-                    <TextBlock>city, st zip</TextBlock>
-                    <TextBlock>CLIENT'S DOMICILE BRANCH</TextBlock>
-                    <TextBlock>city, st</TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
-
-        <Border Grid.Row="2" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                
+            <Border Grid.Row="3" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
                 <Grid>
-                    <TextBlock Grid.Column="0">EMPLOYMENT INFORMATION</TextBlock>
-                    <Button Grid.Column="1" Width="25">Edit</Button>
-                </Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid>
+                        <TextBlock Grid.Column="0">EMPLOYMENT INFORMATION</TextBlock>
+                        <Button Grid.Column="1" Width="25">Edit</Button>
+                    </Grid>
 
-                <StackPanel Grid.Row="1">
-                    <TextBlock>EMPLOYMENT STATUS</TextBlock>
-                    <TextBlock>Employed / Unemployed</TextBlock>
-                    <TextBlock>EMPLOYER NAME</TextBlock>
-                    <TextBlock>Name / N/A</TextBlock>
-                    <TextBlock>OCCUPATION/POSITION</TextBlock>
-                    <TextBlock>Name / N/A</TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
-    </Grid>
+                    <StackPanel Grid.Row="1">
+                        <TextBlock>EMPLOYMENT STATUS</TextBlock>
+                        <TextBlock>Employed / Unemployed</TextBlock>
+                        <TextBlock>EMPLOYER NAME</TextBlock>
+                        <TextBlock>Name / N/A</TextBlock>
+                        <TextBlock>OCCUPATION/POSITION</TextBlock>
+                        <TextBlock>Name / N/A</TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            
+            <!-- Grid Column 1-->
+            <Border Grid.Row="1" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0">Brokerage Accounts</TextBlock>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock>Account Number</TextBlock>
+                        <TextBlock>Nickname</TextBlock>
+                        <TextBlock>Balance</TextBlock>
+                        <TextBlock>Password</TextBlock>
+                        <TextBlock>Type</TextBlock>
+                        <TextBlock>Registration Label</TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Grid.Row="0">Notes</TextBlock>
+                        <Button>View All Notes</Button>
+                        <Button>New Note</Button>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock>Note</TextBlock>
+                        <TextBlock>Account</TextBlock>
+                        <TextBlock>Created</TextBlock>
+                        <TextBlock>Rep ID</TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock>Recent Transactions</TextBlock>
+                    <Button>More</Button>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock>Date</TextBlock>
+                        <TextBlock>Action</TextBlock>
+                        <TextBlock>Symbol</TextBlock>
+                        <TextBlock>Quantity</TextBlock>
+                        <TextBlock>Price</TextBlock>
+                        <TextBlock>Amount</TextBlock>
+                        <TextBlock>Account</TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

@@ -32,12 +32,22 @@ namespace Bank
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            
         }
 
         private void AdvancedSearch_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            
+        }
+
+        private void SwitchClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClearSession_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
