@@ -19,6 +19,7 @@ namespace Bank.ViewModel
         }
         // Startup
         public ICommand HomeCommand { get; set; }
+        private void Home(object obj) => CurrentView = new HomeVM();
         
         // File
         public ICommand NewSessionCommand { get; }
@@ -45,12 +46,13 @@ namespace Bank.ViewModel
 
         // Client & Accounts
         public ICommand ClientOverviewCommand { get; set; }
+        public ICommand AccountOverviewCommand { get; set; }
         public ICommand BalancesCommand { get; set; }
         public ICommand PositionsCommand { get; set; }
         public ICommand TransactionsCommand { get; set; }
         public ICommand AccessHistoryCommand { get; set; }
-        private void Home(object obj) => CurrentView = new HomeVM();
         private void ClientOverview(object obj) => CurrentView = new ClientOverviewVM();
+        private void AccountOverview(object obj) => CurrentView = new AccountOverviewVM();
         private void Balances(object obj) => CurrentView = new BalancesVM();
         private void Positions(object obj) => CurrentView = new PositionsVM();
         private void Transactions(object obj) => CurrentView = new TransactionsVM();
@@ -109,6 +111,7 @@ namespace Bank.ViewModel
             // Client & Accounts
             HomeCommand = new RelayCommand(Home);
             ClientOverviewCommand = new RelayCommand(ClientOverview);
+            AccountOverviewCommand = new RelayCommand(AccountOverview);
             BalancesCommand = new RelayCommand(Balances);
             PositionsCommand = new RelayCommand(Positions);
             TransactionsCommand = new RelayCommand(Transactions);
