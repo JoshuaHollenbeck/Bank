@@ -9,6 +9,6 @@ namespace Bank.ViewModel
 {
     class OrganizeClientsVM : Utilities.ViewModelBase
     {
-
+        // TODO Add functionality
     }
 }

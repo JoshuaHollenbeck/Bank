@@ -9,17 +9,9 @@ namespace Bank.ViewModel
 {
     class OrderStatusVM : Utilities.ViewModelBase
     {
-        private readonly PageModel _pageModel;
-        public string ProductAvailability
-        {
-            get { return _pageModel.ProductStatus; }
-            set { _pageModel.ProductStatus = value; OnPropertyChanged(); }
-        }
-
         public OrderStatusVM()
         {
-            _pageModel = new PageModel();
-            ProductAvailability = "Out of Stock";
+            // TODO Add functionality
         }
     }
 }

@@ -9,6 +9,6 @@ namespace Bank.ViewModel
 {
     class PrintPreviewVM : Utilities.ViewModelBase
     {
-
+        // TODO Add functionality
     }
 }

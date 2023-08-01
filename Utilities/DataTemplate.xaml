@@ -51,6 +51,10 @@
         <view:ClientOverview />
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AccountOverviewVM}">
+        <view:AccountOverview />
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:BalancesVM}">
         <view:Balances />
     </DataTemplate>
@@ -108,11 +112,6 @@
     
     <DataTemplate DataType="{x:Type vm:OrderStatusVM}">
         <view:OrderStatus />
-    </DataTemplate>
-
-    <!-- Documents -->
-    <DataTemplate DataType="{x:Type vm:DocumentRequestVM}">
-        <view:DocumentRequest />
     </DataTemplate>
 
     <!-- Settings -->

@@ -13,10 +13,9 @@
         <vm:ClientOverviewVM />
     </UserControl.DataContext>
     
-<ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid>
+<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -26,40 +25,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Client Menu Bar -->
-        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
-            <Menu>
-                <MenuItem Header="Client &amp; Accounts">
-                    <MenuItem Header="Client Overview" Command="{Binding ClientOverviewCommand}" />
-                    <MenuItem Header="Account Overview" Command="{Binding AccountOverviewCommand}" />
-                    <MenuItem Header="Balances" Command="{Binding BalancesCommand}" />
-                    <MenuItem Header="Positions" Command="{Binding PositionsCommand}" />
-                    <MenuItem Header="Transactions" Command="{Binding TransactionsCommand}" />
-                    <MenuItem Header="Client Access History" Command="{Binding ClientAccessHistoryCommand}" />
-                </MenuItem>
-                <MenuItem Header="Notes">
-                    <MenuItem Header="View Notes" Command="{Binding ViewNotesCommand}" />
-                    <MenuItem Header="Add Notes" Command="{Binding AddNotesCommand}" />
-                </MenuItem>
-                <MenuItem Header="Cashiering">
-                    <MenuItem Header="Activity &amp; Standing Instructions" Command="{Binding ActivityCommand}" />
-                    <MenuItem Header="History" Command="{Binding HistoryCommand}" />
-                    <MenuItem Header="Deposits">
-                        <MenuItem Header="Single Deposit" Command="{Binding SingleDepositCommand}" />
-                        <MenuItem Header="Multiple Deposit" Command="{Binding MutlipleDepositCommand}" />
-                        <MenuItem Header="Split Deposit" Command="{Binding SplitDepositCommand}" />
-                    </MenuItem>
-                    <MenuItem Header="Add MoneyLink" Command="{Binding AddMoneyLinkCommand}" />
-                </MenuItem>
-                <MenuItem Header="Trading">
-                    <MenuItem Header="Order Entry" Command="{Binding OrderEntryCommand}" />
-                    <MenuItem Header="Order Status" Command="{Binding OrderStatusCommand}" />
-                </MenuItem>
-            </Menu>
-        </Border>
-
         <!-- Grid Column 0-->
-        <Border Grid.Row="1" Grid.Column="0" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="0" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -96,7 +63,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="1" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -128,7 +95,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="3" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="2" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -156,7 +123,7 @@
         </Border>
         
         <!-- Grid Column 1-->
-        <Border Grid.Row="1" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="1" BorderThickness="0 2 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -175,7 +142,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -197,7 +164,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="3" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="2" Grid.Column="1" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

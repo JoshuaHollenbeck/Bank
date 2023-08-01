@@ -9,6 +9,6 @@ namespace Bank.ViewModel
 {
     class MainClientKnowledgeVM : Utilities.ViewModelBase
     {
-
+        // TODO Add functionality
     }
 }

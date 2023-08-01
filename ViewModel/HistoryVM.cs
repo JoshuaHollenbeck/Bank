@@ -9,17 +9,9 @@ namespace Bank.ViewModel
 {
     class HistoryVM : Utilities.ViewModelBase
     {
-        private readonly PageModel _pageModel;
-        public string ProductAvailability
-        {
-            get { return _pageModel.ProductStatus; }
-            set { _pageModel.ProductStatus = value; OnPropertyChanged(); }
-        }
-
         public HistoryVM()
         {
-            _pageModel = new PageModel();
-            ProductAvailability = "Out of Stock";
+            // TODO Add functionality
         }
     }
 }

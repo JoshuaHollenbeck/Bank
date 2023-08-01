@@ -9,6 +9,6 @@ namespace Bank.ViewModel
 {
     class ClearSessionVM : Utilities.ViewModelBase
     {
-
+        // TODO Add functionality
     }
 }

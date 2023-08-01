@@ -9,17 +9,9 @@ namespace Bank.ViewModel
 {
     class BalancesVM : Utilities.ViewModelBase
     {
-        private readonly PageModel _pageModel;
-        public DateOnly DisplayOrderDate
-        {
-            get { return _pageModel.OrderDate; }
-            set { _pageModel.OrderDate = value; OnPropertyChanged(); }
-        }
-
         public BalancesVM()
         {
-            _pageModel = new PageModel();
-            DisplayOrderDate = DateOnly.FromDateTime(DateTime.Now);
+            // TODO Add functionality
         }
     }
 }

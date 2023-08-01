@@ -85,10 +85,6 @@ namespace Bank.ViewModel
         private void OrderEntry(object obj) => CurrentView = new OrderEntryVM();
         private void OrderStatus(object obj) => CurrentView = new OrderStatusVM();
 
-        // Documents
-        public ICommand DocumentRequestCommand { get; set; }
-        private void DocumentRequest(object obj) => CurrentView = new DocumentRequestVM();
-
         // Settings
         public ICommand SettingsCommand { get; set; }
         private void Setting(object obj) => CurrentView = new SettingsVM();
@@ -132,9 +128,6 @@ namespace Bank.ViewModel
             // Trading
             OrderEntryCommand = new RelayCommand(OrderEntry);
             OrderStatusCommand = new RelayCommand(OrderStatus);
-
-            // Documents
-            DocumentRequestCommand = new RelayCommand(DocumentRequest);
 
             // Settings
             SettingsCommand = new RelayCommand(Setting);

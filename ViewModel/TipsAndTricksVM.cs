@@ -9,6 +9,6 @@ namespace Bank.ViewModel
 {
     class TipsAndTricksVM : Utilities.ViewModelBase
     {
-
+        // TODO Add functionality
     }
 }
