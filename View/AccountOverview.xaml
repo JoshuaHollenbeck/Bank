@@ -22,11 +22,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="225" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <!-- Grid Column 0-->
         <Border Grid.Row="0" Grid.Column="0" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
@@ -34,28 +36,101 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Grid>
-                    <TextBlock>ACCOUNT TYPE</TextBlock>
-                </Grid>
-                
+                <TextBlock>ACCOUNT TYPE</TextBlock>
                 <StackPanel Grid.Row="1">
+                    <TextBlock >Initial Contact Method</TextBlock>
+                    <TextBlock >Mail/Email</TextBlock>
                     <TextBlock >Type</TextBlock>
-                    <TextBlock >Registrations</TextBlock>
+                    <TextBlock >Type of account</TextBlock>
+                    <TextBlock >Registration</TextBlock>
+                    <TextBlock >Registration name</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <Border Grid.Row="0" Grid.Column="1" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>MAILING ADDRESS</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Client Name</TextBlock>
+                    <TextBlock >Registration Name</TextBlock>
+                    <TextBlock >Address</TextBlock>
+                    <TextBlock >City, St Zip</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <Border Grid.Row="1" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="2" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>PRIMARY CONTACT</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Primary Contact</TextBlock>
+                    <TextBlock >Name</TextBlock>
+                    <TextBlock >Address</TextBlock>
+                    <TextBlock >City, St Zip</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+       
+
+        <Border Grid.Row="0" Grid.Column="3" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>INVESTMENT OBJECTIVES</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Capital Preservation</TextBlock>
+                    <TextBlock >Growth</TextBlock>
+                    <TextBlock >Income</TextBlock>
+                    <TextBlock >Speculation</TextBlock>
+                    <TextBlock >Declined to Answer</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="4" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>ACCOUNT OPENED</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Added By</TextBlock>
+                    <TextBlock >Rep ID</TextBlock>
+                    <TextBlock >Established</TextBlock>
+                    <TextBlock >xx/xx/xxxx</TextBlock>
+                    <TextBlock >Status</TextBlock>
+                    <TextBlock >Open/Closed</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        
+
+        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <Grid>
-                    <TextBlock >ACCOUNT HOLDERS</TextBlock>
-                </Grid>
-
+                <TextBlock >ACCOUNT HOLDERS</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock>Auth</TextBlock>
                     <TextBlock>Role</TextBlock>
@@ -66,18 +141,49 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="1" Grid.Column="3" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>ACCOUNT CODES</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Account Branch</TextBlock>
+                    <TextBlock >Location</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="4" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>ACCOUNT JURISDICTION</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Account Jurisdiction</TextBlock>
+                    <TextBlock >United States</TextBlock>
+                    <TextBlock >Jurisdiction State</TextBlock>
+                    <TextBlock >State</TextBlock>
+                    <TextBlock >Jurisdictional Client</TextBlock>
+                    <TextBlock >Client Name</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <Grid>
-                    <TextBlock >BENEFICIARIES</TextBlock>
-                </Grid>
-
-                <StackPanel Orientation="Horizontal">
+                <TextBlock >BENEFICIARIES</TextBlock>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock>Type</TextBlock>
                     <TextBlock>Name</TextBlock>
                     <TextBlock>Tax ID</TextBlock>
@@ -86,19 +192,49 @@
                 </StackPanel>
             </Grid>
         </Border>
+        
+         <Border Grid.Row="2" Grid.Column="3" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-        <Border Grid.Row="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+                <TextBlock>Account Password</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Password</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="4" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock>TAX WITHOLDING</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBlock >Tax Witholding Code</TextBlock>
+                    <TextBlock >Code</TextBlock>
+                    <TextBlock >Taxpayer</TextBlock>
+                    <TextBlock >Client Name</TextBlock>
+                    <TextBlock >Taxpayer ID</TextBlock>
+                    <TextBlock >xxx-xx-xxxx</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="3" Grid.ColumnSpan="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <Grid>
-                    <TextBlock >POWER OF ATTORNEY</TextBlock>
-                </Grid>
-
-                <StackPanel Orientation="Horizontal">
+                <TextBlock >POWER OF ATTORNEY</TextBlock>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock>Role</TextBlock>
                     <TextBlock>Name</TextBlock>
                     <TextBlock>Tax ID</TextBlock>
@@ -106,71 +242,59 @@
                     <TextBlock>Emp/ReglA</TextBlock>
                 </StackPanel>
             </Grid>
-        </Border>
-        
-        <!-- Grid Column 1-->
-        <Border Grid.Row="0" Grid.Column="1" BorderThickness="0 2 2 2" BorderBrush="#cccccc" Padding="5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+        </Border>  
 
-                <TextBlock Grid.Row="0">Brokerage Accounts</TextBlock>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Account Number</TextBlock>
-                    <TextBlock>Nickname</TextBlock>
-                    <TextBlock>Balance</TextBlock>
-                    <TextBlock>Password</TextBlock>
-                    <TextBlock>Type</TextBlock>
-                    <TextBlock>Registration Label</TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
-
-        <Border Grid.Row="1" Grid.Column="1" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Grid.Row="0">Notes</TextBlock>
-                    <Button>View All Notes</Button>
-                    <Button>New Note</Button>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Note</TextBlock>
-                    <TextBlock>Account</TextBlock>
-                    <TextBlock>Created</TextBlock>
-                    <TextBlock>Rep ID</TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
-
-        <Border Grid.Row="2" Grid.Column="1" BorderThickness="0 0 2 2" BorderBrush="#cccccc" Padding="5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-
-                <TextBlock>Recent Transactions</TextBlock>
-                <Button>More</Button>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock >ACCOUNT</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Date</TextBlock>
-                    <TextBlock>Action</TextBlock>
-                    <TextBlock>Symbol</TextBlock>
-                    <TextBlock>Quantity</TextBlock>
-                    <TextBlock>Price</TextBlock>
-                    <TextBlock>Amount</TextBlock>
-                    <TextBlock>Account</TextBlock>
+                    <TextBlock>Source of Funding</TextBlock>
+                    <TextBlock>Salary / Wages / Savings</TextBlock>
+                    <TextBlock>Social Security Benefits</TextBlock>
+                    <TextBlock>Sale of Propery or Business</TextBlock>
+                    <TextBlock>Family / Relatives / Inheritence</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock>Investment Capital Gains</TextBlock>
+                    <TextBlock>Gifts</TextBlock>
+                    <TextBlock>Gambling / Lottery</TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock>Purpose of Account</TextBlock>
+                    <TextBlock>General Investing</TextBlock>
+                    <TextBlock>Investing for Estate Planning</TextBlock>
+                    <TextBlock>Investing for College</TextBlock>
+                    <TextBlock>Other</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock>Investment of Pooleed Assets</TextBlock>
+                    <TextBlock>Investment for Tax Planning</TextBlock>
+                    <TextBlock>Investment for Retirement</TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <TextBlock>Anticipated Activity</TextBlock>
+                    <TextBlock>Less than 5</TextBlock>
+                    <TextBlock>11-20</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock>5 - 10</TextBlock>
+                    <TextBlock>Moore than 20</TextBlock>
                 </StackPanel>
             </Grid>
-        </Border>
+        </Border>       
     </Grid>
 </ScrollViewer>
 </UserControl>
