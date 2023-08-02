@@ -29,6 +29,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
+        <!-- Grid Row 0 -->
         <Border Grid.Row="0" Grid.Column="0" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
@@ -36,7 +37,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>ACCOUNT TYPE</TextBlock>
+                <TextBlock Background="#009edc">Account Type</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Initial Contact Method</TextBlock>
                     <TextBlock >Mail/Email</TextBlock>
@@ -48,14 +49,14 @@
             </Grid>
         </Border>
         
-        <Border Grid.Row="0" Grid.Column="1" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="1" BorderThickness="0, 2, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>MAILING ADDRESS</TextBlock>
+                <TextBlock Background="#009edc">Mailing Address</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Client Name</TextBlock>
                     <TextBlock >Registration Name</TextBlock>
@@ -65,14 +66,14 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="0" Grid.Column="2" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="2" BorderThickness="0, 2, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>PRIMARY CONTACT</TextBlock>
+                <TextBlock Background="#009edc">Primary Contact</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Primary Contact</TextBlock>
                     <TextBlock >Name</TextBlock>
@@ -82,16 +83,14 @@
             </Grid>
         </Border>
 
-       
-
-        <Border Grid.Row="0" Grid.Column="3" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="3" BorderThickness="0, 2, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>INVESTMENT OBJECTIVES</TextBlock>
+                <TextBlock Background="#009edc">Investment Objectives</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Capital Preservation</TextBlock>
                     <TextBlock >Growth</TextBlock>
@@ -102,14 +101,14 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="0" Grid.Column="4" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="0" Grid.Column="4" BorderThickness="0, 2, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>ACCOUNT OPENED</TextBlock>
+                <TextBlock Background="#009edc">Account Opened</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Added By</TextBlock>
                     <TextBlock >Rep ID</TextBlock>
@@ -120,9 +119,8 @@
                 </StackPanel>
             </Grid>
         </Border>
-
         
-
+        <!-- Grid Row 1 -->
         <Border Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
@@ -130,7 +128,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock >ACCOUNT HOLDERS</TextBlock>
+                <TextBlock Background="#009edc">Account Holders</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock>Auth</TextBlock>
                     <TextBlock>Role</TextBlock>
@@ -141,14 +139,14 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="3" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="1" Grid.Column="3" BorderThickness="0, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>ACCOUNT CODES</TextBlock>
+                <TextBlock Background="#009edc">Account Codes</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Account Branch</TextBlock>
                     <TextBlock >Location</TextBlock>
@@ -156,14 +154,14 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="4" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="1" Grid.Column="4" BorderThickness="0, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>ACCOUNT JURISDICTION</TextBlock>
+                <TextBlock Background="#009edc">Account Jurisdiction</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Account Jurisdiction</TextBlock>
                     <TextBlock >United States</TextBlock>
@@ -175,14 +173,15 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <!-- Grid Row 2 -->
+        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="2, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock >BENEFICIARIES</TextBlock>
+                <TextBlock Background="#009edc">Beneficiaries</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock>Type</TextBlock>
                     <TextBlock>Name</TextBlock>
@@ -193,28 +192,28 @@
             </Grid>
         </Border>
         
-         <Border Grid.Row="2" Grid.Column="3" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+         <Border Grid.Row="2" Grid.Column="3" BorderThickness="0, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>Account Password</TextBlock>
+                <TextBlock Background="#009edc">Account Password</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Password</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" Grid.Column="4" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="2" Grid.Column="4" BorderThickness="0, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock>TAX WITHOLDING</TextBlock>
+                <TextBlock Background="#009edc">Tax Withholding</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Tax Witholding Code</TextBlock>
                     <TextBlock >Code</TextBlock>
@@ -226,14 +225,15 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="3" Grid.ColumnSpan="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <!-- Grid Row 3 -->
+        <Border Grid.Row="3" Grid.ColumnSpan="3" BorderThickness="2, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock >POWER OF ATTORNEY</TextBlock>
+                <TextBlock Background="#009edc">Power of Attorney</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock>Role</TextBlock>
                     <TextBlock>Name</TextBlock>
@@ -244,9 +244,12 @@
             </Grid>
         </Border>  
 
-        <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+        <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" BorderThickness="0, 0, 2, 2" BorderBrush="#cccccc" Padding="5">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -256,40 +259,41 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+
                 
-                <TextBlock >ACCOUNT</TextBlock>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Source of Funding</TextBlock>
+                <TextBlock Style="{StaticResource Text_Style}" Grid.ColumnSpan="2">Account</TextBlock>
+                <TextBlock Grid.Row="1">Source of Funding</TextBlock>
+                <StackPanel Grid.Row="2">
                     <TextBlock>Salary / Wages / Savings</TextBlock>
                     <TextBlock>Social Security Benefits</TextBlock>
                     <TextBlock>Sale of Propery or Business</TextBlock>
                     <TextBlock>Family / Relatives / Inheritence</TextBlock>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="2" Grid.Column="2">
                     <TextBlock>Investment Capital Gains</TextBlock>
                     <TextBlock>Gifts</TextBlock>
                     <TextBlock>Gambling / Lottery</TextBlock>
                 </StackPanel>
-
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <TextBlock>Purpose of Account</TextBlock>
+                
+                <TextBlock Grid.Row="3">Purpose of Account</TextBlock>
+                <StackPanel Grid.Row="4">
                     <TextBlock>General Investing</TextBlock>
                     <TextBlock>Investing for Estate Planning</TextBlock>
                     <TextBlock>Investing for College</TextBlock>
                     <TextBlock>Other</TextBlock>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="4" Grid.Column="2">
                     <TextBlock>Investment of Pooleed Assets</TextBlock>
                     <TextBlock>Investment for Tax Planning</TextBlock>
                     <TextBlock>Investment for Retirement</TextBlock>
                 </StackPanel>
 
-                <StackPanel Grid.Row="3" Orientation="Horizontal">
-                    <TextBlock>Anticipated Activity</TextBlock>
+                <TextBlock Grid.Row="5">Anticipated Activity</TextBlock>
+                <StackPanel Grid.Row="6">
                     <TextBlock>Less than 5</TextBlock>
                     <TextBlock>11-20</TextBlock>
                 </StackPanel>
-                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="6" Grid.Column="2">
                     <TextBlock>5 - 10</TextBlock>
                     <TextBlock>Moore than 20</TextBlock>
                 </StackPanel>
