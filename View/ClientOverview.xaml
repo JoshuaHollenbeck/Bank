@@ -132,12 +132,12 @@
 
                 <TextBlock Grid.Row="0">Brokerage Accounts</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Account Number</TextBlock>
-                    <TextBlock>Nickname</TextBlock>
-                    <TextBlock>Balance</TextBlock>
-                    <TextBlock>Password</TextBlock>
-                    <TextBlock>Type</TextBlock>
-                    <TextBlock>Registration Label</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Account Number</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Nickname</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Balance</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Password</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Type</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Registration Label</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
@@ -152,14 +152,14 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Grid.Row="0">Notes</TextBlock>
-                    <Button>View All Notes</Button>
-                    <Button>New Note</Button>
+                    <Button Command="{Binding ViewNotesCommand}">View All Notes</Button>
+                    <Button Command="{Binding AddNotesCommand}">New Note</Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Note</TextBlock>
-                    <TextBlock>Account</TextBlock>
-                    <TextBlock>Created</TextBlock>
-                    <TextBlock>Rep ID</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Note</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Account</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Created</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Rep ID</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
@@ -175,13 +175,13 @@
                 <TextBlock>Recent Transactions</TextBlock>
                 <Button>More</Button>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Date</TextBlock>
-                    <TextBlock>Action</TextBlock>
-                    <TextBlock>Symbol</TextBlock>
-                    <TextBlock>Quantity</TextBlock>
-                    <TextBlock>Price</TextBlock>
-                    <TextBlock>Amount</TextBlock>
-                    <TextBlock>Account</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Date</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Action</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Symbol</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Quantity</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Price</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Amount</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Account</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>

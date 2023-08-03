@@ -37,7 +37,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Account Type</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Account Type</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Initial Contact Method</TextBlock>
                     <TextBlock >Mail/Email</TextBlock>
@@ -56,7 +56,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Mailing Address</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Mailing Address</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Client Name</TextBlock>
                     <TextBlock >Registration Name</TextBlock>
@@ -73,7 +73,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Primary Contact</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Primary Contact</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Primary Contact</TextBlock>
                     <TextBlock >Name</TextBlock>
@@ -90,7 +90,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Investment Objectives</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Investment Objectives</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Capital Preservation</TextBlock>
                     <TextBlock >Growth</TextBlock>
@@ -108,7 +108,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Account Opened</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Account Opened</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Added By</TextBlock>
                     <TextBlock >Rep ID</TextBlock>
@@ -128,13 +128,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Style="{StaticResource Text_Style}">Account Holders</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Account Holders</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Auth</TextBlock>
-                    <TextBlock>Role</TextBlock>
-                    <TextBlock>Name</TextBlock>
-                    <TextBlock>Tax ID</TextBlock>
-                    <TextBlock>Cust ID</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Auth</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Role</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Name</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Tax ID</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Cust ID</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
@@ -146,7 +146,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Account Codes</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Account Codes</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Account Branch</TextBlock>
                     <TextBlock >Location</TextBlock>
@@ -161,7 +161,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Account Jurisdiction</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Account Jurisdiction</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Account Jurisdiction</TextBlock>
                     <TextBlock >United States</TextBlock>
@@ -181,13 +181,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Style="{StaticResource Text_Style}">Beneficiaries</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Beneficiaries</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Type</TextBlock>
-                    <TextBlock>Name</TextBlock>
-                    <TextBlock>Tax ID</TextBlock>
-                    <TextBlock>Relationship</TextBlock>
-                    <TextBlock>Portion</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Type</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Name</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Tax ID</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Relationship</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Portion</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
@@ -199,7 +199,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Account Password</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Account Password</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Password</TextBlock>
                 </StackPanel>
@@ -213,7 +213,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource Text_Style}">Tax Withholding</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Tax Withholding</TextBlock>
                 <StackPanel Grid.Row="1">
                     <TextBlock >Tax Witholding Code</TextBlock>
                     <TextBlock >Code</TextBlock>
@@ -233,13 +233,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Style="{StaticResource Text_Style}">Power of Attorney</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}">Power of Attorney</TextBlock>
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock>Role</TextBlock>
-                    <TextBlock>Name</TextBlock>
-                    <TextBlock>Tax ID</TextBlock>
-                    <TextBlock>Compenstated ID</TextBlock>
-                    <TextBlock>Emp/ReglA</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Role</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Name</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Tax ID</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Compenstated ID</TextBlock>
+                    <TextBlock Style="{StaticResource TableHeader}">Emp/ReglA</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>  
@@ -261,7 +261,7 @@
                 </Grid.ColumnDefinitions>
 
                 
-                <TextBlock Style="{StaticResource Text_Style}" Grid.ColumnSpan="2">Account</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Grid.ColumnSpan="2">Account</TextBlock>
                 <TextBlock Grid.Row="1">Source of Funding</TextBlock>
                 <StackPanel Grid.Row="2">
                     <TextBlock>Salary / Wages / Savings</TextBlock>

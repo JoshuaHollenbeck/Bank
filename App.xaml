@@ -12,7 +12,8 @@
 
                 <ResourceDictionary Source="Styles/Page.xaml" />
                 <ResourceDictionary Source="Styles/Image.xaml" />
-                <ResourceDictionary Source="Styles/Text.xaml" />
+                <ResourceDictionary Source="Styles/TableHeader.xaml" />
+                <ResourceDictionary Source="Styles/ContainerHeader.xaml" />
                 <ResourceDictionary Source="Styles/Button.xaml" />
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
 
