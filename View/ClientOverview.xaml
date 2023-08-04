@@ -57,8 +57,6 @@
                     <TextBlock Grid.Column="0">DRIVER'S LICENSE</TextBlock>
                     <TextBlock Grid.Column="0">License #</TextBlock>
                     <TextBlock Grid.Column="0">Exp. Date - xx/yyyy</TextBlock>
-                    <TextBlock Grid.Column="0">ALIAS</TextBlock>
-                    <TextBlock Grid.Column="0">Name</TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
