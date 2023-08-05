@@ -37,14 +37,14 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Account Type</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Account Type"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Initial Contact Method</TextBlock>
-                    <TextBlock >Mail/Email</TextBlock>
-                    <TextBlock >Type</TextBlock>
-                    <TextBlock >Type of account</TextBlock>
-                    <TextBlock >Registration</TextBlock>
-                    <TextBlock >Registration name</TextBlock>
+                    <TextBlock Text="Initial Contact Method" />
+                    <TextBlock Text="{Binding InitialContactMethod}" />
+                    <TextBlock Text="Type" />
+                    <TextBlock Text="{Binding AccountType}" />
+                    <TextBlock Text="Registration" />
+                    <TextBlock Text="{Binding RegistrationName}" />
                 </StackPanel>
             </Grid>
         </Border>
@@ -56,12 +56,20 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Mailing Address</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Mailing Address"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Client Name</TextBlock>
-                    <TextBlock >Registration Name</TextBlock>
-                    <TextBlock >Address</TextBlock>
-                    <TextBlock >City, St Zip</TextBlock>
+                    <TextBlock Text="{Binding ClientName}" />
+                    <TextBlock Text="{Binding RegistrationName}"/>
+                    <TextBlock Text="{Binding ClientAddress}"/>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}, {2}">
+                                <Binding Path="ClientCity"/>
+                                <Binding Path="ClientState"/>
+                                <Binding Path="ClientZip"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
@@ -73,12 +81,20 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Primary Contact</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Primary Contact"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Primary Contact</TextBlock>
-                    <TextBlock >Name</TextBlock>
-                    <TextBlock >Address</TextBlock>
-                    <TextBlock >City, St Zip</TextBlock>
+                    <TextBlock Text="Primary Contact"/>
+                    <TextBlock Text="{Binding PrimaryContactName}"/>
+                    <TextBlock Text="{Binding PrimaryContactAddress}"/>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}, {2}">
+                                <Binding Path="PrimaryContactCity"/>
+                                <Binding Path="PrimaryContactState"/>
+                                <Binding Path="PrimaryContactZip"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Grid>
         </Border>
@@ -90,13 +106,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Investment Objectives</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Investment Objectives"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Capital Preservation</TextBlock>
-                    <TextBlock >Growth</TextBlock>
-                    <TextBlock >Income</TextBlock>
-                    <TextBlock >Speculation</TextBlock>
-                    <TextBlock >Declined to Answer</TextBlock>
+                    <TextBlock Text="Capital Preservation"/>
+                    <TextBlock Text="Growth"/>
+                    <TextBlock Text="Income"/>
+                    <TextBlock Text="Speculation"/>
+                    <TextBlock Text="Declined to Answer"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -108,14 +124,14 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Account Opened</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Account Opened"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Added By</TextBlock>
-                    <TextBlock >Rep ID</TextBlock>
-                    <TextBlock >Established</TextBlock>
-                    <TextBlock >xx/xx/xxxx</TextBlock>
-                    <TextBlock >Status</TextBlock>
-                    <TextBlock >Open/Closed</TextBlock>
+                    <TextBlock Text="Added By"/>
+                    <TextBlock Text="{Binding RepID}"/>
+                    <TextBlock Text="Established"/>
+                    <TextBlock Text="{Binding EstablishedDate}"/>
+                    <TextBlock Text="Status"/>
+                    <TextBlock Text="{Binding AccountStatus}"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -128,14 +144,15 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Style="{StaticResource ContainerHeader}">Account Holders</TextBlock>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TableHeader}">Auth</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Role</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Name</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Tax ID</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Cust ID</TextBlock>
-                </StackPanel>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Account Holders"/>
+                <!-- <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Auth"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Role"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Name"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Tax ID"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Cust ID"/>
+                </StackPanel> -->
+                <DataGrid Grid.Row="1" Name="AccountHolders"/>
             </Grid>
         </Border>
 
@@ -146,10 +163,10 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Account Codes</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Account Codes"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Account Branch</TextBlock>
-                    <TextBlock >Location</TextBlock>
+                    <TextBlock Text="Account Branch"/>
+                    <TextBlock Text="Location"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -161,14 +178,14 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Account Jurisdiction</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Account Jurisdiction"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Account Jurisdiction</TextBlock>
-                    <TextBlock >United States</TextBlock>
-                    <TextBlock >Jurisdiction State</TextBlock>
-                    <TextBlock >State</TextBlock>
-                    <TextBlock >Jurisdictional Client</TextBlock>
-                    <TextBlock >Client Name</TextBlock>
+                    <TextBlock Text="Account Jurisdiction"/>
+                    <TextBlock Text="{Binding ClientCountry}"/>
+                    <TextBlock Text="Jurisdiction State"/>
+                    <TextBlock Text="{Binding ClientState}"/>
+                    <TextBlock Text="Jurisdictional Client"/>
+                    <TextBlock Text="{Binding ClientName}"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -178,17 +195,18 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Style="{StaticResource ContainerHeader}">Beneficiaries</TextBlock>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TableHeader}">Type</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Name</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Tax ID</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Relationship</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Portion</TextBlock>
-                </StackPanel>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Beneficiaries"/>
+                <!-- <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Type"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Name"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Tax ID"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Relationship"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Portion"/>
+                </StackPanel> -->
+                <DataGrid Grid.Row="1" Name="BeneficiaryDataGrid" />
             </Grid>
         </Border>
         
@@ -199,9 +217,9 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Account Password</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}"  Text="Account Password"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Password</TextBlock>
+                    <TextBlock Text="Password"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -213,14 +231,14 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource ContainerHeader}">Tax Withholding</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Tax Withholding"/>
                 <StackPanel Grid.Row="1">
-                    <TextBlock >Tax Witholding Code</TextBlock>
-                    <TextBlock >Code</TextBlock>
-                    <TextBlock >Taxpayer</TextBlock>
-                    <TextBlock >Client Name</TextBlock>
-                    <TextBlock >Taxpayer ID</TextBlock>
-                    <TextBlock >xxx-xx-xxxx</TextBlock>
+                    <TextBlock Text="Tax Witholding Code"/>
+                    <TextBlock Text="Code"/>
+                    <TextBlock Text="Taxpayer"/>
+                    <TextBlock Text="Client Name"/>
+                    <TextBlock Text="Taxpayer ID"/>
+                    <TextBlock Text="xxx-xx-xxxx"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -233,14 +251,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Style="{StaticResource ContainerHeader}">Power of Attorney</TextBlock>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TableHeader}">Role</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Name</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Tax ID</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Compenstated ID</TextBlock>
-                    <TextBlock Style="{StaticResource TableHeader}">Emp/ReglA</TextBlock>
-                </StackPanel>
+                <TextBlock Style="{StaticResource ContainerHeader}" Text="Power of Attorney"/>
+                <!-- <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Role"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Name"/>
+                    <TextBlock Style="{StaticResource TableHeader}" Text="Tax ID"/>
+                </StackPanel> -->
+                <DataGrid Grid.Row="1" Name="PowerOfAttorneyDataGrid" />
             </Grid>
         </Border>  
 
@@ -261,41 +278,41 @@
                 </Grid.ColumnDefinitions>
 
                 
-                <TextBlock Style="{StaticResource ContainerHeader}" Grid.ColumnSpan="2">Account</TextBlock>
-                <TextBlock Grid.Row="1">Source of Funding</TextBlock>
+                <TextBlock Style="{StaticResource ContainerHeader}" Grid.ColumnSpan="2" Text="Account"/>
+                <TextBlock Grid.Row="1" Text="Source of Funding"/>
                 <StackPanel Grid.Row="2">
-                    <TextBlock>Salary / Wages / Savings</TextBlock>
-                    <TextBlock>Social Security Benefits</TextBlock>
-                    <TextBlock>Sale of Propery or Business</TextBlock>
-                    <TextBlock>Family / Relatives / Inheritence</TextBlock>
+                    <TextBlock Text="Salary / Wages / Savings"/>
+                    <TextBlock Text="Social Security Benefits"/>
+                    <TextBlock Text="Sale of Propery or Business"/>
+                    <TextBlock Text="Family / Relatives / Inheritence"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="2">
-                    <TextBlock>Investment Capital Gains</TextBlock>
-                    <TextBlock>Gifts</TextBlock>
-                    <TextBlock>Gambling / Lottery</TextBlock>
+                    <TextBlock Text="Investment Capital Gains"/>
+                    <TextBlock Text="Gifts"/>
+                    <TextBlock Text="Gambling / Lottery"/>
                 </StackPanel>
                 
-                <TextBlock Grid.Row="3">Purpose of Account</TextBlock>
+                <TextBlock Grid.Row="3" Text="Purpose of Account"/>
                 <StackPanel Grid.Row="4">
-                    <TextBlock>General Investing</TextBlock>
-                    <TextBlock>Investing for Estate Planning</TextBlock>
-                    <TextBlock>Investing for College</TextBlock>
-                    <TextBlock>Other</TextBlock>
+                    <TextBlock Text="General Investing"/>
+                    <TextBlock Text="Investing for Estate Planning"/>
+                    <TextBlock Text="Investing for College"/>
+                    <TextBlock Text="Other"/>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="2">
-                    <TextBlock>Investment of Pooleed Assets</TextBlock>
-                    <TextBlock>Investment for Tax Planning</TextBlock>
-                    <TextBlock>Investment for Retirement</TextBlock>
+                    <TextBlock Text="Investment of Pooled Assets"/>
+                    <TextBlock Text="Investment for Tax Planning"/>
+                    <TextBlock Text="Investment for Retirement"/>
                 </StackPanel>
 
-                <TextBlock Grid.Row="5">Anticipated Activity</TextBlock>
+                <TextBlock Grid.Row="5" Text="Anticipated Activity"/>
                 <StackPanel Grid.Row="6">
-                    <TextBlock>Less than 5</TextBlock>
-                    <TextBlock>11-20</TextBlock>
+                    <TextBlock Text="Less than 5"/>
+                    <TextBlock Text="11 - 20"/>
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="2">
-                    <TextBlock>5 - 10</TextBlock>
-                    <TextBlock>Moore than 20</TextBlock>
+                    <TextBlock Text="5 - 10"/>
+                    <TextBlock Text="More than 20"/>
                 </StackPanel>
             </Grid>
         </Border>       
