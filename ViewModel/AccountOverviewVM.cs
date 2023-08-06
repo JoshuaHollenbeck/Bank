@@ -61,7 +61,6 @@ namespace Bank.ViewModel
                 AccountCountryJurisdiction = "",
                 AccountStateJurisdiction = "",
                 AccountPassword = "",
-                TaxWitholdingCode = "",
                 TaxpayerID = "",
                 AccountFunding = 1,
                 AccountPurpose = 1,
