@@ -23,7 +23,6 @@ namespace Bank.ViewModel
         public string PrimaryContactCity { get; set; }
         public string PrimaryContactState { get; set; }
         public string PrimaryContactZip { get; set; }
-        public int InvestmentObjectives { get; set; }
         public string RepID { get; set; }
         public string EstablishedDate { get; set; }
         public string AccountStatus { get; set; }
@@ -34,7 +33,8 @@ namespace Bank.ViewModel
         public string TaxpayerID { get; set; }
         public int AccountFunding { get; set; }
         public int AccountPurpose { get; set; }
-        public bool AnticipatedActivity { get; set; }
+        public int InvestmentObjectives { get; set; }
+        public int AnticipatedActivity { get; set; }
 
         public static AccountOverviewVM GetAccount()
         {
@@ -54,7 +54,6 @@ namespace Bank.ViewModel
                 PrimaryContactCity = "Borington",
                 PrimaryContactState = "IA",
                 PrimaryContactZip = "52601",
-                InvestmentObjectives = 1,
                 RepID = "456de",
                 EstablishedDate = "08/15/2021",
                 AccountStatus = "Open",
@@ -62,10 +61,10 @@ namespace Bank.ViewModel
                 AccountStateJurisdiction = "",
                 AccountPassword = "",
                 TaxpayerID = "",
-                AccountFunding = 1,
-                AccountPurpose = 1,
-                AnticipatedActivity = true
-
+                AccountFunding = 4,
+                AccountPurpose = 3,
+                InvestmentObjectives = 3,
+                AnticipatedActivity = 0,
             }; 
             return account;
         }
