@@ -68,7 +68,7 @@ namespace Bank.ViewModel
         public ICommand ActivityCommand { get; set; }
         public ICommand HistoryCommand { get; set; }
         public ICommand SingleDepositCommand { get; set; }
-        public ICommand MultipleDepositCommand { get; set; }
+        public ICommand MultiDepositCommand { get; set; }
         public ICommand SplitDepositCommand { get; set; }
         public ICommand MoneylinkCommand { get; set; }
         private void Activity(object obj) => CurrentView = new ActivityVM();
@@ -121,7 +121,7 @@ namespace Bank.ViewModel
             ActivityCommand = new RelayCommand(Activity);
             HistoryCommand = new RelayCommand(History);
             SingleDepositCommand = new RelayCommand(SingleDeposit);
-            MultipleDepositCommand = new RelayCommand(MultiDeposit);
+            MultiDepositCommand = new RelayCommand(MultiDeposit);
             SplitDepositCommand = new RelayCommand(SplitDeposit);
             MoneylinkCommand = new RelayCommand(Moneylink);
 

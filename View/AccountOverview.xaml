@@ -14,6 +14,8 @@
     </UserControl.DataContext>
     <UserControl.Resources>
         <utilities:BoldTextConverter x:Key="BoldTextConverter" />
+        <utilities:BoolToColorConverter x:Key="BoolToColorConverter" />
+        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
     </UserControl.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
@@ -126,7 +128,7 @@
                     <StackPanel Grid.Row="1">
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Account Branch" />
-                        <TextBlock Text="Location" />
+                        <TextBlock Text="{Binding BranchLocation}" />
                     </StackPanel>
                     <Border Grid.Row="2"
                             BorderThickness="0, 1, 0, 1"
@@ -136,7 +138,9 @@
                                Style="{StaticResource ContainerHeader}"
                                Text="Account Password" />
                     <StackPanel Grid.Row="4">
-                        <TextBlock Text="Password" />
+                        <TextBlock Style="{StaticResource ContainerTitle}"
+                                   Text="Password" />
+                        <TextBlock Text="{Binding AccountPassword}" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -237,18 +241,27 @@
                                    Text="Mobile Banking" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="2FA" />
-                        <TextBlock Style="{StaticResource ContainerTitle}"
-                                   Text="Last Login Date" />
+                        <!-- <TextBlock Style="{StaticResource ContainerTitle}"
+                                   Text="Last Login Date" /> -->
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Biometrics" />
                     </StackPanel>
                     <StackPanel Grid.Row="1"
-                                Grid.Column="2">
-                        <TextBlock Text="{Binding OnlineBanking}" />
-                        <TextBlock Text="{Binding MobileBanking}" />
-                        <TextBlock Text="{Binding TwoFactor}" />
-                        <TextBlock Text="{Binding LastLogin}" />
-                        <TextBlock Text="{Binding Biometrics}" />
+                                Grid.Column="2"
+                                HorizontalAlignment ="Right">
+                        <TextBlock Text="{Binding OnlineBanking}" 
+                                   Foreground="{Binding OnlineBanking, Converter={StaticResource BoolToColorConverter}}" 
+                                   FontWeight="{Binding OnlineBanking, Converter={StaticResource BoolToFontWeightConverter}}" />
+                        <TextBlock Text="{Binding MobileBanking}" 
+                                   Foreground="{Binding MobileBanking, Converter={StaticResource BoolToColorConverter}}" 
+                                   FontWeight="{Binding MobileBanking, Converter={StaticResource BoolToFontWeightConverter}}" />
+                        <TextBlock Text="{Binding TwoFactor}" 
+                                   Foreground="{Binding TwoFactor, Converter={StaticResource BoolToColorConverter}}" 
+                                   FontWeight="{Binding TwoFactor, Converter={StaticResource BoolToFontWeightConverter}}" />
+                        <TextBlock Text="{Binding Biometrics}" 
+                                   Foreground="{Binding Biometrics, Converter={StaticResource BoolToColorConverter}}" 
+                                   FontWeight="{Binding Biometrics, Converter={StaticResource BoolToFontWeightConverter}}" />
+
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 Grid.ColumnSpan="2">

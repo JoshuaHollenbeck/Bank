@@ -114,10 +114,10 @@
                         <MenuItem Header="History" Command="{Binding HistoryCommand}" />
                         <MenuItem Header="Deposits">
                             <MenuItem Header="Single Deposit" Command="{Binding SingleDepositCommand}" />
-                            <MenuItem Header="Multiple Deposit" Command="{Binding MutlipleDepositCommand}" />
+                            <MenuItem Header="Multiple Deposit" Command="{Binding MultiDepositCommand}" />
                             <MenuItem Header="Split Deposit" Command="{Binding SplitDepositCommand}" />
                         </MenuItem>
-                        <MenuItem Header="Add MoneyLink" Command="{Binding AddMoneyLinkCommand}" />
+                        <MenuItem Header="Add MoneyLink" Command="{Binding MoneylinkCommand}" />
                     </MenuItem>
                     <MenuItem Header="Trading">
                         <MenuItem Header="Order Entry" Command="{Binding OrderEntryCommand}" />

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +30,21 @@ namespace Bank.ViewModel
         public string AccountCountryJurisdiction { get; set; }
         public string AccountStateJurisdiction { get; set; }
         public string AccountPassword { get; set; }
+        public string BranchLocation { get; set; }
         public string TaxWitholdingCode { get; set; }
         public string TaxpayerID { get; set; }
         public int AccountFunding { get; set; }
         public int AccountPurpose { get; set; }
         public int InvestmentObjectives { get; set; }
         public int AnticipatedActivity { get; set; }
+        public string AtmLimit { get; set; }
+        public string MoneyLinkLimit { get; set; }
+        public string WireLimit { get; set; }
+        public string EmailAddress { get; set; }
+        public bool OnlineBanking { get; set; }
+        public bool MobileBanking { get; set; }
+        public bool TwoFactor { get; set; }
+        public bool Biometrics { get; set; }
 
         public static AccountOverviewVM GetAccount()
         {
@@ -57,14 +67,24 @@ namespace Bank.ViewModel
                 RepID = "456de",
                 EstablishedDate = "08/15/2021",
                 AccountStatus = "Open",
-                AccountCountryJurisdiction = "",
-                AccountStateJurisdiction = "",
-                AccountPassword = "",
-                TaxpayerID = "",
+                AccountCountryJurisdiction = "United States",
+                AccountStateJurisdiction = "IA",
+                AccountPassword = "john21",
+                BranchLocation = "Cedar Rapids",
+                TaxpayerID = "458-47-5856",
                 AccountFunding = 4,
                 AccountPurpose = 3,
                 InvestmentObjectives = 3,
                 AnticipatedActivity = 0,
+                AtmLimit = "10000.00",
+                MoneyLinkLimit = "100000.00",
+                WireLimit = "100000.00",
+                EmailAddress = "stormyjones@example.com",
+                OnlineBanking = true,
+                MobileBanking = false,
+                TwoFactor = true,
+                Biometrics = true,
+                
             }; 
             return account;
         }
