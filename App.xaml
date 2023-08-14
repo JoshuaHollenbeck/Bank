@@ -16,6 +16,9 @@
                 <ResourceDictionary Source="Styles/ContainerHeader.xaml" />
                 <ResourceDictionary Source="Styles/ContainerTitle.xaml" />
                 <ResourceDictionary Source="Styles/Button.xaml" />
+                <ResourceDictionary Source="Styles/EntryText.xaml" />
+                <ResourceDictionary Source="Styles/EntryTextBox.xaml" />
+                <ResourceDictionary Source="Styles/EntryComboBox.xaml" />
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
 
             </ResourceDictionary.MergedDictionaries>

@@ -31,7 +31,6 @@ namespace Bank.ViewModel
         public string AccountStateJurisdiction { get; set; }
         public string AccountPassword { get; set; }
         public string BranchLocation { get; set; }
-        public string TaxWitholdingCode { get; set; }
         public string TaxpayerID { get; set; }
         public int AccountFunding { get; set; }
         public int AccountPurpose { get; set; }

@@ -8,10 +8,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
+using System.Windows.Media; 
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bank.ViewModel;
+
 
 namespace Bank.View
 {
@@ -20,9 +22,12 @@ namespace Bank.View
     /// </summary>
     public partial class AddClient : UserControl
     {
+       
         public AddClient()
         {
             InitializeComponent();
+            DataContext = new AddClientVM();
         }
+
     }
 }

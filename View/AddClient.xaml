@@ -4,28 +4,283 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:Bank.ViewModel"
+             xmlns:utilities="clr-namespace:Bank.Utilities"
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="622"
              Style="{StaticResource Page_Style}">
-
     <UserControl.DataContext>
         <vm:AddClientVM />
     </UserControl.DataContext>
-    
-    <Grid>
-        <TabControl>
-            <TabItem>
-                <TabItem.Header>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Add Client</TextBlock>
-                </StackPanel>
-                </TabItem.Header>
-                <StackPanel>
-                <TextBlock>Enter some text</TextBlock>
-                <TextBox Name="textBox1" Width="50"/>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
-    </Grid>
+    <UserControl.Resources>
+        <utilities:BoldTextConverter x:Key="BoldTextConverter" />
+        <utilities:BoolToColorConverter x:Key="BoolToColorConverter" />
+        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="2"
+                    BorderBrush="#cccccc"
+                    Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource ContainerHeader}"
+                               Grid.ColumnSpan="2"
+                               Text="Client Information" />
+                    <!-- First Name -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="1">First Name</Label>
+                    <TextBox Grid.Row="1"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Middle Name/Initial -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="2">Middle Name/Initial</Label>
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Last Name -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="3">Last Name</Label>
+                    <TextBox Grid.Row="3"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Suffix -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="4">Suffix</Label>
+                    <TextBox Grid.Row="4"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Date of Birth -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="5">Date of Birth</Label>
+                    <TextBox Grid.Row="5"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <Border Grid.Row="6"
+                            BorderThickness="0, 1, 0, 1"
+                            BorderBrush="#cccccc"
+                            Margin="-5,5" />
+                    <TextBlock Style="{StaticResource ContainerHeader}"
+                               Grid.ColumnSpan="2"
+                               Grid.Row="7"
+                               Text="Client Identification" />
+                    <!-- Social Security Number -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="8"
+                           Margin="0,-2,0,0">Social Security Number</Label>
+                    <TextBox Grid.Row="8"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Identification Type -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="9">Identification Type</Label>
+                    <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding IdTypeCollection}"
+                              Name="cmbIdType"
+                              Grid.Row="9"
+                              Grid.Column="1"
+                              IsTextSearchEnabled="True"
+                              TextSearch.TextPath="ID_Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ID_Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <!-- Identification State -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="10">Identification State</Label>
+                    <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding StateCollection}"
+                              Name="cmbState"
+                              Grid.Row="10"
+                              Grid.Column="1"
+                              IsTextSearchEnabled="True"
+                              TextSearch.TextPath="State_Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding State}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <!-- Identification Number -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="11">Identification Number</Label>
+                    <TextBox Grid.Row="11"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Identification Expiration Month -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="12">Identification Exp. Month</Label>
+                    <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding MonthCollection}"
+                              Name="cmbMonthType"
+                              Grid.Row="12"
+                              Grid.Column="1"
+                              IsTextSearchEnabled="True"
+                              TextSearch.TextPath="Month_ID">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Month}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <!-- Identification Expiration Year -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="13">Identification Exp. Year</Label>
+                    <TextBox Grid.Row="13"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Mother's Maiden Name -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="14">Mother's Maiden Name</Label>
+                    <TextBox Grid.Row="14"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                </Grid>
+            </Border>
+            <Border BorderThickness="0,2,2,2"
+                    BorderBrush="#cccccc"
+                    Padding="5"
+                    Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource ContainerHeader}"
+                               Grid.ColumnSpan="2"
+                               Text="Client Contact" />
+                    <!-- Email -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="1">Email</Label>
+                    <TextBox Grid.Row="1"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Home Phone -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="2">Home Phone</Label>
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Mobile Phone -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="3">Mobile Phone</Label>
+                    <TextBox Grid.Row="3"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Business Phone -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="4">Business Phone</Label>
+                    <TextBox Grid.Row="4"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Address Line 1 -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="5">Address Line 1</Label>
+                    <TextBox Grid.Row="5"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Address Line 2 -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="6">Address Line 2</Label>
+                    <TextBox Grid.Row="6"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- City -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="7">City</Label>
+                    <TextBox Grid.Row="7"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- State -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="8">State</Label>
+                    <TextBox Grid.Row="8"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Zip Code -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="9">Zip Code</Label>
+                    <TextBox Grid.Row="9"
+                             Grid.Column="1"
+                             Style="{StaticResource EntryTextBox}" />
+                    <!-- Country -->
+                    <Label Style="{StaticResource EntryText}"
+                           Grid.Row="10">Country</Label>
+                    <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding FilteredCountries}"
+                              DisplayMemberPath="Country_Name"
+                              Name="cmbCountry"
+                              Grid.Row="10"
+                              Grid.Column="1">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding SearchText}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+            </Border>
+            <!-- InitialContactMethod
+                    AccountType
+                    RepID
+                    EstablishedDate
+                    AccountStatus
+                    AccountCountryJurisdiction
+                    AccountStateJurisdiction
+                    AccountPassword
+                    BranchLocation
+                    TaxWitholdingCode
+                    
+                    AccountFunding
+                    AccountPurpose
+                    InvestmentObjectives
+                    AnticipatedActivity -->
+            <!-- TODO Starting Deposit -->
+        </Grid>
+    </ScrollViewer>
 </UserControl>

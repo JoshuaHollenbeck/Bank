@@ -9,6 +9,7 @@
              d:DesignHeight="600"
              d:DesignWidth="622"
              Style="{StaticResource Page_Style}">
+             
     <UserControl.DataContext>
         <vm:AccountOverviewVM />
     </UserControl.DataContext>
@@ -17,7 +18,7 @@
         <utilities:BoolToColorConverter x:Key="BoolToColorConverter" />
         <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
     </UserControl.Resources>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+   <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
         <Grid Margin="5">
             <Grid.RowDefinitions>
@@ -455,4 +456,4 @@
             </Border>
         </Grid>
     </ScrollViewer>
-</UserControl>
+</UserControl> 
