@@ -251,15 +251,29 @@
                     <!-- Country -->
                     <Label Style="{StaticResource EntryText}"
                            Grid.Row="10">Country</Label>
-                    <ComboBox Style="{StaticResource EntryComboBox}"
-                              ItemsSource="{Binding FilteredCountries}"
+                    <!-- <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding CountryCollection}"
                               DisplayMemberPath="Country_Name"
                               Name="cmbCountry"
                               Grid.Row="10"
                               Grid.Column="1">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding SearchText}" />
+                                <TextBlock Text="{Binding Country}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox> -->
+
+                    <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding CountryCollection}"
+                              Name="cmbCountry"
+                              Grid.Row="10"
+                              Grid.Column="1"
+                              IsTextSearchEnabled="True"
+                              TextSearch.TextPath="Country_Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding CountryName}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>

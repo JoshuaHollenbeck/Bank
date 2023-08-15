@@ -26,8 +26,9 @@ namespace Bank.Model
 
     public class CountryModel
     {
-        public string Country_Abbr { get; set; }
         public string Country_Name { get; set; }
+        public string Country_Code { get; set; }
+        public bool Can_Open { get; set; }
         public string Country { get; set; }
     }
 }

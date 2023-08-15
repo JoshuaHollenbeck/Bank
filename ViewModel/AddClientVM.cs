@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Threading;
+using System.Xml.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +30,8 @@ namespace Bank.ViewModel
             // Trust Server Certificate is to tell the application not to care about trusting the server's certficate
             // Not safe for production environments
             
-            string connectionString = "Data Source=LAPTOP-M4J440IF;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True;Min Pool Size=10;Max Pool Size=100;Connect Timeout=30";
+            string connectionString = "Data Source=DESKTOP-OV51U4G\\DEVELOPER;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True;Min Pool Size=10;Max Pool Size=100;Connect Timeout=30";
+            // string connectionString = "Data Source=LAPTOP-M4J440IF;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True;Min Pool Size=10;Max Pool Size=100;Connect Timeout=30";
             IdTypeCollection = new ObservableCollection<IdTypeModel>();
             MonthCollection = new ObservableCollection<MonthModel>();
             StateCollection = new ObservableCollection<StateModel>();
@@ -80,7 +83,7 @@ namespace Bank.ViewModel
                     }
                 }
 
-                string country_query = "SELECT country_abbr, country_name from LU_country";
+                string country_query = "SELECT country_name, country_code, can_open from LU_country";
                 using (SqlCommand command = new SqlCommand(country_query, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -89,9 +92,10 @@ namespace Bank.ViewModel
                     {
                         CountryCollection.Add(new CountryModel
                         {
-                            Country_Abbr = reader.GetString(0),
-                            Country_Name = reader.GetString(1),
-                            Country = $"{reader.GetString(0)} - {reader.GetString(1)}"
+                            Country_Name = reader.GetString(0),
+                            Country_Code = reader.GetString(1),
+                            Can_Open = reader.GetBoolean(2),
+                            Country = $"{reader.GetString(0)} - {reader.GetBoolean(2)}"                           
                         });
                     }
                 }
