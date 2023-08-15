@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
     <Style x:Key="ContainerHeader"
            TargetType="TextBlock">
-
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Foreground"
@@ -16,7 +14,5 @@
                 Value="5,0,0,0" />
         <Setter Property="FontWeight"
                 Value="Bold" />
-
     </Style>
-    
 </ResourceDictionary>

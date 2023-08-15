@@ -77,9 +77,19 @@
                     <!-- Suffix -->
                     <Label Style="{StaticResource EntryText}"
                            Grid.Row="4">Suffix</Label>
-                    <TextBox Grid.Row="4"
-                             Grid.Column="1"
-                             Style="{StaticResource EntryTextBox}" />
+                    <ComboBox Style="{StaticResource EntryComboBox}"
+                              ItemsSource="{Binding SuffixCollection}"
+                              Name="cmbSuffixType"
+                              Grid.Row="4"
+                              Grid.Column="1"
+                              IsTextSearchEnabled="True"
+                              TextSearch.TextPath="Suffix_Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Suffix_Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <!-- Date of Birth -->
                     <Label Style="{StaticResource EntryText}"
                            Grid.Row="5">Date of Birth</Label>
@@ -251,19 +261,6 @@
                     <!-- Country -->
                     <Label Style="{StaticResource EntryText}"
                            Grid.Row="10">Country</Label>
-                    <!-- <ComboBox Style="{StaticResource EntryComboBox}"
-                              ItemsSource="{Binding CountryCollection}"
-                              DisplayMemberPath="Country_Name"
-                              Name="cmbCountry"
-                              Grid.Row="10"
-                              Grid.Column="1">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Country}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox> -->
-
                     <ComboBox Style="{StaticResource EntryComboBox}"
                               ItemsSource="{Binding CountryCollection}"
                               Name="cmbCountry"
@@ -273,28 +270,12 @@
                               TextSearch.TextPath="Country_Name">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding CountryName}" />
+                                <TextBlock Text="{Binding Country_Name}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </Grid>
             </Border>
-            <!-- InitialContactMethod
-                    AccountType
-                    RepID
-                    EstablishedDate
-                    AccountStatus
-                    AccountCountryJurisdiction
-                    AccountStateJurisdiction
-                    AccountPassword
-                    BranchLocation
-                    TaxWitholdingCode
-                    
-                    AccountFunding
-                    AccountPurpose
-                    InvestmentObjectives
-                    AnticipatedActivity -->
-            <!-- TODO Starting Deposit -->
         </Grid>
     </ScrollViewer>
 </UserControl>

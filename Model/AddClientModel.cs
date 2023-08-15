@@ -17,6 +17,7 @@ namespace Bank.Model
         public string State_Name { get; set; }
         public string State { get; set; }
     }
+
     public class MonthModel
     {
         public int Month_ID { get; set; }
@@ -27,8 +28,10 @@ namespace Bank.Model
     public class CountryModel
     {
         public string Country_Name { get; set; }
-        public string Country_Code { get; set; }
-        public bool Can_Open { get; set; }
-        public string Country { get; set; }
+    }
+
+    public class SuffixModel
+    {
+        public string Suffix_Name { get; set; }
     }
 }

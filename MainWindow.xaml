@@ -13,11 +13,9 @@
         Width="1080"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
-
     <Window.DataContext>
         <vm:NavigationVM />
     </Window.DataContext>
-
     <Grid Background="#f0f0f0">
         <!-- Window Border -->
         <Grid>
@@ -33,42 +31,60 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
             <!-- Navigation Panel -->
-            <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#E5E4E2" >
+            <Grid Grid.Row="0"
+                  Grid.ColumnSpan="2"
+                  Background="#E5E4E2">
                 <Menu>
                     <MenuItem Header="File">
-                        <MenuItem Header="New Session" Command="{Binding NewSessionCommand}" />
-                        <MenuItem Header="Clear Session" Command="{Binding ClearSessionCommand}" />
-                        <MenuItem Header="Print Preview" Command="{Binding PrintPreviewCommand}" />
-                        <MenuItem Header="Print" Command="{Binding PrintCommand}" />
-                        <MenuItem Header="Exit" Click="Exit" />
+                        <MenuItem Header="New Session"
+                                  Command="{Binding NewSessionCommand}" />
+                        <MenuItem Header="Clear Session"
+                                  Command="{Binding ClearSessionCommand}" />
+                        <MenuItem Header="Print Preview"
+                                  Command="{Binding PrintPreviewCommand}" />
+                        <MenuItem Header="Print"
+                                  Command="{Binding PrintCommand}" />
+                        <MenuItem Header="Exit"
+                                  Click="Exit" />
                     </MenuItem>
                     <MenuItem Header="Clients">
-                        <MenuItem Header="Add Client" Command="{Binding AddClientCommand}" />
-                        <MenuItem Header="Organize Clients" Command="{Binding OrganizeClientsCommand}" />
+                        <MenuItem Header="Add Client"
+                                  Command="{Binding AddClientCommand}" />
+                        <MenuItem Header="Organize Clients"
+                                  Command="{Binding OrganizeClientsCommand}" />
                     </MenuItem>
                     <MenuItem Header="History" />
                     <MenuItem Header="Help">
-                        <MenuItem Header="Main Client Knowledge Center" Command="{Binding MainClientKnowledgeCommand}" />
-                        <MenuItem Header="Tips and Tricks" Command="{Binding TipsAndTricksCommand}" />
+                        <MenuItem Header="Main Client Knowledge Center"
+                                  Command="{Binding MainClientKnowledgeCommand}" />
+                        <MenuItem Header="Tips and Tricks"
+                                  Command="{Binding TipsAndTricksCommand}" />
                     </MenuItem>
                 </Menu>
-            </Grid> 
-
+            </Grid>
             <!-- Search Navigation -->
-            <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0 2 0 2" BorderBrush="#cccccc"> 
+            <Border Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    BorderThickness="0 2 0 2"
+                    BorderBrush="#cccccc">
                 <Grid>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox Width="200" Margin="5">Account #, Tax ID, Last Name</TextBox>
-                        <Button Click="Search_Click" Margin="5">Search</Button>
-                        <Button Click="AdvancedSearch_Click" Margin="5">Advanced Search</Button>
+                        <TextBox Width="200"
+                                 Margin="5">Account #, Tax ID, Last Name</TextBox>
+                        <Button Click="Search_Click"
+                                Margin="5">Search</Button>
+                        <Button Click="AdvancedSearch_Click"
+                                Margin="5">Advanced Search</Button>
                     </StackPanel>
-                </Grid>  
+                </Grid>
             </Border>
-
             <!-- Client Navigation -->
-            <Border Grid.Row="2" Margin="2, 0, 2, 0" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="#cccccc"> 
+            <Border Grid.Row="2"
+                    Margin="2, 0, 2, 0"
+                    Grid.ColumnSpan="2"
+                    BorderThickness="0 0 0 2"
+                    BorderBrush="#cccccc">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -80,59 +96,83 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Column="0" Margin="5" >Client Name</TextBlock>
-                    <Button Grid.Column="1" Margin="5, 2, 5, 5" Click="SwitchClient_Click">Switch</Button>
-                    <ComboBox Grid.Column="2" Margin="5, 3, 5, 5" Width="400" ></ComboBox>
-                    <Button Grid.Column="3" Margin="5, 2, 5, 5" Click="ClearSession_Click" >Clear Session</Button>
-                    <TextBlock Grid.Column="4" Margin="5" >Word of the Day</TextBlock>
+                    <TextBlock Grid.Column="0"
+                               Margin="5">Client Name</TextBlock>
+                    <Button Grid.Column="1"
+                            Margin="5, 2, 5, 5"
+                            Click="SwitchClient_Click">Switch</Button>
+                    <ComboBox Grid.Column="2"
+                              Margin="5, 3, 5, 5"
+                              Width="400" />
+                    <Button Grid.Column="3"
+                            Margin="5, 2, 5, 5"
+                            Click="ClearSession_Click">Clear Session</Button>
+                    <TextBlock Grid.Column="4"
+                               Margin="5">Word of the Day</TextBlock>
                 </Grid>
             </Border>
-
             <!-- Client Account Navigation -->
-            <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="#cccccc">
+            <Border Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    BorderThickness="0 0 0 2"
+                    BorderBrush="#cccccc">
                 <Menu>
                     <Menu.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal"/>
+                            <StackPanel VerticalAlignment="Center"
+                                        Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </Menu.ItemsPanel>
                     <MenuItem Header="Client &amp; Accounts">
-                        <MenuItem Header="Client Overview" Command="{Binding ClientOverviewCommand}" />
-                        <MenuItem Header="Account Overview" Command="{Binding AccountOverviewCommand}" />
-                        <MenuItem Header="Balances" Command="{Binding BalancesCommand}" />
-                        <MenuItem Header="Positions" Command="{Binding PositionsCommand}" />
-                        <MenuItem Header="Transactions" Command="{Binding TransactionsCommand}" />
-                        <MenuItem Header="Client Access History" Command="{Binding AccessHistoryCommand}" />
+                        <MenuItem Header="Client Overview"
+                                  Command="{Binding ClientOverviewCommand}" />
+                        <MenuItem Header="Account Overview"
+                                  Command="{Binding AccountOverviewCommand}" />
+                        <MenuItem Header="Balances"
+                                  Command="{Binding BalancesCommand}" />
+                        <MenuItem Header="Positions"
+                                  Command="{Binding PositionsCommand}" />
+                        <MenuItem Header="Transactions"
+                                  Command="{Binding TransactionsCommand}" />
+                        <MenuItem Header="Client Access History"
+                                  Command="{Binding AccessHistoryCommand}" />
                     </MenuItem>
                     <MenuItem Header="Notes">
-                        <MenuItem Header="View Notes" Command="{Binding ViewNotesCommand}" />
-                        <MenuItem Header="Add Notes" Command="{Binding AddNotesCommand}" />
+                        <MenuItem Header="View Notes"
+                                  Command="{Binding ViewNotesCommand}" />
+                        <MenuItem Header="Add Notes"
+                                  Command="{Binding AddNotesCommand}" />
                     </MenuItem>
                     <MenuItem Header="Cashiering">
-                        <MenuItem Header="Activity &amp; Standing Instructions" Command="{Binding ActivityCommand}" />
-                        <MenuItem Header="History" Command="{Binding HistoryCommand}" />
+                        <MenuItem Header="Activity &amp; Standing Instructions"
+                                  Command="{Binding ActivityCommand}" />
+                        <MenuItem Header="History"
+                                  Command="{Binding HistoryCommand}" />
                         <MenuItem Header="Deposits">
-                            <MenuItem Header="Single Deposit" Command="{Binding SingleDepositCommand}" />
-                            <MenuItem Header="Multiple Deposit" Command="{Binding MultiDepositCommand}" />
-                            <MenuItem Header="Split Deposit" Command="{Binding SplitDepositCommand}" />
+                            <MenuItem Header="Single Deposit"
+                                      Command="{Binding SingleDepositCommand}" />
+                            <MenuItem Header="Multiple Deposit"
+                                      Command="{Binding MultiDepositCommand}" />
+                            <MenuItem Header="Split Deposit"
+                                      Command="{Binding SplitDepositCommand}" />
                         </MenuItem>
-                        <MenuItem Header="Add MoneyLink" Command="{Binding MoneylinkCommand}" />
+                        <MenuItem Header="Add MoneyLink"
+                                  Command="{Binding MoneylinkCommand}" />
                     </MenuItem>
                     <MenuItem Header="Trading">
-                        <MenuItem Header="Order Entry" Command="{Binding OrderEntryCommand}" />
-                        <MenuItem Header="Order Status" Command="{Binding OrderStatusCommand}" />
+                        <MenuItem Header="Order Entry"
+                                  Command="{Binding OrderEntryCommand}" />
+                        <MenuItem Header="Order Status"
+                                  Command="{Binding OrderStatusCommand}" />
                     </MenuItem>
                 </Menu>
             </Border>
-
             <!-- Main Page -->
-            <Grid Grid.Row="4" Grid.ColumnSpan="2">
-                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+            <Grid Grid.Row="4"
+                  Grid.ColumnSpan="2">
+                <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}" />
             </Grid>
-            
         </Grid>
-
-    </Grid> 
-
+    </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Net.NetworkInformation;
+using System.Threading;
 using System.Xml.Linq;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Bank.ViewModel
         public ObservableCollection<MonthModel> MonthCollection { get; set; }
         public ObservableCollection<StateModel> StateCollection { get; set; }
         public ObservableCollection<CountryModel> CountryCollection { get; set; }
+        public ObservableCollection<SuffixModel> SuffixCollection { get; set; }
 
         public AddClientVM()
         {
@@ -25,17 +27,33 @@ namespace Bank.ViewModel
 
         private void LoadTypes()
         {
-            // Change Data Source to your server
+            /*
+            Change Data Source to your server
+            Trust Server Certificate is to tell the application not to care about trusting the server's certficate
+            Not safe for production environments
+            */
 
-            // Trust Server Certificate is to tell the application not to care about trusting the server's certficate
-            // Not safe for production environments
-            
-            string connectionString = "Data Source=DESKTOP-OV51U4G\\DEVELOPER;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True;Min Pool Size=10;Max Pool Size=100;Connect Timeout=30";
-            // string connectionString = "Data Source=LAPTOP-M4J440IF;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True;Min Pool Size=10;Max Pool Size=100;Connect Timeout=30";
+            // string connectionString =
+            // "Data Source=DESKTOP-OV51U4G\\DEVELOPER;"
+            //     + "Initial Catalog=BankDB;"
+            //     + "Integrated Security=True;"
+            //     + "TrustServerCertificate=True;"
+            //     + "Min Pool Size=10;"
+            //     + "Max Pool Size=100;"
+            //     + "Connect Timeout=30";
+            string connectionString =
+                "Data Source=LAPTOP-M4J440IF\\SQL2017;"
+                + "Initial Catalog=BankDB;"
+                + "Integrated Security=True;"
+                + "TrustServerCertificate=True;"
+                + "Min Pool Size=10;"
+                + "Max Pool Size=100;"
+                + "Connect Timeout=30";
             IdTypeCollection = new ObservableCollection<IdTypeModel>();
             MonthCollection = new ObservableCollection<MonthModel>();
             StateCollection = new ObservableCollection<StateModel>();
             CountryCollection = new ObservableCollection<CountryModel>();
+            SuffixCollection = new ObservableCollection<SuffixModel>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -46,10 +64,7 @@ namespace Bank.ViewModel
                 {
                     while (reader.Read())
                     {
-                        IdTypeCollection.Add(new IdTypeModel
-                        {
-                            ID_Name = reader.GetString(0)
-                        });
+                        IdTypeCollection.Add(new IdTypeModel { ID_Name = reader.GetString(0) });
                     }
                 }
 
@@ -59,12 +74,14 @@ namespace Bank.ViewModel
                 {
                     while (reader.Read())
                     {
-                        StateCollection.Add(new StateModel
-                        {
-                            State_Abbr = reader.GetString(0),
-                            State_Name = reader.GetString(1),
-                            State = $"{reader.GetString(0)} - {reader.GetString(1)}"
-                        });
+                        StateCollection.Add(
+                            new StateModel
+                            {
+                                State_Abbr = reader.GetString(0),
+                                State_Name = reader.GetString(1),
+                                State = $"{reader.GetString(0)} - {reader.GetString(1)}"
+                            }
+                        );
                     }
                 }
 
@@ -74,29 +91,38 @@ namespace Bank.ViewModel
                 {
                     while (reader.Read())
                     {
-                        MonthCollection.Add(new MonthModel
-                        {
-                            Month_ID = reader.GetInt32(0),
-                            Month_Name = reader.GetString(1),
-                            Month = $"{reader.GetInt32(0)} - {reader.GetString(1)}"
-                        });
+                        MonthCollection.Add(
+                            new MonthModel
+                            {
+                                Month_ID = reader.GetInt32(0),
+                                Month_Name = reader.GetString(1),
+                                Month = $"{reader.GetInt32(0)} - {reader.GetString(1)}"
+                            }
+                        );
                     }
                 }
 
-                string country_query = "SELECT country_name, country_code, can_open from LU_country";
+                string country_query = "SELECT country_name from LU_country where can_open = 1";
                 using (SqlCommand command = new SqlCommand(country_query, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
-                    // TODO add search filtering
                     {
-                        CountryCollection.Add(new CountryModel
-                        {
-                            Country_Name = reader.GetString(0),
-                            Country_Code = reader.GetString(1),
-                            Can_Open = reader.GetBoolean(2),
-                            Country = $"{reader.GetString(0)} - {reader.GetBoolean(2)}"                           
-                        });
+                        CountryCollection.Add(
+                            new CountryModel { Country_Name = reader.GetString(0), }
+                        );
+                    }
+                }
+
+                string suffix_query = "SELECT suffix_name from LU_suffix";
+                using (SqlCommand command = new SqlCommand(suffix_query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        SuffixCollection.Add(
+                            new SuffixModel { Suffix_Name = reader.GetString(0), }
+                        );
                     }
                 }
             }
