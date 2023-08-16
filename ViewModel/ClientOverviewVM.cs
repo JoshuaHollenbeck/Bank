@@ -9,9 +9,12 @@ namespace Bank.ViewModel
 {
     class ClientOverviewVM : Utilities.ViewModelBase
     {
-        public ClientOverviewVM()
+        public bool DoNotCall { get; set; }
+
+        public static ClientOverviewVM GetAccount()
         {
-            // TODO Add functionality
+            var account = new ClientOverviewVM() { DoNotCall = true, };
+            return account;
         }
     }
 }

@@ -13,9 +13,8 @@
         <vm:AddClientVM />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <utilities:BoldTextConverter x:Key="BoldTextConverter" />
-        <utilities:BoolToColorConverter x:Key="BoolToColorConverter" />
-        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
+        <utilities:BoolToBrushConverter x:Key="BoolToBrushConverter" FalseValue="Red" TrueValue="LimeGreen" />
+        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" FalseValue="Normal" TrueValue="Bold"/>
     </UserControl.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">

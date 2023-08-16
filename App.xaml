@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Styles/Page.xaml" />
                 <ResourceDictionary Source="Styles/Image.xaml" />
                 <ResourceDictionary Source="Styles/TableHeader.xaml" />
+                <ResourceDictionary Source="Styles/ContainerButton.xaml" />
                 <ResourceDictionary Source="Styles/ContainerHeader.xaml" />
                 <ResourceDictionary Source="Styles/ContainerTitle.xaml" />
                 <ResourceDictionary Source="Styles/Button.xaml" />

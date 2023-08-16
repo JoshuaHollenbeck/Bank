@@ -33,22 +33,22 @@ namespace Bank.ViewModel
             Not safe for production environments
             */
 
-            // string connectionString =
-            // "Data Source=DESKTOP-OV51U4G\\DEVELOPER;"
-            //     + "Initial Catalog=BankDB;"
-            //     + "Integrated Security=True;"
-            //     + "TrustServerCertificate=True;"
-            //     + "Min Pool Size=10;"
-            //     + "Max Pool Size=100;"
-            //     + "Connect Timeout=30";
             string connectionString =
-                "Data Source=LAPTOP-M4J440IF\\SQL2017;"
+            "Data Source=DESKTOP-OV51U4G\\SQL2017;"
                 + "Initial Catalog=BankDB;"
                 + "Integrated Security=True;"
                 + "TrustServerCertificate=True;"
                 + "Min Pool Size=10;"
                 + "Max Pool Size=100;"
                 + "Connect Timeout=30";
+            // string connectionString =
+            //     "Data Source=LAPTOP-M4J440IF\\SQL2017;"
+            //     + "Initial Catalog=BankDB;"
+            //     + "Integrated Security=True;"
+            //     + "TrustServerCertificate=True;"
+            //     + "Min Pool Size=10;"
+            //     + "Max Pool Size=100;"
+            //     + "Connect Timeout=30";
             IdTypeCollection = new ObservableCollection<IdTypeModel>();
             MonthCollection = new ObservableCollection<MonthModel>();
             StateCollection = new ObservableCollection<StateModel>();

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bank.ViewModel;
 
 namespace Bank.View
 {
@@ -23,6 +24,7 @@ namespace Bank.View
         public ClientOverview()
         {
             InitializeComponent();
+            DataContext = ClientOverviewVM.GetAccount();
         }
     }
 }

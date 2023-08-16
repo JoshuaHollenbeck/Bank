@@ -15,12 +15,15 @@ namespace Bank.ViewModel
         public object CurrentView
         {
             get { return _currentView; }
-            set { _currentView = value; OnPropertyChanged(); }
+            set
+            {
+                _currentView = value;
+                OnPropertyChanged();
+            }
         }
         // Startup
         public ICommand HomeCommand { get; set; }
         private void Home(object obj) => CurrentView = new HomeVM();
-        
         // File
         public ICommand NewSessionCommand { get; }
         public ICommand ClearSessionCommand { get; }
@@ -31,19 +34,17 @@ namespace Bank.ViewModel
         private void ClearSession(object parameter) => CurrentView = new ClearSessionVM();
         private void PrintPreview(object parameter) => CurrentView = new PrintPreviewVM();
         private void Print(object parameter) => CurrentView = new PrintVM();
-
         // Clients
         public ICommand AddClientCommand { get; }
         public ICommand OrganizeClientsCommand { get; }
         private void AddClient(object parameter) => CurrentView = new AddClientVM();
         private void OrganizeClients(object parameter) => CurrentView = new OrganizeClientsVM();
-        
         // Help
         public ICommand MainClientKnowledgeCommand { get; }
         public ICommand TipsAndTricksCommand { get; }
-        private void MainClientKnowledge(object parameter) => CurrentView = new MainClientKnowledgeVM();
+        private void MainClientKnowledge(object parameter) =>
+            CurrentView = new MainClientKnowledgeVM();
         private void TipsAndTricks(object parameter) => CurrentView = new TipsAndTricksVM();
-
         // Client & Accounts
         public ICommand ClientOverviewCommand { get; set; }
         public ICommand AccountOverviewCommand { get; set; }
@@ -57,13 +58,11 @@ namespace Bank.ViewModel
         private void Positions(object obj) => CurrentView = new PositionsVM();
         private void Transactions(object obj) => CurrentView = new TransactionsVM();
         private void AccessHistory(object obj) => CurrentView = new AccessHistoryVM();
-        
         // Notes
         public ICommand ViewNotesCommand { get; set; }
         public ICommand AddNotesCommand { get; set; }
         private void ViewNotes(object obj) => CurrentView = new ViewNotesVM();
         private void AddNotes(object obj) => CurrentView = new AddNotesVM();
-
         // Cashiering
         public ICommand ActivityCommand { get; set; }
         public ICommand HistoryCommand { get; set; }
@@ -77,23 +76,18 @@ namespace Bank.ViewModel
         private void MultiDeposit(object obj) => CurrentView = new MultiDepositVM();
         private void SplitDeposit(object obj) => CurrentView = new SplitDepositVM();
         private void Moneylink(object obj) => CurrentView = new MoneylinkVM();
-
-
         // Trading
         public ICommand OrderEntryCommand { get; set; }
         public ICommand OrderStatusCommand { get; set; }
         private void OrderEntry(object obj) => CurrentView = new OrderEntryVM();
         private void OrderStatus(object obj) => CurrentView = new OrderStatusVM();
-
         // Settings
         public ICommand SettingsCommand { get; set; }
         private void Setting(object obj) => CurrentView = new SettingsVM();
-        
         public NavigationVM()
         {
             // Startup Page
             CurrentView = new HomeVM();
-
             // File
             NewSessionCommand = new RelayCommand(NewSession);
             ClearSessionCommand = new RelayCommand(ClearSession);
@@ -103,7 +97,6 @@ namespace Bank.ViewModel
             OrganizeClientsCommand = new RelayCommand(OrganizeClients);
             MainClientKnowledgeCommand = new RelayCommand(MainClientKnowledge);
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
-
             // Client & Accounts
             HomeCommand = new RelayCommand(Home);
             ClientOverviewCommand = new RelayCommand(ClientOverview);
@@ -112,11 +105,9 @@ namespace Bank.ViewModel
             PositionsCommand = new RelayCommand(Positions);
             TransactionsCommand = new RelayCommand(Transactions);
             AccessHistoryCommand = new RelayCommand(AccessHistory);
-            
             // Notes
             ViewNotesCommand = new RelayCommand(ViewNotes);
             AddNotesCommand = new RelayCommand(AddNotes);
-
             // Cashiering
             ActivityCommand = new RelayCommand(Activity);
             HistoryCommand = new RelayCommand(History);
@@ -124,11 +115,9 @@ namespace Bank.ViewModel
             MultiDepositCommand = new RelayCommand(MultiDeposit);
             SplitDepositCommand = new RelayCommand(SplitDeposit);
             MoneylinkCommand = new RelayCommand(Moneylink);
-
             // Trading
             OrderEntryCommand = new RelayCommand(OrderEntry);
             OrderStatusCommand = new RelayCommand(OrderStatus);
-
             // Settings
             SettingsCommand = new RelayCommand(Setting);
         }

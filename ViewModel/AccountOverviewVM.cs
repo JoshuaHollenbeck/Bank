@@ -44,11 +44,34 @@ namespace Bank.ViewModel
         public bool MobileBanking { get; set; }
         public bool TwoFactor { get; set; }
         public bool Biometrics { get; set; }
+        public bool Salary { get; set; }
+        public bool SocialSecurity { get; set; }
+        public bool PropertySale { get; set; }
+        public bool Inheritence { get; set; }
+        public bool CapitalGains { get; set; }
+        public bool Gifts { get; set; }
+        public bool Gambling { get; set; }
+        public bool GenInvesting { get; set; }
+        public bool EstatePlanning { get; set; }
+        public bool CollegePlanning { get; set; }
+        public bool Other { get; set; }
+        public bool PooledAssets { get; set; }
+        public bool TaxPlanning { get; set; }
+        public bool RetirementPlanning { get; set; }
+        public bool CapitalPreservation { get; set; }
+        public bool Growth { get; set; }
+        public bool Income { get; set; }
+        public bool Speculation { get; set; }
+        public bool DeclinedToAnswer { get; set; }
+        public bool LessFive { get; set; }
+        public bool ElevenTwenty { get; set; }
+        public bool FiveTen { get; set; }
+        public bool MoreTwenty { get; set; }
 
         public static AccountOverviewVM GetAccount()
         {
             var account = new AccountOverviewVM()
-            { 
+            {
                 InitialContactMethod = "Mail",
                 AccountType = "Brokerage",
                 RegistrationName = "Johnny Storm Brokerage",
@@ -71,10 +94,6 @@ namespace Bank.ViewModel
                 AccountPassword = "john21",
                 BranchLocation = "Cedar Rapids",
                 TaxpayerID = "458-47-5856",
-                AccountFunding = 4,
-                AccountPurpose = 3,
-                InvestmentObjectives = 3,
-                AnticipatedActivity = 0,
                 AtmLimit = "10000.00",
                 MoneyLinkLimit = "100000.00",
                 WireLimit = "100000.00",
@@ -83,8 +102,30 @@ namespace Bank.ViewModel
                 MobileBanking = false,
                 TwoFactor = true,
                 Biometrics = true,
-                
-            }; 
+                Salary = true,
+                SocialSecurity = false,
+                PropertySale = false,
+                Inheritence = false,
+                CapitalGains = false,
+                Gifts = false,
+                Gambling = true,
+                GenInvesting = false,
+                EstatePlanning = false,
+                CollegePlanning = true,
+                Other = false,
+                PooledAssets = true,
+                TaxPlanning = false,
+                RetirementPlanning = false,
+                CapitalPreservation = true,
+                Growth = false,
+                Income = true,
+                Speculation = false,
+                DeclinedToAnswer = true,
+                LessFive = true,
+                ElevenTwenty = false,
+                FiveTen = true,
+                MoreTwenty = false,
+            };
             return account;
         }
     }

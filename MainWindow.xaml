@@ -72,9 +72,11 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBox Width="200"
                                  Margin="5">Account #, Tax ID, Last Name</TextBox>
-                        <Button Click="Search_Click"
+                        <Button Style="{StaticResource Button}"
+                                Click="Search_Click"
                                 Margin="5">Search</Button>
-                        <Button Click="AdvancedSearch_Click"
+                        <Button Style="{StaticResource Button}"
+                                Click="AdvancedSearch_Click"
                                 Margin="5">Advanced Search</Button>
                     </StackPanel>
                 </Grid>
@@ -98,13 +100,15 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0"
                                Margin="5">Client Name</TextBlock>
-                    <Button Grid.Column="1"
+                    <Button Style="{StaticResource Button}"
+                            Grid.Column="1"
                             Margin="5, 2, 5, 5"
                             Click="SwitchClient_Click">Switch</Button>
                     <ComboBox Grid.Column="2"
                               Margin="5, 3, 5, 5"
                               Width="400" />
-                    <Button Grid.Column="3"
+                    <Button Style="{StaticResource Button}"
+                            Grid.Column="3"
                             Margin="5, 2, 5, 5"
                             Click="ClearSession_Click">Clear Session</Button>
                     <TextBlock Grid.Column="4"

@@ -9,16 +9,18 @@
              d:DesignHeight="600"
              d:DesignWidth="622"
              Style="{StaticResource Page_Style}">
-             
     <UserControl.DataContext>
         <vm:AccountOverviewVM />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <utilities:BoldTextConverter x:Key="BoldTextConverter" />
-        <utilities:BoolToColorConverter x:Key="BoolToColorConverter" />
-        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
+        <utilities:BoolToBrushConverter x:Key="BoolToBrushConverter"
+                                        FalseValue="Red"
+                                        TrueValue="LimeGreen" />
+        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter"
+                                             FalseValue="Normal"
+                                             TrueValue="Bold" />
     </UserControl.Resources>
-   <ScrollViewer HorizontalScrollBarVisibility="Auto"
+    <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
         <Grid Margin="5">
             <Grid.RowDefinitions>
@@ -249,20 +251,19 @@
                     </StackPanel>
                     <StackPanel Grid.Row="1"
                                 Grid.Column="2"
-                                HorizontalAlignment ="Right">
-                        <TextBlock Text="{Binding OnlineBanking}" 
-                                   Foreground="{Binding OnlineBanking, Converter={StaticResource BoolToColorConverter}}" 
+                                HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding OnlineBanking}"
+                                   Foreground="{Binding OnlineBanking, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding OnlineBanking, Converter={StaticResource BoolToFontWeightConverter}}" />
-                        <TextBlock Text="{Binding MobileBanking}" 
-                                   Foreground="{Binding MobileBanking, Converter={StaticResource BoolToColorConverter}}" 
+                        <TextBlock Text="{Binding MobileBanking}"
+                                   Foreground="{Binding MobileBanking, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding MobileBanking, Converter={StaticResource BoolToFontWeightConverter}}" />
-                        <TextBlock Text="{Binding TwoFactor}" 
-                                   Foreground="{Binding TwoFactor, Converter={StaticResource BoolToColorConverter}}" 
+                        <TextBlock Text="{Binding TwoFactor}"
+                                   Foreground="{Binding TwoFactor, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding TwoFactor, Converter={StaticResource BoolToFontWeightConverter}}" />
-                        <TextBlock Text="{Binding Biometrics}" 
-                                   Foreground="{Binding Biometrics, Converter={StaticResource BoolToColorConverter}}" 
+                        <TextBlock Text="{Binding Biometrics}"
+                                   Foreground="{Binding Biometrics, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding Biometrics, Converter={StaticResource BoolToFontWeightConverter}}" />
-
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 Grid.ColumnSpan="2">
@@ -353,22 +354,22 @@
                                Grid.Row="1"
                                Text="Source of Funding" />
                     <StackPanel Grid.Row="2">
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=0}"
+                        <TextBlock FontWeight="{Binding Salary, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Salary / Wages / Savings" />
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=1}"
+                        <TextBlock FontWeight="{Binding SocialSecurity, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Social Security Benefits" />
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=2}"
-                                   Text="Sale of Propery or Business" />
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=3}"
+                        <TextBlock FontWeight="{Binding PropertySale, Converter={StaticResource BoolToFontWeightConverter}}"
+                                   Text="Sale of Property or Business" />
+                        <TextBlock FontWeight="{Binding Inheritence, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Family / Relatives / Inheritence" />
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 Grid.Column="2">
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=4}"
+                        <TextBlock FontWeight="{Binding CapitalGains, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Investment Capital Gains" />
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=5}"
+                        <TextBlock FontWeight="{Binding Gifts, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Gifts" />
-                        <TextBlock FontWeight="{Binding AccountFunding, Converter={StaticResource BoldTextConverter}, ConverterParameter=6}"
+                        <TextBlock FontWeight="{Binding Gambling, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Gambling / Lottery" />
                     </StackPanel>
                     <TextBlock Style="{StaticResource ContainerTitle}"
@@ -376,22 +377,22 @@
                                Text="Purpose of Account"
                                Padding="5,5,0,0" />
                     <StackPanel Grid.Row="5">
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=0}"
+                        <TextBlock FontWeight="{Binding GenInvesting, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="General Investing" />
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=1}"
+                        <TextBlock FontWeight="{Binding EstatePlanning, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Investing for Estate Planning" />
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=2}"
+                        <TextBlock FontWeight="{Binding CollegePlanning, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Investing for College" />
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=6}"
+                        <TextBlock FontWeight="{Binding Other, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Other" />
                     </StackPanel>
                     <StackPanel Grid.Row="5"
                                 Grid.Column="2">
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=3}"
+                        <TextBlock FontWeight="{Binding PooledAssets, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Investment of Pooled Assets" />
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=4}"
+                        <TextBlock FontWeight="{Binding TaxPlanning, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Investment for Tax Planning" />
-                        <TextBlock FontWeight="{Binding AccountPurpose, Converter={StaticResource BoldTextConverter}, ConverterParameter=5}"
+                        <TextBlock FontWeight="{Binding RetirementPlanning, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Investment for Retirement" />
                     </StackPanel>
                     <TextBlock Style="{StaticResource ContainerTitle}"
@@ -399,18 +400,18 @@
                                Text="Investment Objectives"
                                Padding="5,5,0,0" />
                     <StackPanel Grid.Row="7">
-                        <TextBlock FontWeight="{Binding InvestmentObjectives, Converter={StaticResource BoldTextConverter}, ConverterParameter=0}"
+                        <TextBlock FontWeight="{Binding CapitalPreservation, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Capital Preservation" />
-                        <TextBlock FontWeight="{Binding InvestmentObjectives, Converter={StaticResource BoldTextConverter}, ConverterParameter=1}"
+                        <TextBlock FontWeight="{Binding Growth, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Growth" />
-                        <TextBlock FontWeight="{Binding InvestmentObjectives, Converter={StaticResource BoldTextConverter}, ConverterParameter=2}"
+                        <TextBlock FontWeight="{Binding Income, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Income" />
                     </StackPanel>
                     <StackPanel Grid.Row="7"
                                 Grid.Column="2">
-                        <TextBlock FontWeight="{Binding InvestmentObjectives, Converter={StaticResource BoldTextConverter}, ConverterParameter=3}"
+                        <TextBlock FontWeight="{Binding Speculation, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Speculation" />
-                        <TextBlock FontWeight="{Binding InvestmentObjectives, Converter={StaticResource BoldTextConverter}, ConverterParameter=4}"
+                        <TextBlock FontWeight="{Binding DeclinedToAnswer, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Declined to Answer" />
                     </StackPanel>
                     <TextBlock Style="{StaticResource ContainerTitle}"
@@ -418,16 +419,16 @@
                                Text="Anticipated Activity"
                                Padding="5,5,0,0" />
                     <StackPanel Grid.Row="9">
-                        <TextBlock FontWeight="{Binding AnticipatedActivity, Converter={StaticResource BoldTextConverter}, ConverterParameter=0}"
+                        <TextBlock FontWeight="{Binding LessFive, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="Less than 5" />
-                        <TextBlock FontWeight="{Binding AnticipatedActivity, Converter={StaticResource BoldTextConverter}, ConverterParameter=1}"
+                        <TextBlock FontWeight="{Binding ElevenTwenty, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="11 - 20" />
                     </StackPanel>
                     <StackPanel Grid.Row="9"
                                 Grid.Column="2">
-                        <TextBlock FontWeight="{Binding AnticipatedActivity, Converter={StaticResource BoldTextConverter}, ConverterParameter=2}"
+                        <TextBlock FontWeight="{Binding FiveTen, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="5 - 10" />
-                        <TextBlock FontWeight="{Binding AnticipatedActivity, Converter={StaticResource BoldTextConverter}, ConverterParameter=3}"
+                        <TextBlock FontWeight="{Binding MoreTwenty, Converter={StaticResource BoolToFontWeightConverter}}"
                                    Text="More than 20" />
                     </StackPanel>
                 </Grid>
@@ -456,4 +457,4 @@
             </Border>
         </Grid>
     </ScrollViewer>
-</UserControl> 
+</UserControl>
