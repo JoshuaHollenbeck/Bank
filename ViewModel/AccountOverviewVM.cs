@@ -102,13 +102,15 @@ namespace Bank.ViewModel
                 MobileBanking = false,
                 TwoFactor = true,
                 Biometrics = true,
+                
                 Salary = true,
                 SocialSecurity = false,
                 PropertySale = false,
-                Inheritence = false,
+                Inheritence = true,
                 CapitalGains = false,
                 Gifts = false,
                 Gambling = true,
+
                 GenInvesting = false,
                 EstatePlanning = false,
                 CollegePlanning = true,

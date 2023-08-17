@@ -13,9 +13,15 @@
         <vm:ClientOverviewVM />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <utilities:BoolToBrushConverter x:Key="BoolToBrushConverter" FalseValue="Red" TrueValue="LimeGreen" />
-        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" FalseValue="Normal" TrueValue="Bold"/>
-        <utilities:BoolToStringConverter x:Key="BoolToStringConverter" FalseValue="Do Not Call" TrueValue="Okay to Call" />
+        <utilities:BoolToBrushConverter x:Key="BoolToBrushConverter"
+                                        FalseValue="Red"
+                                        TrueValue="LimeGreen" />
+        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter"
+                                             FalseValue="Normal"
+                                             TrueValue="Bold" />
+        <utilities:BoolToStringConverter x:Key="BoolToStringConverter"
+                                         FalseValue="Do Not Call"
+                                         TrueValue="Okay to Call" />
     </UserControl.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
@@ -29,7 +35,7 @@
                 <ColumnDefinition Width="225" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <!-- Grid Column 0 -->
+            <!-- Identification Information Grid Box -->
             <Border BorderThickness="2"
                     BorderBrush="#cccccc"
                     Padding="5">
@@ -44,7 +50,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource ContainerHeader}"
                                Text="Identification Information"
-                               Grid.ColumnSpan="2"/>
+                               Grid.ColumnSpan="2" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
                             Width="25"
@@ -56,7 +62,7 @@
                                    Text="Name" />
                         <TextBlock Text="Client Name" />
                         <TextBlock Text="{Binding DoNotCall, Converter={StaticResource BoolToStringConverter}}"
-                                   Foreground="{Binding DoNotCall, Converter={StaticResource BoolToBrushConverter}}" 
+                                   Foreground="{Binding DoNotCall, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding DoNotCall, Converter={StaticResource BoolToFontWeightConverter}}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Share with Affiliates" />
@@ -76,6 +82,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
+            <!-- Contact Information Grid Box -->
             <Border Grid.Row="1"
                     BorderThickness="2 0 2 2"
                     BorderBrush="#cccccc"
@@ -90,8 +97,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource ContainerHeader}"
-                                Text="Contact Information"
-                                Grid.ColumnSpan="2"/>
+                               Text="Contact Information"
+                               Grid.ColumnSpan="2" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
                             Width="25"
@@ -116,6 +123,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
+            <!-- Employment Information Grid Box -->
             <Border Grid.Row="2"
                     BorderThickness="2 0 2 2"
                     BorderBrush="#cccccc"
@@ -130,8 +138,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource ContainerHeader}"
-                                Text="Employment Information"
-                                Grid.ColumnSpan="2"/>
+                               Text="Employment Information"
+                               Grid.ColumnSpan="2" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
                             Width="25"
@@ -149,7 +157,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <!-- Grid Column 1 -->
+            <!-- Brokerage Accounts Grid Box -->
             <Border Grid.Row="0"
                     Grid.Column="1"
                     BorderThickness="0 2 2 2"
@@ -179,6 +187,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
+            <!-- Notes Grid Box -->
             <Border Grid.Row="1"
                     Grid.Column="1"
                     BorderThickness="0 0 2 2"
@@ -196,8 +205,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource ContainerHeader}"
-                                Text="Notes" 
-                                Grid.ColumnSpan="3"/>
+                               Text="Notes"
+                               Grid.ColumnSpan="3" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
                             Command="{Binding ViewNotesCommand}"
@@ -206,7 +215,7 @@
                             Grid.Column="2"
                             Command="{Binding AddNotesCommand}"
                             Content="New Note" />
-                                        <StackPanel Grid.Row="1"
+                    <StackPanel Grid.Row="1"
                                 Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TableHeader}"
                                    Text="Note" />
@@ -219,6 +228,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
+            <!-- Recent Transactions Grid Box -->
             <Border Grid.Row="2"
                     Grid.Column="1"
                     BorderThickness="0 0 2 2"
@@ -236,7 +246,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource ContainerHeader}"
                                Text="Recent Transactions"
-                               Grid.ColumnSpan="2"/>
+                               Grid.ColumnSpan="2" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
                             Command="{Binding TransactionsCommand}"

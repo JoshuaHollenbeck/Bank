@@ -45,5 +45,6 @@ namespace Bank.Utilities
     public class BoolToStringConverter : BoolToValueConverter<String> { }
     public class BoolToBrushConverter : BoolToValueConverter<Brush> { }
     public class BoolToFontWeightConverter : BoolToValueConverter<FontWeight> { }
+    public class BoolToTransparentConverter : BoolToValueConverter<Brush> { }
 
 }
