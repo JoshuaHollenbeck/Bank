@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Bank.Model;
 using System.Collections.ObjectModel;
 using Microsoft.Data.SqlClient;
+using Bank.Utilities;
 
 namespace Bank.ViewModel
 {
@@ -33,29 +34,13 @@ namespace Bank.ViewModel
             Not safe for production environments
             */
 
-            string connectionString =
-            "Data Source=DESKTOP-OV51U4G\\SQL2017;"
-                + "Initial Catalog=BankDB;"
-                + "Integrated Security=True;"
-                + "TrustServerCertificate=True;"
-                + "Min Pool Size=10;"
-                + "Max Pool Size=100;"
-                + "Connect Timeout=30";
-            // string connectionString =
-            //     "Data Source=LAPTOP-M4J440IF\\SQL2017;"
-            //     + "Initial Catalog=BankDB;"
-            //     + "Integrated Security=True;"
-            //     + "TrustServerCertificate=True;"
-            //     + "Min Pool Size=10;"
-            //     + "Max Pool Size=100;"
-            //     + "Connect Timeout=30";
             IdTypeCollection = new ObservableCollection<IdTypeModel>();
             MonthCollection = new ObservableCollection<MonthModel>();
             StateCollection = new ObservableCollection<StateModel>();
             CountryCollection = new ObservableCollection<CountryModel>();
             SuffixCollection = new ObservableCollection<SuffixModel>();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Connection.connectionString))
             {
                 connection.Open();
                 string id_query = "SELECT id_type FROM LU_id_type";
