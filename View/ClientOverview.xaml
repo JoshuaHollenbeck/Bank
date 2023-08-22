@@ -60,25 +60,25 @@
                         <TextBlock Text="Re-record | Unenroll" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Name" />
-                        <TextBlock Text="Client Name" />
+                        <TextBlock Text="{Binding FirstName}" />
                         <TextBlock Text="{Binding DoNotCall, Converter={StaticResource BoolToStringConverter}}"
                                    Foreground="{Binding DoNotCall, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding DoNotCall, Converter={StaticResource BoolToFontWeightConverter}}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
-                                   Text="Share with Affiliates" />
+                                   Text="{Binding VoiceAuth}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Date of Birth" />
-                        <TextBlock Text="xx/xx/xxxx (xx years old)" />
+                        <TextBlock Text="{Binding DateOfBirth}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Mother's Maiden Name" />
-                        <TextBlock Text="Name" />
+                        <TextBlock Text="{Binding MothersMaiden}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Client Since" />
-                        <TextBlock Text="xx/xx/xxxx (xx years, xx months)" />
+                        <TextBlock Text="{Binding ClientSince}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Driver's License" />
-                        <TextBlock Text="License #" />
-                        <TextBlock Text="Exp. Date - xx/yyyy" />
+                        <TextBlock Text="{Binding IDNum}" />
+                        <TextBlock Text="Exp. Date - {Binding ExpDate}" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -106,17 +106,17 @@
                     <StackPanel Grid.Row="1">
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Phone Numbers" />
-                        <TextBlock Text="Home: xxx-xxx-xxxx" />
+                        <TextBlock Text="{Binding HomePhone}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
-                                   Text="Business: xxx-xxx-xxxx" />
+                                   Text="{Binding BusinessPhone}" />
                         <TextBlock Text="Dial: xxx-xxx-xxxx" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Primary Email" />
-                        <TextBlock Text="email@email.com" />
+                        <TextBlock Text="{Binding Email}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Home/Legal" />
-                        <TextBlock Text="xxx road st" />
-                        <TextBlock Text="city, st zip" />
+                        <TextBlock Text="{Binding Address}" />
+                        <TextBlock Text="{Binding City}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Client's Domicile Branch" />
                         <TextBlock Text="city, st" />
@@ -147,13 +147,13 @@
                     <StackPanel Grid.Row="1">
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Employment Status" />
-                        <TextBlock Text="Employed / Unemployed" />
+                        <TextBlock Text="{Binding EmploymentStatus}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Employer Name" />
-                        <TextBlock Text="Name / N/A" />
+                        <TextBlock Text="{Binding EmployerName}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Occupation/Position" />
-                        <TextBlock Text="Name/N/A" />
+                        <TextBlock Text="{Binding Occupation}" />
                     </StackPanel>
                 </Grid>
             </Border>

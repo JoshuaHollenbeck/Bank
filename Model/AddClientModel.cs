@@ -8,30 +8,30 @@ namespace Bank.Model
 {
     public class IdTypeModel
     {
-        public string ID_Name { get; set; }
+        public string IDName { get; set; }
     }
 
     public class StateModel
     {
-        public string State_Abbr { get; set; }
-        public string State_Name { get; set; }
+        public string StateAbbr { get; set; }
+        public string StateName { get; set; }
         public string State { get; set; }
     }
 
     public class MonthModel
     {
-        public int Month_ID { get; set; }
-        public string Month_Name { get; set; }
+        public int MonthID { get; set; }
+        public string MonthName { get; set; }
         public string Month { get; set; }
     }
 
     public class CountryModel
     {
-        public string Country_Name { get; set; }
+        public string CountryName { get; set; }
     }
 
     public class SuffixModel
     {
-        public string Suffix_Name { get; set; }
+        public string SuffixName { get; set; }
     }
 }

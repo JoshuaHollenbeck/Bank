@@ -30,11 +30,6 @@ namespace Bank
             Close();
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void AdvancedSearch_Click(object sender, RoutedEventArgs e)
         {
             

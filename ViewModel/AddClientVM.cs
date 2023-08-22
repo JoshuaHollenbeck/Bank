@@ -28,12 +28,6 @@ namespace Bank.ViewModel
 
         private void LoadTypes()
         {
-            /*
-            Change Data Source to your server
-            Trust Server Certificate is to tell the application not to care about trusting the server's certficate
-            Not safe for production environments
-            */
-
             IdTypeCollection = new ObservableCollection<IdTypeModel>();
             MonthCollection = new ObservableCollection<MonthModel>();
             StateCollection = new ObservableCollection<StateModel>();
@@ -49,7 +43,7 @@ namespace Bank.ViewModel
                 {
                     while (reader.Read())
                     {
-                        IdTypeCollection.Add(new IdTypeModel { ID_Name = reader.GetString(0) });
+                        IdTypeCollection.Add(new IdTypeModel { IDName = reader.GetString(0) });
                     }
                 }
 
@@ -62,8 +56,8 @@ namespace Bank.ViewModel
                         StateCollection.Add(
                             new StateModel
                             {
-                                State_Abbr = reader.GetString(0),
-                                State_Name = reader.GetString(1),
+                                StateAbbr = reader.GetString(0),
+                                StateName = reader.GetString(1),
                                 State = $"{reader.GetString(0)} - {reader.GetString(1)}"
                             }
                         );
@@ -79,8 +73,8 @@ namespace Bank.ViewModel
                         MonthCollection.Add(
                             new MonthModel
                             {
-                                Month_ID = reader.GetInt32(0),
-                                Month_Name = reader.GetString(1),
+                                MonthID = reader.GetInt32(0),
+                                MonthName = reader.GetString(1),
                                 Month = $"{reader.GetInt32(0)} - {reader.GetString(1)}"
                             }
                         );
@@ -94,7 +88,7 @@ namespace Bank.ViewModel
                     while (reader.Read())
                     {
                         CountryCollection.Add(
-                            new CountryModel { Country_Name = reader.GetString(0), }
+                            new CountryModel { CountryName = reader.GetString(0), }
                         );
                     }
                 }
@@ -105,9 +99,7 @@ namespace Bank.ViewModel
                 {
                     while (reader.Read())
                     {
-                        SuffixCollection.Add(
-                            new SuffixModel { Suffix_Name = reader.GetString(0), }
-                        );
+                        SuffixCollection.Add(new SuffixModel { SuffixName = reader.GetString(0), });
                     }
                 }
             }

@@ -71,10 +71,17 @@
                 <Grid>
                     <StackPanel Orientation="Horizontal">
                         <TextBox Width="200"
-                                 Margin="5">Account #, Tax ID, Last Name</TextBox>
+                                 Margin="5"
+                                 Text="{Binding SearchText}">
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter"
+                                            Command="{Binding SearchCommand}" />
+                            </TextBox.InputBindings>
+                        </TextBox>
                         <Button Style="{StaticResource Button}"
-                                Click="Search_Click"
-                                Margin="5">Search</Button>
+                                Content="Search"
+                                Command="{Binding SearchCommand}"
+                                Margin="5" />
                         <Button Style="{StaticResource Button}"
                                 Click="AdvancedSearch_Click"
                                 Margin="5">Advanced Search</Button>
