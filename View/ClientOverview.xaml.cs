@@ -24,6 +24,7 @@ namespace Bank.View
         public ClientOverview()
         {
             InitializeComponent();
+            DataContext = new ClientOverviewVM();
         }
     }
 }

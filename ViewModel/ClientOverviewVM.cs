@@ -1,4 +1,4 @@
-﻿using System.Net.Http;
+﻿using System.Data;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Xml.Linq;
@@ -16,14 +16,21 @@ namespace Bank.ViewModel
 {
     class ClientOverviewVM : Utilities.ViewModelBase
     {
-        public ObservableCollection<CustOverviewModel> CustOverview { get; set; }
+        public ObservableCollection<CustOverviewModel> CustOverviewCollection { get; set; }
+        
+        public CustOverviewModel SelectedCustOverview { get; set; }
 
         public ClientOverviewVM()
         {
             LoadTypes();
         }
 
-        private T? GetNullableValue<T>(SqlDataReader reader, string columnName, Func<int, T> getValueFunc) where T : struct
+        private T? GetNullableValue<T>(
+            SqlDataReader reader,
+            string columnName,
+            Func<int, T> getValueFunc
+        )
+            where T : struct
         {
             int ordinal = reader.GetOrdinal(columnName);
             return reader.IsDBNull(ordinal) ? (T?)null : getValueFunc(ordinal);
@@ -50,16 +57,12 @@ namespace Bank.ViewModel
 
         public void LoadTypes()
         {
-            CustOverview = new ObservableCollection<CustOverviewModel>();
-
-            using(
-                SqlConnection connection = new SqlConnection(
-                    Bank.Utilities.Connection.connectionString
-                )
-            )
+            CustOverviewCollection = new ObservableCollection<CustOverviewModel>();
+            
+            using (SqlConnection connection = new SqlConnection(Connection.connectionString))
             {
                 connection.Open();
-                string custOverviewQuery =
+                string cust_overview_query =
                     @"
                     SELECT acct_num,
                     a.cust_id,
@@ -106,54 +109,79 @@ namespace Bank.ViewModel
                     JOIN acct_bal h ON a.acct_id = h.acct_id
                     WHERE a.acct_num = 90491109;
                 ";
-                using (SqlCommand command = new SqlCommand(custOverviewQuery, connection))
+                using (SqlCommand command = new SqlCommand(cust_overview_query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        SelectedCustOverview = new CustOverviewModel
                         {
-                            CustOverview.Add(
-                                new CustOverviewModel
-                                {
-                                    CustID = GetNullableValue(reader, "cust_id", reader.GetInt32),
-                                    VoiceAuth = GetNullableValue(reader, "voice_auth", reader.GetBoolean),
-                                    FirstName = GetStringOrNull(reader, "first_name"),
-                                    MiddleName = GetStringOrNull(reader, "middle_name"),
-                                    LastName = GetStringOrNull(reader, "last_name"),
-                                    Suffix = GetStringOrNull(reader, "suffix"),
-                                    DoNotCall = GetNullableValue(reader, "do_not_call", reader.GetBoolean),
-                                    ShareWithAffiliates = GetNullableValue(reader, "share_affiliates", reader.GetBoolean),
-                                    DateOfBirth = GetNullableValue(reader, "date_of_birth", reader.GetDateTime),
-                                    MothersMaiden = GetStringOrNull(reader, "mothers_maiden"),
-                                    ClientSince = GetNullableValue(reader, "client_since", reader.GetDateTime),
-                                    IDType = GetNullableValue(reader, "id_type", reader.GetInt32),
-                                    IDState = GetStringOrNull(reader, "id_state"),
-                                    IDNum = GetStringOrNull(reader, "id_num"),
-                                    ExpDate = GetStringOrNull(reader, "id_exp"),
-                                    HomePhone = GetStringOrNull(reader, "phone_home"),
-                                    WorkPhone = GetStringOrNull(reader, "phone_business"),
-                                    EmailAddress = GetStringOrNull(reader, "email"),
-                                    Address = GetStringOrNull(reader, "address"),
-                                    AddressLine2 = GetStringOrNull(reader, "address_2"),
-                                    City = GetStringOrNull(reader, "city"),
-                                    State = GetStringOrNull(reader, "state"),
-                                    Zip = GetStringOrNull(reader, "zip_code"),
-                                    DomicleBranchCity = GetStringOrNull(reader, "city"),
-                                    DomicleBranchState = GetStringOrNull(reader, "state"),
-                                    EmploymentStatus = GetNullableValue(reader, "employment_status", reader.GetBoolean),
-                                    EmployerName = GetStringOrNull(reader, "employer_name"),
-                                    Occupation = GetStringOrNull(reader, "occupation"),
-                                    AcctNum = GetNullableValue(reader, "acct_num", reader.GetInt32),
-                                    AcctNickname = GetStringOrNull(reader, "acct_nickname"),
-                                    AcctBalance = GetNullableValue(reader, "acct_bal", reader.GetDecimal),
-                                    AcctPass = GetStringOrNull(reader, "acct_pass"),
-                                    AcctType = GetNullableValue(reader, "acct_type", reader.GetInt32),
-                                    AcctRegistration = GetStringOrNull(reader, "registration_name")
-                                }
-                            );
-                        }
+                            CustID = GetNullableValue(reader, "cust_id", reader.GetInt32),
+                            VoiceAuth = GetNullableValue(
+                                reader,
+                                "voice_auth",
+                                reader.GetBoolean
+                            ),
+                            FirstName = GetStringOrNull(reader, "first_name"),
+                            MiddleName = GetStringOrNull(reader, "middle_name"),
+                            LastName = GetStringOrNull(reader, "last_name"),
+                            Suffix = GetStringOrNull(reader, "suffix"),
+                            DoNotCall = GetNullableValue(
+                                reader,
+                                "do_not_call",
+                                reader.GetBoolean
+                            ),
+                            ShareWithAffiliates = GetNullableValue(
+                                reader,
+                                "share_affiliates",
+                                reader.GetBoolean
+                            ),
+                            DateOfBirth = GetNullableValue(
+                                reader,
+                                "date_of_birth",
+                                reader.GetDateTime
+                            ),
+                            MothersMaiden = GetStringOrNull(reader, "mothers_maiden"),
+                            ClientSince = GetNullableValue(
+                                reader,
+                                "client_since",
+                                reader.GetDateTime
+                            ),
+                            IDType = GetNullableValue(reader, "id_type", reader.GetInt32),
+                            IDState = GetStringOrNull(reader, "id_state"),
+                            IDNum = GetStringOrNull(reader, "id_num"),
+                            ExpDate = GetStringOrNull(reader, "id_exp"),
+                            HomePhone = GetStringOrNull(reader, "phone_home"),
+                            WorkPhone = GetStringOrNull(reader, "phone_business"),
+                            EmailAddress = GetStringOrNull(reader, "email"),
+                            Address = GetStringOrNull(reader, "address"),
+                            AddressLine2 = GetStringOrNull(reader, "address_2"),
+                            City = GetStringOrNull(reader, "city"),
+                            State = GetStringOrNull(reader, "state"),
+                            Zip = GetStringOrNull(reader, "zip_code"),
+                            DomicleBranchCity = GetStringOrNull(reader, "city"),
+                            DomicleBranchState = GetStringOrNull(reader, "state"),
+                            EmploymentStatus = GetNullableValue(
+                                reader,
+                                "employment_status",
+                                reader.GetBoolean
+                            ),
+                            EmployerName = GetStringOrNull(reader, "employer_name"),
+                            Occupation = GetStringOrNull(reader, "occupation"),
+                            AcctNum = GetNullableValue(reader, "acct_num", reader.GetInt32),
+                            AcctNickname = GetStringOrNull(reader, "acct_nickname"),
+                            AcctBalance = GetNullableValue(
+                                reader,
+                                "acct_bal",
+                                reader.GetDecimal
+                            ),
+                            AcctPass = GetStringOrNull(reader, "acct_pass"),
+                            AcctType = GetNullableValue(reader, "acct_type", reader.GetInt32),
+                            AcctRegistration = GetStringOrNull(reader, "registration_name")
+                        };
                     }
                 }
+                connection.Close();
             }
         }
     }

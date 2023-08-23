@@ -29,9 +29,4 @@ namespace Bank.Model
     {
         public string CountryName { get; set; }
     }
-
-    public class SuffixModel
-    {
-        public string SuffixName { get; set; }
-    }
 }

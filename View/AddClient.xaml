@@ -13,8 +13,12 @@
         <vm:AddClientVM />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <utilities:BoolToBrushConverter x:Key="BoolToBrushConverter" FalseValue="Red" TrueValue="LimeGreen" />
-        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" FalseValue="Normal" TrueValue="Bold"/>
+        <utilities:BoolToBrushConverter x:Key="BoolToBrushConverter"
+                                        FalseValue="Red"
+                                        TrueValue="LimeGreen" />
+        <utilities:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter"
+                                             FalseValue="Normal"
+                                             TrueValue="Bold" />
     </UserControl.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
@@ -76,19 +80,9 @@
                     <!-- Suffix -->
                     <Label Style="{StaticResource EntryText}"
                            Grid.Row="4">Suffix</Label>
-                    <ComboBox Style="{StaticResource EntryComboBox}"
-                              ItemsSource="{Binding SuffixCollection}"
-                              Name="cmbSuffixType"
-                              Grid.Row="4"
-                              Grid.Column="1"
-                              IsTextSearchEnabled="True"
-                              TextSearch.TextPath="Suffix_Name">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Suffix_Name}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
+                    <TextBox Style="{StaticResource EntryTextBox}"
+                             Grid.Row="4"
+                             Grid.Column="1" />
                     <!-- Date of Birth -->
                     <Label Style="{StaticResource EntryText}"
                            Grid.Row="5">Date of Birth</Label>
@@ -122,7 +116,7 @@
                               TextSearch.TextPath="ID_Name">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ID_Name}" />
+                                <TextBlock Text="{Binding IDName}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
@@ -269,7 +263,7 @@
                               TextSearch.TextPath="Country_Name">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Country_Name}" />
+                                <TextBlock Text="{Binding CountryName}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>

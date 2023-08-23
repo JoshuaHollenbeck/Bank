@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Data;
+using System.Net.NetworkInformation;
 using System.Threading;
 using System.Xml.Linq;
 using System;
@@ -19,7 +20,6 @@ namespace Bank.ViewModel
         public ObservableCollection<MonthModel> MonthCollection { get; set; }
         public ObservableCollection<StateModel> StateCollection { get; set; }
         public ObservableCollection<CountryModel> CountryCollection { get; set; }
-        public ObservableCollection<SuffixModel> SuffixCollection { get; set; }
 
         public AddClientVM()
         {
@@ -32,8 +32,7 @@ namespace Bank.ViewModel
             MonthCollection = new ObservableCollection<MonthModel>();
             StateCollection = new ObservableCollection<StateModel>();
             CountryCollection = new ObservableCollection<CountryModel>();
-            SuffixCollection = new ObservableCollection<SuffixModel>();
-
+                
             using (SqlConnection connection = new SqlConnection(Connection.connectionString))
             {
                 connection.Open();
@@ -88,20 +87,11 @@ namespace Bank.ViewModel
                     while (reader.Read())
                     {
                         CountryCollection.Add(
-                            new CountryModel { CountryName = reader.GetString(0), }
+                            new CountryModel { CountryName = reader.GetString(0) }
                         );
                     }
                 }
-
-                string suffix_query = "SELECT suffix_name from LU_suffix";
-                using (SqlCommand command = new SqlCommand(suffix_query, connection))
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        SuffixCollection.Add(new SuffixModel { SuffixName = reader.GetString(0), });
-                    }
-                }
+                connection.Close();
             }
         }
     }

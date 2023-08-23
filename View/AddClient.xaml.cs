@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bank.ViewModel;
 
-
 namespace Bank.View
 {
     /// <summary>
