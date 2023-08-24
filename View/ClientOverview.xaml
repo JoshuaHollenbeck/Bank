@@ -112,7 +112,7 @@
                         <TextBlock Text="Dial: xxx-xxx-xxxx" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Primary Email" />
-                        <TextBlock Text="{Binding SelectedCustOverview.Email}" />
+                        <TextBlock Text="{Binding SelectedCustOverview.EmailAddress}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Home/Legal" />
                         <TextBlock Text="{Binding SelectedCustOverview.Address}" />
@@ -209,11 +209,11 @@
                                Grid.ColumnSpan="3" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
-                            Command="{Binding SelectedCustOverview.ViewNotesCommand}"
+                            Command="{Binding ViewNotesCommand}"
                             Content="View All Notes" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="2"
-                            Command="{Binding SelectedCustOverview.AddNotesCommand}"
+                            Command="{Binding AddNotesCommand}"
                             Content="New Note" />
                     <StackPanel Grid.Row="1"
                                 Orientation="Horizontal">
@@ -249,7 +249,7 @@
                                Grid.ColumnSpan="2" />
                     <Button Style="{StaticResource ContainerButton}"
                             Grid.Column="1"
-                            Command="{Binding SelectedCustOverview.TransactionsCommand}"
+                            Command="{Binding TransactionsCommand}"
                             Content="More" />
                     <StackPanel Grid.Row="1"
                                 Orientation="Horizontal">
