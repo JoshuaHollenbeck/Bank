@@ -111,6 +111,22 @@ WITH (FIRSTROW = 2,
     ROWTERMINATOR='\n',
     BATCHSIZE=250000,
     MAXERRORS=2);
+
+BULK INSERT acct_limit
+FROM 'G:\Github\DataGeneration\DataGeneration\acct_limit.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT acct_mobile
+FROM 'G:\Github\DataGeneration\DataGeneration\acct_mobile.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
 */
 
 /* Laptop */
@@ -220,6 +236,22 @@ WITH (FIRSTROW = 2,
 
 BULK INSERT acct_bal
 FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\acct_bal.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT acct_limit
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\acct_limit.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT acct_mobile
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\acct_mobile.csv'
 WITH (FIRSTROW = 2,
     FIELDTERMINATOR = ',',
     ROWTERMINATOR='\n',

@@ -1,134 +1,165 @@
-using System.Runtime.CompilerServices;
+using System.Data;
+using System.Net.NetworkInformation;
+using System.Threading;
+using System.Xml.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bank.Model;
+using System.Collections.ObjectModel;
+using Microsoft.Data.SqlClient;
+using Bank.Utilities;
 
 namespace Bank.ViewModel
 {
     class AccountOverviewVM : Utilities.ViewModelBase
     {
-        public string InitialContactMethod { get; set; }
-        public string AccountType { get; set; }
-        public string RegistrationName { get; set; }
-        public string ClientName { get; set; }
-        public string ClientAddress { get; set; }
-        public string ClientCity { get; set; }
-        public string ClientState { get; set; }
-        public string ClientZip { get; set; }
-        public string ClientCountry { get; set; }
-        public string PrimaryContactName { get; set; }
-        public string PrimaryContactAddress { get; set; }
-        public string PrimaryContactCity { get; set; }
-        public string PrimaryContactState { get; set; }
-        public string PrimaryContactZip { get; set; }
-        public string RepID { get; set; }
-        public string EstablishedDate { get; set; }
-        public string AccountStatus { get; set; }
-        public string AccountCountryJurisdiction { get; set; }
-        public string AccountStateJurisdiction { get; set; }
-        public string AccountPassword { get; set; }
-        public string BranchLocation { get; set; }
-        public string TaxpayerID { get; set; }
-        public int AccountFunding { get; set; }
-        public int AccountPurpose { get; set; }
-        public int InvestmentObjectives { get; set; }
-        public int AnticipatedActivity { get; set; }
-        public string AtmLimit { get; set; }
-        public string MoneyLinkLimit { get; set; }
-        public string WireLimit { get; set; }
-        public string EmailAddress { get; set; }
-        public bool OnlineBanking { get; set; }
-        public bool MobileBanking { get; set; }
-        public bool TwoFactor { get; set; }
-        public bool Biometrics { get; set; }
-        public bool Salary { get; set; }
-        public bool SocialSecurity { get; set; }
-        public bool PropertySale { get; set; }
-        public bool Inheritence { get; set; }
-        public bool CapitalGains { get; set; }
-        public bool Gifts { get; set; }
-        public bool Gambling { get; set; }
-        public bool GenInvesting { get; set; }
-        public bool EstatePlanning { get; set; }
-        public bool CollegePlanning { get; set; }
-        public bool Other { get; set; }
-        public bool PooledAssets { get; set; }
-        public bool TaxPlanning { get; set; }
-        public bool RetirementPlanning { get; set; }
-        public bool CapitalPreservation { get; set; }
-        public bool Growth { get; set; }
-        public bool Income { get; set; }
-        public bool Speculation { get; set; }
-        public bool DeclinedToAnswer { get; set; }
-        public bool LessFive { get; set; }
-        public bool ElevenTwenty { get; set; }
-        public bool FiveTen { get; set; }
-        public bool MoreTwenty { get; set; }
+        public ObservableCollection<AcctOverviewModel> AcctOverviewCollection { get; set; }
 
-        public static AccountOverviewVM GetAccount()
+        public AcctOverviewModel SelectedAcctOverview { get; set; }
+
+        public AccountOverviewVM()
         {
-            var account = new AccountOverviewVM()
-            {
-                InitialContactMethod = "Mail",
-                AccountType = "Brokerage",
-                RegistrationName = "Johnny Storm Brokerage",
-                ClientName = "Johnny Storm",
-                ClientAddress = "458 S. 9th St",
-                ClientCity = "Borington",
-                ClientState = "IA",
-                ClientZip = "52601",
-                ClientCountry = "United States",
-                PrimaryContactName = "Johnny Storm",
-                PrimaryContactAddress = "458 S. 9th St",
-                PrimaryContactCity = "Borington",
-                PrimaryContactState = "IA",
-                PrimaryContactZip = "52601",
-                RepID = "456de",
-                EstablishedDate = "08/15/2021",
-                AccountStatus = "Open",
-                AccountCountryJurisdiction = "United States",
-                AccountStateJurisdiction = "IA",
-                AccountPassword = "john21",
-                BranchLocation = "Cedar Rapids",
-                TaxpayerID = "458-47-5856",
-                AtmLimit = "10000.00",
-                MoneyLinkLimit = "100000.00",
-                WireLimit = "100000.00",
-                EmailAddress = "stormyjones@example.com",
-                OnlineBanking = true,
-                MobileBanking = false,
-                TwoFactor = true,
-                Biometrics = true,
-                
-                Salary = true,
-                SocialSecurity = false,
-                PropertySale = false,
-                Inheritence = true,
-                CapitalGains = false,
-                Gifts = false,
-                Gambling = true,
+            LoadTypes();
+        }
 
-                GenInvesting = false,
-                EstatePlanning = false,
-                CollegePlanning = true,
-                Other = false,
-                PooledAssets = true,
-                TaxPlanning = false,
-                RetirementPlanning = false,
-                CapitalPreservation = true,
-                Growth = false,
-                Income = true,
-                Speculation = false,
-                DeclinedToAnswer = true,
-                LessFive = true,
-                ElevenTwenty = false,
-                FiveTen = true,
-                MoreTwenty = false,
-            };
-            return account;
+        private T? GetNullableValue<T>(
+            SqlDataReader reader,
+            string columnName,
+            Func<int, T> getValueFunc
+        )
+            where T : struct
+        {
+            int ordinal = reader.GetOrdinal(columnName);
+            return reader.IsDBNull(ordinal) ? (T?)null : getValueFunc(ordinal);
+        }
+
+        public string GetStringOrNull(SqlDataReader reader, String columnName)
+        {
+            int ordinal = reader.GetOrdinal(columnName);
+
+            if (!reader.IsDBNull(ordinal))
+            {
+                if (reader.GetFieldType(ordinal) == typeof(string))
+                {
+                    return reader.GetString(ordinal);
+                }
+                else if (reader.GetFieldType(ordinal) == typeof(int))
+                {
+                    return reader.GetInt32(ordinal).ToString();
+                }
+            }
+            return null;
+        }
+        
+        
+        public void LoadTypes()
+        {
+            AcctOverviewCollection = new ObservableCollection<AcctOverviewModel>();
+            
+            using (SqlConnection connection = new SqlConnection(Connection.connectionString))
+            {
+                connection.Open();
+                string acct_overview_query =
+                    @"
+                    SELECT acct_num,
+                    inital_contact_method,
+                    acct_type,
+                    registration_name,
+                    acct_objective,
+                    acct_funding,
+                    acct_purpose,
+                    acct_activity,
+                    established_date,
+                    acct_status,
+                    acct_jurisdiction_country,
+                    acct_jurisdiction_state,
+                    acct_pass,
+                    atm_limit,
+                    ach_limit,
+                    wire_limit,
+                    online,
+                    mobile,
+                    two_factor,
+                    biometrics,
+                    a.cust_id, 
+                    first_name,
+                    middle_name,
+                    last_name,
+                    suffix,
+                    email,
+                    address,
+                    address_2,
+                    city,
+                    state,
+                    zip_code,
+                    encrypted_tax_a,
+                    tax_b
+                    FROM acct_info a
+                    JOIN acct_jurisdiction b ON a.acct_id = b.acct_id
+                    JOIN acct_pass c ON a.acct_id = c.acct_id
+                    JOIN acct_limit d ON a.acct_id = d.acct_id
+                    JOIN acct_mobile e ON a.acct_id = e.acct_id
+                    JOIN cust_info f ON a.cust_id = f.cust_id
+                    JOIN cust_contact g ON a.cust_id = g.cust_id
+                    JOIN cust_id h ON a.cust_id = h.cust_id
+                    JOIN cust_tax i ON a.cust_id = i.cust_id
+                    WHERE a.acct_num = 74465735;
+                ";
+                using (SqlCommand command = new SqlCommand(acct_overview_query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        SelectedAcctOverview = new AcctOverviewModel
+                        {
+                            InitialContactMethod = GetNullableValue(reader, "intital_contact_method", reader.GetInt32),
+                            AccountType = GetNullableValue(reader, "acct_type", reader.GetInt32),
+                            RegistrationName = GetStringOrNull(reader, "registration_name"),
+                            ClientFirstName = GetStringOrNull(reader, "first_name"),
+                            ClientMiddleName = GetStringOrNull(reader, "middle_name"),
+                            ClientLastName = GetStringOrNull(reader, "last_name"),
+                            ClientSuffix = GetStringOrNull(reader, "suffix"),
+                            ClientAddress = GetStringOrNull(reader, "address"),
+                            ClientAddress2 =  GetStringOrNull(reader, "address_2"),
+                            ClientCity = GetStringOrNull(reader, "city"),
+                            ClientState = GetStringOrNull(reader, "state"),
+                            ClientZip = GetStringOrNull(reader, "zip_code"),
+                            ClientCountry = GetStringOrNull(reader, "country"),
+                            PrimaryContactName = GetStringOrNull(reader, "contact_name"),
+                            PrimaryContactAddress = GetStringOrNull(reader, "contact_address"),
+                            PrimaryContactAddress2 = GetStringOrNull(reader, "contact_address_2"),
+                            PrimaryContactCity = GetStringOrNull(reader, "contact_city"),
+                            PrimaryContactState = GetStringOrNull(reader, "contact_states"),
+                            PrimaryContactZip = GetStringOrNull(reader, "contact_zip"),
+                            RepID = GetStringOrNull(reader, "rep_id"),
+                            EstablishedDate = GetStringOrNull(reader, "established_date"),
+                            AccountStatus = GetStringOrNull(reader, "acct_status"),
+                            AccountCountryJurisdiction = GetStringOrNull(reader, "acct_jurisdiction_country"),
+                            AccountStateJurisdiction = GetStringOrNull(reader, "acct_jurisdiction_state"),
+                            AccountPassword = GetStringOrNull(reader, "acct_pass"),
+                            BranchLocation = GetStringOrNull(reader, "city"),
+                            TaxA = GetStringOrNull(reader, "encrypted_tax_a"),
+                            TaxB = GetStringOrNull(reader, "tax_b"),
+                            AtmLimit = GetStringOrNull(reader, "atm_limit"),
+                            AchLimit = GetStringOrNull(reader, "ach_limit"),
+                            WireLimit = GetStringOrNull(reader, "wire_limit"),
+                            EmailAddress = GetStringOrNull(reader, "email" ),
+                            OnlineBanking = GetNullableValue(reader, "online_banking", reader.GetBoolean),
+                            MobileBanking = GetNullableValue(reader, "mobile_banking", reader.GetBoolean),
+                            TwoFactor = GetNullableValue(reader, "two_factor", reader.GetBoolean),
+                            Biometrics = GetNullableValue(reader, "biometrics", reader.GetBoolean),
+                            AcctObjective = GetNullableValue(reader, "acct_objective", reader.GetInt32),
+                            AcctFunding = GetNullableValue(reader, "acct_funding", reader.GetInt32),
+                            AcctPurpose = GetNullableValue(reader, "acct_purpose", reader.GetInt32),
+                            AcctActivity = GetNullableValue(reader, "acct_activity", reader.GetInt32)
+                        };
+                    }
+                }
+                connection.Close();
+            }
         }
     }
 }

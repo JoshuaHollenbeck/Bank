@@ -17,14 +17,14 @@ using Bank.ViewModel;
 namespace Bank.View
 {
     /// <summary>
-    /// Interaction logic for Products.xaml
+    /// Interaction logic for AccountOverview.xaml
     /// </summary>
     public partial class AccountOverview : UserControl
     {
         public AccountOverview()
         {
             InitializeComponent();
-            DataContext = AccountOverviewVM.GetAccount();
+            DataContext = new AccountOverviewVM();
         }
     }
 }

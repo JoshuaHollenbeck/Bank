@@ -60,7 +60,16 @@
                         <TextBlock Text="Re-record | Unenroll" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Name" />
-                        <TextBlock Text="{Binding SelectedCustOverview.FirstName}" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1} {2} {3}">
+                                    <Binding Path="SelectedCustOverview.FirstName}" />
+                                    <Binding Path="SelectedCustOverview.MiddleName}" />
+                                    <Binding Path="SelectedCustOverview.LastName}" />
+                                    <Binding Path="SelectedCustOverview.Suffix}" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
                         <TextBlock Text="{Binding SelectedCustOverview.DoNotCall, Converter={StaticResource BoolToStringConverter}}"
                                    Foreground="{Binding SelectedCustOverview.DoNotCall, Converter={StaticResource BoolToBrushConverter}}"
                                    FontWeight="{Binding SelectedCustOverview.DoNotCall, Converter={StaticResource BoolToFontWeightConverter}}" />
@@ -78,7 +87,13 @@
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Driver's License" />
                         <TextBlock Text="{Binding SelectedCustOverview.IDNum}" />
-                        <TextBlock Text="Exp. Date - {Binding SelectedCustOverview.ExpDate}" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}Exp. Date - {0}">
+                                    <Binding Path="SelectedCustOverview.ExpDate" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
                     </StackPanel>
                 </Grid>
             </Border>

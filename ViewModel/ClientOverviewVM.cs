@@ -17,7 +17,7 @@ namespace Bank.ViewModel
     class ClientOverviewVM : Utilities.ViewModelBase
     {
         public ObservableCollection<CustOverviewModel> CustOverviewCollection { get; set; }
-        
+
         public CustOverviewModel SelectedCustOverview { get; set; }
 
         public ClientOverviewVM()
@@ -58,7 +58,7 @@ namespace Bank.ViewModel
         public void LoadTypes()
         {
             CustOverviewCollection = new ObservableCollection<CustOverviewModel>();
-            
+
             using (SqlConnection connection = new SqlConnection(Connection.connectionString))
             {
                 connection.Open();
@@ -107,7 +107,7 @@ namespace Bank.ViewModel
                     JOIN acct_pass f ON a.acct_id = f.acct_id
                     JOIN cust_id g ON a.cust_id = g.cust_id
                     JOIN acct_bal h ON a.acct_id = h.acct_id
-                    WHERE a.acct_num = 90491109;
+                    WHERE a.acct_num = 74465735;
                 ";
                 using (SqlCommand command = new SqlCommand(cust_overview_query, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -117,20 +117,12 @@ namespace Bank.ViewModel
                         SelectedCustOverview = new CustOverviewModel
                         {
                             CustID = GetNullableValue(reader, "cust_id", reader.GetInt32),
-                            VoiceAuth = GetNullableValue(
-                                reader,
-                                "voice_auth",
-                                reader.GetBoolean
-                            ),
+                            VoiceAuth = GetNullableValue(reader, "voice_auth", reader.GetBoolean),
                             FirstName = GetStringOrNull(reader, "first_name"),
                             MiddleName = GetStringOrNull(reader, "middle_name"),
                             LastName = GetStringOrNull(reader, "last_name"),
                             Suffix = GetStringOrNull(reader, "suffix"),
-                            DoNotCall = GetNullableValue(
-                                reader,
-                                "do_not_call",
-                                reader.GetBoolean
-                            ),
+                            DoNotCall = GetNullableValue(reader, "do_not_call", reader.GetBoolean),
                             ShareWithAffiliates = GetNullableValue(
                                 reader,
                                 "share_affiliates",
@@ -170,11 +162,7 @@ namespace Bank.ViewModel
                             Occupation = GetStringOrNull(reader, "occupation"),
                             AcctNum = GetNullableValue(reader, "acct_num", reader.GetInt32),
                             AcctNickname = GetStringOrNull(reader, "acct_nickname"),
-                            AcctBalance = GetNullableValue(
-                                reader,
-                                "acct_bal",
-                                reader.GetDecimal
-                            ),
+                            AcctBalance = GetNullableValue(reader, "acct_bal", reader.GetDecimal),
                             AcctPass = GetStringOrNull(reader, "acct_pass"),
                             AcctType = GetNullableValue(reader, "acct_type", reader.GetInt32),
                             AcctRegistration = GetStringOrNull(reader, "registration_name")

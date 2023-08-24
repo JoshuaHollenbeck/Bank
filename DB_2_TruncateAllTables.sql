@@ -11,6 +11,8 @@ TRUNCATE TABLE acct_holders;
 TRUNCATE TABLE acct_bene;
 TRUNCATE TABLE acct_poa;
 TRUNCATE TABLE acct_bal;
+TRUNCATE TABLE acct_limit;
+TRUNCATE TABLE acct_mobile;
 DELETE FROM acct_info;
 DBCC CHECKIDENT ('acct_info', RESEED, 0);
 DELETE FROM cust_info;
