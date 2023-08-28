@@ -127,6 +127,54 @@ WITH (FIRSTROW = 2,
     ROWTERMINATOR='\n',
     BATCHSIZE=250000,
     MAXERRORS=2);
+
+BULK INSERT emp_contact
+FROM 'G:Github\DataGeneration\DataGeneration\emp_contact.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_info
+FROM 'G:Github\DataGeneration\DataGeneration\emp_info.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_position
+FROM 'G:Github\DataGeneration\DataGeneration\emp_position.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+    
+BULK INSERT emp_salary
+FROM 'G:Github\DataGeneration\DataGeneration\emp_salary.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+    
+BULK INSERT emp_tax
+FROM 'G:Github\DataGeneration\DataGeneration\emp_tax.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_termination
+FROM 'G:Github\DataGeneration\DataGeneration\emp_termination.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
 */
 
 /* Laptop */
@@ -252,6 +300,54 @@ WITH (FIRSTROW = 2,
 
 BULK INSERT acct_mobile
 FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\acct_mobile.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_contact
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\emp_contact.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_info
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\emp_info.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_position
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\emp_position.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+    
+BULK INSERT emp_salary
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\emp_salary.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+    
+BULK INSERT emp_tax
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\emp_tax.csv'
+WITH (FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR='\n',
+    BATCHSIZE=250000,
+    MAXERRORS=2);
+
+BULK INSERT emp_termination
+FROM 'C:\Users\jchol\Documents\Software\Github\DataGeneration\DataGeneration\emp_termination.csv'
 WITH (FIRSTROW = 2,
     FIELDTERMINATOR = ',',
     ROWTERMINATOR='\n',

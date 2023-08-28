@@ -107,7 +107,7 @@ namespace Bank.ViewModel
                     JOIN acct_pass f ON a.acct_id = f.acct_id
                     JOIN cust_id g ON a.cust_id = g.cust_id
                     JOIN acct_bal h ON a.acct_id = h.acct_id
-                    WHERE a.acct_num = 74465735;
+                    WHERE a.acct_num = 70162605;
                 ";
                 using (SqlCommand command = new SqlCommand(cust_overview_query, connection))
                 using (SqlDataReader reader = command.ExecuteReader())

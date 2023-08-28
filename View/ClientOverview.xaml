@@ -63,10 +63,10 @@
                         <TextBlock>
                             <TextBlock.Text>
                                 <MultiBinding StringFormat="{}{0} {1} {2} {3}">
-                                    <Binding Path="SelectedCustOverview.FirstName}" />
-                                    <Binding Path="SelectedCustOverview.MiddleName}" />
-                                    <Binding Path="SelectedCustOverview.LastName}" />
-                                    <Binding Path="SelectedCustOverview.Suffix}" />
+                                    <Binding Path="SelectedCustOverview.FirstName" />
+                                    <Binding Path="SelectedCustOverview.MiddleName" />
+                                    <Binding Path="SelectedCustOverview.LastName" />
+                                    <Binding Path="SelectedCustOverview.Suffix" />
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>

@@ -1,3 +1,5 @@
+using System.Xml;
+using System.Net.Http;
 using System.Data;
 using System.Net.NetworkInformation;
 using System.Threading;
@@ -65,17 +67,18 @@ namespace Bank.ViewModel
                 string acct_overview_query =
                     @"
                     SELECT acct_num,
-                    inital_contact_method,
+                    initial_contact_method,
                     acct_type,
                     registration_name,
                     acct_objective,
                     acct_funding,
                     acct_purpose,
                     acct_activity,
+                    rep_id,
                     established_date,
                     acct_status,
-                    acct_jurisdiction_country,
-                    acct_jurisdiction_state,
+                    jurisdiction_country,
+                    jurisdiction_state,
                     acct_pass,
                     atm_limit,
                     ach_limit,
@@ -95,6 +98,12 @@ namespace Bank.ViewModel
                     city,
                     state,
                     zip_code,
+                    contact_name,
+                    contact_address,
+                    contact_address_2,
+                    contact_city,
+                    contact_state,
+                    contact_zip,
                     encrypted_tax_a,
                     tax_b
                     FROM acct_info a
@@ -106,7 +115,8 @@ namespace Bank.ViewModel
                     JOIN cust_contact g ON a.cust_id = g.cust_id
                     JOIN cust_id h ON a.cust_id = h.cust_id
                     JOIN cust_tax i ON a.cust_id = i.cust_id
-                    WHERE a.acct_num = 74465735;
+                    JOIN acct_contact j ON a.acct_id = j.acct_id
+                    WHERE a.acct_num = 70162605;
                 ";
                 using (SqlCommand command = new SqlCommand(acct_overview_query, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -115,7 +125,7 @@ namespace Bank.ViewModel
                     {
                         SelectedAcctOverview = new AcctOverviewModel
                         {
-                            InitialContactMethod = GetNullableValue(reader, "intital_contact_method", reader.GetInt32),
+                            InitialContactMethod = GetNullableValue(reader, "initial_contact_method", reader.GetInt16),
                             AccountType = GetNullableValue(reader, "acct_type", reader.GetInt32),
                             RegistrationName = GetStringOrNull(reader, "registration_name"),
                             ClientFirstName = GetStringOrNull(reader, "first_name"),
@@ -127,18 +137,17 @@ namespace Bank.ViewModel
                             ClientCity = GetStringOrNull(reader, "city"),
                             ClientState = GetStringOrNull(reader, "state"),
                             ClientZip = GetStringOrNull(reader, "zip_code"),
-                            ClientCountry = GetStringOrNull(reader, "country"),
                             PrimaryContactName = GetStringOrNull(reader, "contact_name"),
                             PrimaryContactAddress = GetStringOrNull(reader, "contact_address"),
                             PrimaryContactAddress2 = GetStringOrNull(reader, "contact_address_2"),
                             PrimaryContactCity = GetStringOrNull(reader, "contact_city"),
-                            PrimaryContactState = GetStringOrNull(reader, "contact_states"),
+                            PrimaryContactState = GetStringOrNull(reader, "contact_state"),
                             PrimaryContactZip = GetStringOrNull(reader, "contact_zip"),
                             RepID = GetStringOrNull(reader, "rep_id"),
-                            EstablishedDate = GetStringOrNull(reader, "established_date"),
-                            AccountStatus = GetStringOrNull(reader, "acct_status"),
-                            AccountCountryJurisdiction = GetStringOrNull(reader, "acct_jurisdiction_country"),
-                            AccountStateJurisdiction = GetStringOrNull(reader, "acct_jurisdiction_state"),
+                            EstablishedDate = GetNullableValue(reader, "established_date", reader.GetDateTime),
+                            AccountStatus = GetNullableValue(reader, "acct_status", reader.GetBoolean),
+                            JurisdictionCountry = GetStringOrNull(reader, "jurisdiction_country"),
+                            JurisdictionState = GetStringOrNull(reader, "jurisdiction_state"),
                             AccountPassword = GetStringOrNull(reader, "acct_pass"),
                             BranchLocation = GetStringOrNull(reader, "city"),
                             TaxA = GetStringOrNull(reader, "encrypted_tax_a"),
@@ -147,14 +156,14 @@ namespace Bank.ViewModel
                             AchLimit = GetStringOrNull(reader, "ach_limit"),
                             WireLimit = GetStringOrNull(reader, "wire_limit"),
                             EmailAddress = GetStringOrNull(reader, "email" ),
-                            OnlineBanking = GetNullableValue(reader, "online_banking", reader.GetBoolean),
-                            MobileBanking = GetNullableValue(reader, "mobile_banking", reader.GetBoolean),
+                            OnlineBanking = GetNullableValue(reader, "online", reader.GetBoolean),
+                            MobileBanking = GetNullableValue(reader, "mobile", reader.GetBoolean),
                             TwoFactor = GetNullableValue(reader, "two_factor", reader.GetBoolean),
                             Biometrics = GetNullableValue(reader, "biometrics", reader.GetBoolean),
-                            AcctObjective = GetNullableValue(reader, "acct_objective", reader.GetInt32),
-                            AcctFunding = GetNullableValue(reader, "acct_funding", reader.GetInt32),
-                            AcctPurpose = GetNullableValue(reader, "acct_purpose", reader.GetInt32),
-                            AcctActivity = GetNullableValue(reader, "acct_activity", reader.GetInt32)
+                            AcctObjective = GetNullableValue(reader, "acct_objective", reader.GetInt16),
+                            AcctFunding = GetNullableValue(reader, "acct_funding", reader.GetInt16),
+                            AcctPurpose = GetNullableValue(reader, "acct_purpose", reader.GetInt16),
+                            AcctActivity = GetNullableValue(reader, "acct_activity", reader.GetInt16)
                         };
                     }
                 }

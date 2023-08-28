@@ -12,20 +12,6 @@ namespace Bank.ViewModel
 {
     class NavigationVM : ViewModelBase
     {
-        private string _searchText;
-        public string SearchText
-        {
-            get => _searchText;
-            set
-            {
-                if (_searchText != value)
-                {
-                    _searchText = value;
-                    OnPropertyChanged(nameof(SearchText));
-                }
-            }
-        }
-
         private object _currentView;
         public object CurrentView
         {
@@ -36,7 +22,7 @@ namespace Bank.ViewModel
                 OnPropertyChanged();
             }
         }
-
+        
         // Startup
         public ICommand HomeCommand { get; }
 

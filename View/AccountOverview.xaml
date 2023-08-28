@@ -89,10 +89,10 @@
                         <TextBlock>
                             <TextBlock.Text>
                                 <MultiBinding StringFormat="{}{0} {1} {2} {3}">
-                                    <Binding Path="SelectedAcctOverview.FirstName}" />
-                                    <Binding Path="SelectedAcctOverview.MiddleName}" />
-                                    <Binding Path="SelectedAcctOverview.LastName}" />
-                                    <Binding Path="SelectedAcctOverview.Suffix}" />
+                                    <Binding Path="SelectedAcctOverview.ClientFirstName" />
+                                    <Binding Path="SelectedAcctOverview.ClientMiddleName" />
+                                    <Binding Path="SelectedAcctOverview.ClientLastName" />
+                                    <Binding Path="SelectedAcctOverview.ClientSuffix" />
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
@@ -256,13 +256,13 @@
                     <StackPanel Grid.Row="1">
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Jurisdiction Country" />
-                        <TextBlock Text="{Binding SelectedAcctOverview.ClientCountry}" />
+                        <TextBlock Text="{Binding SelectedAcctOverview.JurisdictionCountry}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Jurisdiction State" />
-                        <TextBlock Text="{Binding SelectedAcctOverview.ClientState}" />
+                        <TextBlock Text="{Binding SelectedAcctOverview.JurisdictionState}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Jurisdictional Client" />
-                        <TextBlock Text="{Binding SelectedAcctOverview.ClientName}" />
+                        <TextBlock Text="{Binding SelectedAcctOverview.PrimaryContactName}" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -330,17 +330,17 @@
                                 Grid.Column="2"
                                 HorizontalAlignment="Right">
                         <TextBlock Text="{Binding SelectedAcctOverview.OnlineBanking}"
-                                   Foreground="{Binding SelectedAcctOverview.OnlineBanking, Converter={StaticResource BoolToBrushConverter}}"
-                                   FontWeight="{Binding SelectedAcctOverview.OnlineBanking, Converter={StaticResource BoolToFontWeightConverter}}" />
+                                   Foreground="{Binding SelectedAcctOverview.OnlineBanking}"
+                                   FontWeight="{Binding SelectedAcctOverview.OnlineBanking}" />
                         <TextBlock Text="{Binding SelectedAcctOverview.MobileBanking}"
-                                   Foreground="{Binding SelectedAcctOverview.MobileBanking, Converter={StaticResource BoolToBrushConverter}}"
-                                   FontWeight="{Binding SelectedAcctOverview.MobileBanking, Converter={StaticResource BoolToFontWeightConverter}}" />
+                                   Foreground="{Binding SelectedAcctOverview.MobileBanking}"
+                                   FontWeight="{Binding SelectedAcctOverview.MobileBanking}" />
                         <TextBlock Text="{Binding SelectedAcctOverview.TwoFactor}"
-                                   Foreground="{Binding SelectedAcctOverview.TwoFactor, Converter={StaticResource BoolToBrushConverter}}"
-                                   FontWeight="{Binding SelectedAcctOverview.TwoFactor, Converter={StaticResource BoolToFontWeightConverter}}" />
+                                   Foreground="{Binding SelectedAcctOverview.TwoFactor}"
+                                   FontWeight="{Binding SelectedAcctOverview.TwoFactor}" />
                         <TextBlock Text="{Binding SelectedAcctOverview.Biometrics}"
-                                   Foreground="{Binding SelectedAcctOverview.Biometrics, Converter={StaticResource BoolToBrushConverter}}"
-                                   FontWeight="{Binding SelectedAcctOverview.Biometrics, Converter={StaticResource BoolToFontWeightConverter}}" />
+                                   Foreground="{Binding SelectedAcctOverview.Biometrics}"
+                                   FontWeight="{Binding SelectedAcctOverview.Biometrics}" />
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 Grid.ColumnSpan="2">
@@ -377,8 +377,8 @@
                                    Text="ATM Withdrawal Limit" />
                         <TextBlock Text="{Binding SelectedAcctOverview.AtmLimit}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
-                                   Text="MoneyLink Limit" />
-                        <TextBlock Text="{Binding SelectedAcctOverview.MoneyLinkLimit}" />
+                                   Text="ACH Limit" />
+                        <TextBlock Text="{Binding SelectedAcctOverview.AchLimit}" />
                         <TextBlock Style="{StaticResource ContainerTitle}"
                                    Text="Wire Transfer Limit" />
                         <TextBlock Text="{Binding SelectedAcctOverview.WireLimit}" />
@@ -458,13 +458,13 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="1">
@@ -484,11 +484,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctFunding}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
@@ -511,13 +511,13 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
@@ -537,11 +537,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctPurpose}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
@@ -563,11 +563,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
@@ -586,9 +586,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctObjective}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
@@ -609,9 +609,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
@@ -629,9 +629,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity}"
                                        Text="✔" />
-                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity, Converter={StaticResource BoolToTransparentConverter}}"
+                            <TextBlock Foreground="{Binding SelectedAcctOverview.AcctActivity}"
                                        Text="✔" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">

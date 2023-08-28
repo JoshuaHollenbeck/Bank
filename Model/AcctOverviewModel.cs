@@ -28,10 +28,10 @@ namespace Bank.Model
         public string PrimaryContactState { get; set; }
         public string PrimaryContactZip { get; set; }
         public string RepID { get; set; }
-        public string EstablishedDate { get; set; }
-        public string AccountStatus { get; set; }
-        public string AccountCountryJurisdiction { get; set; }
-        public string AccountStateJurisdiction { get; set; }
+        public DateTime? EstablishedDate { get; set; }
+        public bool? AccountStatus { get; set; }
+        public string JurisdictionCountry { get; set; }
+        public string JurisdictionState { get; set; }
         public string AccountPassword { get; set; }
         public string BranchLocation { get; set; }
         public string TaxA { get; set; }
