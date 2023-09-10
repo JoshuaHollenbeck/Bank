@@ -1,22 +1,28 @@
 /* Run Second */
-TRUNCATE TABLE cust_emp;
+TRUNCATE TABLE acct_bal;
+TRUNCATE TABLE acct_bene;
+TRUNCATE TABLE acct_contact;
+TRUNCATE TABLE acct_holders;
+TRUNCATE TABLE acct_jurisdiction;
+TRUNCATE TABLE acct_limit;
+TRUNCATE TABLE acct_mobile;
+TRUNCATE TABLE acct_pass;
+TRUNCATE TABLE acct_poa;
+TRUNCATE TABLE acct_trade;
+TRUNCATE TABLE acct_transaction;
+
 TRUNCATE TABLE cust_contact;
+TRUNCATE TABLE cust_emp;
 TRUNCATE TABLE cust_id;
 TRUNCATE TABLE cust_privacy;
 TRUNCATE TABLE cust_tax;
-TRUNCATE TABLE acct_pass;
-TRUNCATE TABLE acct_contact;
-TRUNCATE TABLE acct_jurisdiction;
-TRUNCATE TABLE acct_holders;
-TRUNCATE TABLE acct_bene;
-TRUNCATE TABLE acct_poa;
-TRUNCATE TABLE acct_bal;
-TRUNCATE TABLE acct_limit;
+
 TRUNCATE TABLE emp_contact;
 TRUNCATE TABLE emp_position;
-TRUNCATE TABLE salary;
+TRUNCATE TABLE emp_salary;
 TRUNCATE TABLE emp_tax;
 TRUNCATE TABLE emp_termination;
+
 DELETE FROM acct_info;
 DBCC CHECKIDENT ('acct_info', RESEED, 0);
 DELETE FROM cust_info;
