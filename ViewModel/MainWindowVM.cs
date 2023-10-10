@@ -9,6 +9,6 @@ namespace Bank.ViewModel
 {
     class MainWindowVM : Utilities.ViewModelBase
     {
-        // TODO Add functionality
+        
     }
 }

@@ -34,7 +34,7 @@ namespace Bank.Utilities
         //     + "Max Pool Size=100;"
         //     + "Connect Timeout=30";
         public static readonly string connectionString =
-            "Data Source=LAPTOP-M4J440IF\\SQL2017;"
+            "Data Source=COMPUTER;"
             + "Initial Catalog=BankDB;"
             + "Integrated Security=True;"
             + "TrustServerCertificate=True;"

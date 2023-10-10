@@ -51,10 +51,7 @@
                     <MenuItem Header="Clients">
                         <MenuItem Header="Add Client"
                                   Command="{Binding AddClientCommand}" />
-                        <MenuItem Header="Organize Clients"
-                                  Command="{Binding OrganizeClientsCommand}" />
                     </MenuItem>
-                    <MenuItem Header="History" />
                     <MenuItem Header="Help">
                         <MenuItem Header="Main Client Knowledge Center"
                                   Command="{Binding MainClientKnowledgeCommand}" />
@@ -145,8 +142,6 @@
                                   Command="{Binding PositionsCommand}" />
                         <MenuItem Header="Transactions"
                                   Command="{Binding TransactionsCommand}" />
-                        <MenuItem Header="Client Access History"
-                                  Command="{Binding AccessHistoryCommand}" />
                     </MenuItem>
                     <MenuItem Header="Notes">
                         <MenuItem Header="View Notes"

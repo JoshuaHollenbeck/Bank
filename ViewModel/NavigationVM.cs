@@ -7,6 +7,7 @@ using System.Windows;
 using Bank.Utilities;
 using System.Windows.Input;
 using Microsoft.Data.SqlClient;
+using Bank.View;
 
 namespace Bank.ViewModel
 {
@@ -22,7 +23,7 @@ namespace Bank.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
         // Startup
         public ICommand HomeCommand { get; }
 
@@ -49,8 +50,6 @@ namespace Bank.ViewModel
 
         private void AddClient(object obj) => CurrentView = new AddClientVM();
 
-        private void OrganizeClients(object obj) => CurrentView = new OrganizeClientsVM();
-
         // Help
         public ICommand MainClientKnowledgeCommand { get; }
         public ICommand TipsAndTricksCommand { get; }
@@ -60,9 +59,27 @@ namespace Bank.ViewModel
         private void TipsAndTricks(object obj) => CurrentView = new TipsAndTricksVM();
 
         // Search
+        private string _searchText;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                if (_searchText != value)
+                {
+                    _searchText = value;
+                    OnPropertyChanged("SearchText");
+                }
+            }
+        }
         public ICommand SearchCommand { get; }
 
-        private void Search(object obj) => CurrentView = new SearchVM();
+        // private void Search(object obj) => CurrentView = new SearchVM(_searchText);
+         private void Search(object obj)
+        {
+            SearchWindow searchWindow = new SearchWindow(_searchText);
+            searchWindow.ShowDialog();
+        }
 
         // Client & Accounts
         public ICommand ClientOverviewCommand { get; }
@@ -81,8 +98,6 @@ namespace Bank.ViewModel
         private void Positions(object obj) => CurrentView = new PositionsVM();
 
         private void Transactions(object obj) => CurrentView = new TransactionsVM();
-
-        private void AccessHistory(object obj) => CurrentView = new AccessHistoryVM();
 
         // Notes
         public ICommand ViewNotesCommand { get; }
@@ -135,7 +150,6 @@ namespace Bank.ViewModel
             PrintPreviewCommand = new RelayCommand(PrintPreview);
             PrintCommand = new RelayCommand(Print);
             AddClientCommand = new RelayCommand(AddClient);
-            OrganizeClientsCommand = new RelayCommand(OrganizeClients);
             MainClientKnowledgeCommand = new RelayCommand(MainClientKnowledge);
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
             // Search
@@ -147,7 +161,6 @@ namespace Bank.ViewModel
             BalancesCommand = new RelayCommand(Balances);
             PositionsCommand = new RelayCommand(Positions);
             TransactionsCommand = new RelayCommand(Transactions);
-            AccessHistoryCommand = new RelayCommand(AccessHistory);
             // Notes
             ViewNotesCommand = new RelayCommand(ViewNotes);
             AddNotesCommand = new RelayCommand(AddNotes);
@@ -164,5 +177,7 @@ namespace Bank.ViewModel
             // Settings
             SettingsCommand = new RelayCommand(Setting);
         }
+
+       
     }
 }

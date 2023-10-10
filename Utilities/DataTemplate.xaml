@@ -29,14 +29,7 @@
     <DataTemplate DataType="{x:Type vm:AddClientVM}">
         <view:AddClient />
     </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:OrganizeClientsVM}">
-        <view:OrganizeClients />
-    </DataTemplate>
-
-    <!-- History -->
     
-
     <!-- Help -->
     <DataTemplate DataType="{x:Type vm:MainClientKnowledgeVM}">
         <view:Home /> <!-- TODO Change View:-->
@@ -65,10 +58,6 @@
 
     <DataTemplate DataType="{x:Type vm:TransactionsVM}">
         <view:Transactions />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AccessHistoryVM}">
-        <view:AccessHistory />
     </DataTemplate>
 
     <!-- Notes -->
