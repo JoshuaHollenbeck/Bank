@@ -80,8 +80,9 @@
                                 Command="{Binding SearchCommand}"
                                 Margin="5" />
                         <Button Style="{StaticResource Button}"
-                                Click="AdvancedSearch_Click"
-                                Margin="5">Advanced Search</Button>
+                                Content="Advanced Search"
+                                Command="{Binding AdvancedSearchCommand}"
+                                Margin="5" />
                     </StackPanel>
                 </Grid>
             </Border>

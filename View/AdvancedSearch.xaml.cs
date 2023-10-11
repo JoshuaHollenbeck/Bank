@@ -18,7 +18,7 @@ namespace Bank.View
     /// <summary>
     /// Interaction logic for Products.xaml
     /// </summary>
-    public partial class AdvancedSearch : UserControl
+    public partial class AdvancedSearch : Window
     {
         public AdvancedSearch()
         {

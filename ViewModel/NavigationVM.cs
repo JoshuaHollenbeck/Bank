@@ -74,11 +74,19 @@ namespace Bank.ViewModel
         }
         public ICommand SearchCommand { get; }
 
-        // private void Search(object obj) => CurrentView = new SearchVM(_searchText);
          private void Search(object obj)
         {
             SearchWindow searchWindow = new SearchWindow(_searchText);
             searchWindow.ShowDialog();
+        }
+
+        // Advanced Search
+        public ICommand AdvancedSearchCommand { get; }
+
+        private void AdvancedSearch(object obj)
+        {
+            AdvancedSearch advancedSearch = new AdvancedSearch();
+            advancedSearch.ShowDialog();
         }
 
         // Client & Accounts
@@ -154,6 +162,8 @@ namespace Bank.ViewModel
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
             // Search
             SearchCommand = new RelayCommand(Search);
+            // Advanced Search
+            AdvancedSearchCommand = new RelayCommand(AdvancedSearch);
             // Client & Accounts
             HomeCommand = new RelayCommand(Home);
             ClientOverviewCommand = new RelayCommand(ClientOverview);
