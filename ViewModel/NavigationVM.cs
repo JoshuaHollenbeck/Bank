@@ -8,11 +8,13 @@ using Bank.Utilities;
 using System.Windows.Input;
 using Microsoft.Data.SqlClient;
 using Bank.View;
+using Bank.Services;
 
 namespace Bank.ViewModel
 {
     class NavigationVM : ViewModelBase
     {
+        private IDialogService _dialogService;
         private object _currentView;
         public object CurrentView
         {
@@ -46,7 +48,6 @@ namespace Bank.ViewModel
 
         // Clients
         public ICommand AddClientCommand { get; }
-        public ICommand OrganizeClientsCommand { get; }
 
         private void AddClient(object obj) => CurrentView = new AddClientVM();
 
@@ -77,16 +78,15 @@ namespace Bank.ViewModel
          private void Search(object obj)
         {
             SearchWindow searchWindow = new SearchWindow(_searchText);
-            searchWindow.ShowDialog();
+            searchWindow.Show();
         }
 
         // Advanced Search
-        public ICommand AdvancedSearchCommand { get; }
-
+        public ICommand AdvancedSearchCommand { get; private set; }
+        
         private void AdvancedSearch(object obj)
         {
-            AdvancedSearch advancedSearch = new AdvancedSearch();
-            advancedSearch.ShowDialog();
+            _dialogService.OpenDialog<AdvancedSearch>();
         }
 
         // Client & Accounts
@@ -148,8 +148,12 @@ namespace Bank.ViewModel
 
         private void Setting(object obj) => CurrentView = new SettingsVM();
 
-        public NavigationVM()
+        public NavigationVM(IDialogService dialogService)
         {
+            _dialogService = dialogService ?? throw new ArgumentNullException(nameof(dialogService));
+            AddClientCommand = new RelayCommand(AddClient);
+            AdvancedSearchCommand = new RelayCommand(AdvancedSearch);
+
             // Startup Page
             CurrentView = new HomeVM();
             // File
@@ -157,13 +161,11 @@ namespace Bank.ViewModel
             ClearSessionCommand = new RelayCommand(ClearSession);
             PrintPreviewCommand = new RelayCommand(PrintPreview);
             PrintCommand = new RelayCommand(Print);
-            AddClientCommand = new RelayCommand(AddClient);
+            
             MainClientKnowledgeCommand = new RelayCommand(MainClientKnowledge);
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
             // Search
             SearchCommand = new RelayCommand(Search);
-            // Advanced Search
-            AdvancedSearchCommand = new RelayCommand(AdvancedSearch);
             // Client & Accounts
             HomeCommand = new RelayCommand(Home);
             ClientOverviewCommand = new RelayCommand(ClientOverview);
@@ -188,6 +190,8 @@ namespace Bank.ViewModel
             SettingsCommand = new RelayCommand(Setting);
         }
 
-       
+        public NavigationVM()
+        {
+        }
     }
 }

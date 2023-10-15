@@ -20,11 +20,7 @@ namespace Bank.ViewModel
     {
         public AdvancedSearchVM()
         {
-            LoadTypes();
-        }
 
-        private void LoadTypes()
-        {
         }
     }
 }

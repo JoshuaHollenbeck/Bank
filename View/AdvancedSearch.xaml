@@ -3,82 +3,85 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             d:DesignHeight="450"
-             d:DesignWidth="450"
-             Style="{StaticResource Page_Style}">
+             mc:Ignorable="d" 
+             Style="{StaticResource Window_Style}"
+             WindowStartupLocation="CenterScreen">
     
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <Grid Margin="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-            <!-- Grid Column 0-->
-            <Border Grid.Row="0" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
-                <Grid>                    
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock >ADVANCED SEARCH</TextBlock>
-                    </StackPanel>
-                </Grid>
-            </Border>
+        <!-- Grid Column 0-->
+        <Border Grid.Row="0" BorderThickness="2" BorderBrush="#cccccc" Padding="5">
+            <Grid>                    
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource EntryText}" >ADVANCED SEARCH</Label>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <Border Grid.Row="1" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
-                <Grid>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Last Name</TextBlock>
-                        <TextBox />
-                        <TextBlock>First Name</TextBlock>
-                        <TextBox />
-                        <TextBlock>Middle Initial</TextBlock>
-                        <TextBox />
-                    </StackPanel>
-                </Grid>
-            </Border>
+        <Border Grid.Row="1" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource EntryText}">Last Name</Label> 
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                    <Label Style="{StaticResource EntryText}">First Name</Label>
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                    <Label Style="{StaticResource EntryText}">Middle Initial</Label>
+                    <TextBox Style="{StaticResource EntryTextBoxSmall}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <Border Grid.Row="2" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
-                <Grid>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Customer ID</TextBlock>
-                        <TextBox />
-                        <TextBlock>Phone</TextBlock>
-                        <TextBox />
-                    </StackPanel>
-                </Grid>
-            </Border>
+        <Border Grid.Row="2" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource EntryText}">Customer ID</Label> 
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                    <Label Style="{StaticResource EntryText}">Phone</Label> 
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <Border Grid.Row="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
-                <Grid>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Tax ID</TextBlock>
-                        <TextBox />
-                        <TextBlock>Postal Code</TextBlock>
-                        <TextBox />
-                    </StackPanel>
-                </Grid>
-            </Border>
+        <Border Grid.Row="3" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource EntryText}">Tax ID</Label>
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                    <Label Style="{StaticResource EntryText}">Postal Code</Label>
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <Border Grid.Row="4" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
-                <Grid>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Account Number</TextBlock>
-                        <TextBox />
-                        <TextBlock>Email Address</TextBlock>
-                        <TextBox />
-                    </StackPanel>
-                </Grid>
-            </Border>
+        <Border Grid.Row="4" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource EntryText}">Account Number</Label>
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                    <Label Style="{StaticResource EntryText}">Email Address</Label>
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <Border Grid.Row="5" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
-                <Grid>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Web Login ID</TextBlock>
-                        <TextBox />
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </Grid>
-    </ScrollViewer>
+        <Border Grid.Row="5" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource EntryText}">Web Login ID</Label>
+                    <TextBox Style="{StaticResource EntryTextBox}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" BorderThickness="2 0 2 2" BorderBrush="#cccccc" Padding="5">
+            <DataGrid Name="advancedSearchResults"></DataGrid>
+        </Border>
+    </Grid>
 </Window>

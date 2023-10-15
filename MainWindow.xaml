@@ -7,10 +7,10 @@
         xmlns:Menu="clr-namespace:Bank.Utilities"
         mc:Ignorable="d"
         Title="Main Client"
-        MinHeight="720"
-        MinWidth="1080"
-        Height="720"
-        Width="1080"
+        MinHeight="700"
+        MinWidth="1000"
+        Height="700"
+        Width="1000"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
     <Window.DataContext>
