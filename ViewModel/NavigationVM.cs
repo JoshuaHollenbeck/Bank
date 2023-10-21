@@ -109,11 +109,14 @@ namespace Bank.ViewModel
 
         // Notes
         public ICommand ViewNotesCommand { get; }
-        public ICommand AddNotesCommand { get; }
-
         private void ViewNotes(object obj) => CurrentView = new ViewNotesVM();
 
-        private void AddNotes(object obj) => CurrentView = new AddNotesVM();
+        public ICommand AddNotesCommand { get; private set; }
+        
+        private void AddNotes(object obj)
+        {
+            _dialogService.OpenDialog<AddNotes>();
+        }
 
         // Cashiering
         public ICommand ActivityCommand { get; }
@@ -161,7 +164,6 @@ namespace Bank.ViewModel
             ClearSessionCommand = new RelayCommand(ClearSession);
             PrintPreviewCommand = new RelayCommand(PrintPreview);
             PrintCommand = new RelayCommand(Print);
-            
             MainClientKnowledgeCommand = new RelayCommand(MainClientKnowledge);
             TipsAndTricksCommand = new RelayCommand(TipsAndTricks);
             // Search

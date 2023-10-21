@@ -18,7 +18,7 @@ namespace Bank.View
     /// <summary>
     /// Interaction logic for Transactions.xaml
     /// </summary>
-    public partial class AddNotes : UserControl
+    public partial class AddNotes : Window
     {
         public AddNotes()
         {
